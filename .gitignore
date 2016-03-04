@@ -16,6 +16,12 @@ DerivedData
 *.perspectivev3
 !default.perspectivev3
 xcuserdata
+**/.DS_Store
+*.DS_Store
+*DS_Store
+ApiKeys.plist
+*ApiKeys.plist
+*.ApiKeys.plist
 
 ## Other
 *.xccheckout
