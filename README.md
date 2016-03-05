@@ -1,2 +1,2 @@
 # StateChamps-
-Repository for development of initial release version of the State Champs! app.
+Repository for development of the beta version of the State Champs! app.
