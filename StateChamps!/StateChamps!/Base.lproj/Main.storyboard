@@ -37,19 +37,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ot8-54-KtQ" userLabel="PlayerView">
-                                <rect key="frame" x="0.0" y="78" width="600" height="337.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" priority="250" constant="100" id="1wC-zT-iQn"/>
-                                    <constraint firstAttribute="width" secondItem="Ot8-54-KtQ" secondAttribute="height" multiplier="16:9" id="B3z-dh-Ow9"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="1wC-zT-iQn"/>
-                                    </mask>
-                                </variation>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hSV-e7-YsI">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                                 <subviews>
@@ -67,27 +54,28 @@
                                     <constraint firstAttribute="bottom" secondItem="O2q-te-0Ke" secondAttribute="bottom" constant="10" id="q2B-Rb-lLE"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XZX-rJ-sMp" userLabel="Player View" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                                <rect key="frame" x="0.0" y="78" width="600" height="199"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XZX-rJ-sMp" secondAttribute="height" multiplier="16:9" id="tHQ-WB-rjc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ot8-54-KtQ" firstAttribute="top" secondItem="hSV-e7-YsI" secondAttribute="bottom" constant="8" id="4CI-0b-oOi"/>
                             <constraint firstAttribute="trailing" secondItem="hSV-e7-YsI" secondAttribute="trailing" id="Cvj-Kb-43R"/>
-                            <constraint firstItem="Ot8-54-KtQ" firstAttribute="width" secondItem="mIr-uJ-uy2" secondAttribute="height" multiplier="16:9" id="Poh-TN-cLr"/>
-                            <constraint firstItem="Ot8-54-KtQ" firstAttribute="leading" secondItem="mIr-uJ-uy2" secondAttribute="leading" id="VLY-kY-dWY"/>
+                            <constraint firstItem="XZX-rJ-sMp" firstAttribute="top" secondItem="hSV-e7-YsI" secondAttribute="bottom" constant="15" id="ETU-tY-iuY"/>
+                            <constraint firstAttribute="trailing" secondItem="XZX-rJ-sMp" secondAttribute="trailing" id="HKP-bq-q4u"/>
                             <constraint firstItem="hSV-e7-YsI" firstAttribute="top" secondItem="mIr-uJ-uy2" secondAttribute="top" id="Zdk-Pd-VUE"/>
-                            <constraint firstAttribute="trailing" secondItem="Ot8-54-KtQ" secondAttribute="trailing" id="jSB-RI-5PE"/>
+                            <constraint firstItem="XZX-rJ-sMp" firstAttribute="leading" secondItem="mIr-uJ-uy2" secondAttribute="leading" id="j11-gY-AO5"/>
                             <constraint firstItem="hSV-e7-YsI" firstAttribute="leading" secondItem="mIr-uJ-uy2" secondAttribute="leading" id="qWu-1f-x2k"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Poh-TN-cLr"/>
-                            </mask>
-                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="Gym-tZ-j9P"/>
                     <connections>
                         <outlet property="header" destination="hSV-e7-YsI" id="XM5-WA-G18"/>
-                        <outlet property="playerView" destination="Ot8-54-KtQ" id="B5L-NY-Wh4"/>
+                        <outlet property="playerView" destination="XZX-rJ-sMp" id="1Kq-gY-rdJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2fH-NY-ffj" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -7,16 +7,22 @@
 //
 
 import UIKit
+import YouTubePlayer
+//import Parse
+
 
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var header: UIView!
-    @IBOutlet weak var playerView: UIView!
+    @IBOutlet var playerView: YouTubePlayerView!
+    
+    let myVideoURL = NSURL(string: "https://www.youtube.com/watch?v=wQg3bXrVLtg")
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         formatViewController()
+        loadVideo()
 
     }
 
@@ -31,4 +37,17 @@ class HomeViewController: UIViewController {
         playerView.backgroundColor = sCGreyColor
     }
 
+
+    
+    //  This sets up the video. The values (0 or 1) change the properties of the video player
+    
+    func loadVideo() {
+        playerView.playerVars = [
+            "playsinline": "1",
+            "controls": "1",
+            "showinfo": "0"
+        ]
+        playerView.loadVideoURL(myVideoURL!)
+    }
 }
+
