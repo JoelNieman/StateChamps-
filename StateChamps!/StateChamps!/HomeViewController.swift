@@ -30,14 +30,6 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    func formatViewController() {
-        UITabBar.appearance().barTintColor = sCRedColor
-        UITabBar.appearance().tintColor = UIColor.whiteColor()
-        header.backgroundColor = sCRedColor
-        playerView.backgroundColor = sCGreyColor
-    }
-
-
     
     //  This sets up the video. The values (0 or 1) change the properties of the video player
     

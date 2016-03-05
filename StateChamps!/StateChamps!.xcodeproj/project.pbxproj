@@ -15,6 +15,7 @@
 		5D7B01BC1C8A481000397652 /* StateChamps_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B01BB1C8A481000397652 /* StateChamps_UITests.swift */; };
 		5D7B01CC1C8A4DEA00397652 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B01CB1C8A4DEA00397652 /* HomeViewController.swift */; };
 		5D7B01CE1C8A53B000397652 /* ColorWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B01CD1C8A53B000397652 /* ColorWheel.swift */; };
+		5D7B01D01C8B9EFC00397652 /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B01CF1C8B9EFC00397652 /* VideosViewController.swift */; };
 		ECD14C3CD28A5A1809BEE78F /* Pods_StateChamps_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC67A87472D095AE48877CB /* Pods_StateChamps_.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		5D7B01BD1C8A481000397652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D7B01CB1C8A4DEA00397652 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5D7B01CD1C8A53B000397652 /* ColorWheel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWheel.swift; sourceTree = "<group>"; };
+		5D7B01CF1C8B9EFC00397652 /* VideosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
 		9BC67A87472D095AE48877CB /* Pods_StateChamps_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StateChamps_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				5D7B01CB1C8A4DEA00397652 /* HomeViewController.swift */,
+				5D7B01CF1C8B9EFC00397652 /* VideosViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 			files = (
 				5D7B019C1C8A481000397652 /* AppDelegate.swift in Sources */,
 				5D7B01CC1C8A4DEA00397652 /* HomeViewController.swift in Sources */,
+				5D7B01D01C8B9EFC00397652 /* VideosViewController.swift in Sources */,
 				5D7B01CE1C8A53B000397652 /* ColorWheel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

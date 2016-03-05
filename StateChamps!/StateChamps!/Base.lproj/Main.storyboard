@@ -9,7 +9,7 @@
         <!--Video-->
         <scene sceneID="X3U-pL-WtX">
             <objects>
-                <viewController id="vUr-NL-Bfx" sceneMemberID="viewController">
+                <viewController id="vUr-NL-Bfx" customClass="VideosViewController" customModule="StateChamps_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3gA-LQ-W03"/>
                         <viewControllerLayoutGuide type="bottom" id="asg-Se-GOG"/>
@@ -17,9 +17,36 @@
                     <view key="view" contentMode="scaleToFill" id="o6u-S7-knZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUt-Sp-uiO" userLabel="Header">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdh-bs-Utw">
+                                        <rect key="frame" x="261" y="36" width="67" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.83529411764705885" green="0.10980392156862745" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Rdh-bs-Utw" firstAttribute="centerX" secondItem="GUt-Sp-uiO" secondAttribute="centerX" id="BDH-Gz-lWj"/>
+                                    <constraint firstAttribute="height" constant="70" id="goE-FV-Zmz"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rdh-bs-Utw" secondAttribute="bottom" constant="10" id="or7-bx-kkQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GUt-Sp-uiO" firstAttribute="top" secondItem="o6u-S7-knZ" secondAttribute="top" id="Ryj-wh-zp4"/>
+                            <constraint firstItem="GUt-Sp-uiO" firstAttribute="leading" secondItem="o6u-S7-knZ" secondAttribute="leading" id="gzw-e1-UFe"/>
+                            <constraint firstAttribute="trailing" secondItem="GUt-Sp-uiO" secondAttribute="trailing" id="m8N-8n-eGv"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Video" id="LUr-IB-jug"/>
+                    <connections>
+                        <outlet property="header" destination="GUt-Sp-uiO" id="Xon-yV-r4O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kz7-M0-kCP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -47,7 +74,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.83529411764705885" green="0.10980392156862745" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Asw-FT-U83"/>
                                     <constraint firstItem="O2q-te-0Ke" firstAttribute="centerX" secondItem="hSV-e7-YsI" secondAttribute="centerX" id="jGs-9M-arz"/>
@@ -61,6 +88,12 @@
                                     <constraint firstAttribute="width" secondItem="XZX-rJ-sMp" secondAttribute="height" multiplier="16:9" id="tHQ-WB-rjc"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="State Champs! Season Highlights" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnY-Vd-LJZ">
+                                <rect key="frame" x="0.0" y="285" width="600" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -68,7 +101,10 @@
                             <constraint firstItem="XZX-rJ-sMp" firstAttribute="top" secondItem="hSV-e7-YsI" secondAttribute="bottom" constant="15" id="ETU-tY-iuY"/>
                             <constraint firstAttribute="trailing" secondItem="XZX-rJ-sMp" secondAttribute="trailing" id="HKP-bq-q4u"/>
                             <constraint firstItem="hSV-e7-YsI" firstAttribute="top" secondItem="mIr-uJ-uy2" secondAttribute="top" id="Zdk-Pd-VUE"/>
+                            <constraint firstItem="gnY-Vd-LJZ" firstAttribute="top" secondItem="XZX-rJ-sMp" secondAttribute="bottom" constant="8" id="gOT-WT-1NX"/>
                             <constraint firstItem="XZX-rJ-sMp" firstAttribute="leading" secondItem="mIr-uJ-uy2" secondAttribute="leading" id="j11-gY-AO5"/>
+                            <constraint firstItem="gnY-Vd-LJZ" firstAttribute="leading" secondItem="mIr-uJ-uy2" secondAttribute="leading" id="lfI-nB-I2e"/>
+                            <constraint firstAttribute="trailing" secondItem="gnY-Vd-LJZ" secondAttribute="trailing" id="mGA-fU-9Su"/>
                             <constraint firstItem="hSV-e7-YsI" firstAttribute="leading" secondItem="mIr-uJ-uy2" secondAttribute="leading" id="qWu-1f-x2k"/>
                         </constraints>
                     </view>
