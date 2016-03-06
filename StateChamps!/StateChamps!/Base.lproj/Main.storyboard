@@ -35,10 +35,20 @@
                                     <constraint firstAttribute="bottom" secondItem="Rdh-bs-Utw" secondAttribute="bottom" constant="10" id="or7-bx-kkQ"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="khW-DQ-n9M" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                                <rect key="frame" x="0.0" y="78" width="600" height="338"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="khW-DQ-n9M" secondAttribute="height" multiplier="16:9" id="Hm9-3C-AHK"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="khW-DQ-n9M" firstAttribute="top" secondItem="GUt-Sp-uiO" secondAttribute="bottom" constant="8" id="DZA-Rr-akg"/>
                             <constraint firstItem="GUt-Sp-uiO" firstAttribute="top" secondItem="o6u-S7-knZ" secondAttribute="top" id="Ryj-wh-zp4"/>
+                            <constraint firstAttribute="trailing" secondItem="khW-DQ-n9M" secondAttribute="trailing" id="Trg-gO-FiK"/>
+                            <constraint firstItem="khW-DQ-n9M" firstAttribute="leading" secondItem="o6u-S7-knZ" secondAttribute="leading" id="YHa-Ey-bnm"/>
                             <constraint firstItem="GUt-Sp-uiO" firstAttribute="leading" secondItem="o6u-S7-knZ" secondAttribute="leading" id="gzw-e1-UFe"/>
                             <constraint firstAttribute="trailing" secondItem="GUt-Sp-uiO" secondAttribute="trailing" id="m8N-8n-eGv"/>
                         </constraints>
@@ -46,6 +56,7 @@
                     <tabBarItem key="tabBarItem" title="Video" id="LUr-IB-jug"/>
                     <connections>
                         <outlet property="header" destination="GUt-Sp-uiO" id="Xon-yV-r4O"/>
+                        <outlet property="playerView" destination="khW-DQ-n9M" id="Bqq-YU-sAc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kz7-M0-kCP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -81,15 +92,15 @@
                                     <constraint firstAttribute="bottom" secondItem="O2q-te-0Ke" secondAttribute="bottom" constant="10" id="q2B-Rb-lLE"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XZX-rJ-sMp" userLabel="Player View" customClass="YouTubePlayerView" customModule="YouTubePlayer">
-                                <rect key="frame" x="0.0" y="78" width="600" height="199"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGg-Zv-90V" userLabel="Player View" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                                <rect key="frame" x="0.0" y="78" width="600" height="338"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="XZX-rJ-sMp" secondAttribute="height" multiplier="16:9" id="tHQ-WB-rjc"/>
+                                    <constraint firstAttribute="width" secondItem="BGg-Zv-90V" secondAttribute="height" multiplier="16:9" id="VWq-sp-Gjt"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="State Champs! Season Highlights" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnY-Vd-LJZ">
-                                <rect key="frame" x="0.0" y="285" width="600" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State Champs! Season Highlights" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnY-Vd-LJZ">
+                                <rect key="frame" x="0.0" y="423" width="600" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -98,20 +109,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hSV-e7-YsI" secondAttribute="trailing" id="Cvj-Kb-43R"/>
-                            <constraint firstItem="XZX-rJ-sMp" firstAttribute="top" secondItem="hSV-e7-YsI" secondAttribute="bottom" constant="15" id="ETU-tY-iuY"/>
-                            <constraint firstAttribute="trailing" secondItem="XZX-rJ-sMp" secondAttribute="trailing" id="HKP-bq-q4u"/>
+                            <constraint firstItem="BGg-Zv-90V" firstAttribute="leading" secondItem="mIr-uJ-uy2" secondAttribute="leading" id="H7x-Ru-rtF"/>
+                            <constraint firstItem="gnY-Vd-LJZ" firstAttribute="top" secondItem="BGg-Zv-90V" secondAttribute="bottom" constant="7.5" id="MlJ-zM-RBS"/>
                             <constraint firstItem="hSV-e7-YsI" firstAttribute="top" secondItem="mIr-uJ-uy2" secondAttribute="top" id="Zdk-Pd-VUE"/>
-                            <constraint firstItem="gnY-Vd-LJZ" firstAttribute="top" secondItem="XZX-rJ-sMp" secondAttribute="bottom" constant="8" id="gOT-WT-1NX"/>
-                            <constraint firstItem="XZX-rJ-sMp" firstAttribute="leading" secondItem="mIr-uJ-uy2" secondAttribute="leading" id="j11-gY-AO5"/>
+                            <constraint firstItem="BGg-Zv-90V" firstAttribute="top" secondItem="hSV-e7-YsI" secondAttribute="bottom" constant="8" id="fKw-mD-TFA"/>
                             <constraint firstItem="gnY-Vd-LJZ" firstAttribute="leading" secondItem="mIr-uJ-uy2" secondAttribute="leading" id="lfI-nB-I2e"/>
                             <constraint firstAttribute="trailing" secondItem="gnY-Vd-LJZ" secondAttribute="trailing" id="mGA-fU-9Su"/>
                             <constraint firstItem="hSV-e7-YsI" firstAttribute="leading" secondItem="mIr-uJ-uy2" secondAttribute="leading" id="qWu-1f-x2k"/>
+                            <constraint firstAttribute="trailing" secondItem="BGg-Zv-90V" secondAttribute="trailing" id="sRj-SZ-wUH"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="Gym-tZ-j9P"/>
                     <connections>
                         <outlet property="header" destination="hSV-e7-YsI" id="XM5-WA-G18"/>
-                        <outlet property="playerView" destination="XZX-rJ-sMp" id="1Kq-gY-rdJ"/>
+                        <outlet property="playerView" destination="BGg-Zv-90V" id="TNO-Yl-y3X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2fH-NY-ffj" userLabel="First Responder" sceneMemberID="firstResponder"/>
