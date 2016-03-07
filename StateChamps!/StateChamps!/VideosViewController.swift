@@ -15,15 +15,16 @@ class VideosViewController: UIViewController {
     @IBOutlet var playerView: YouTubePlayerView!
     
     let myVideoURL = NSURL(string: "https://www.youtube.com/watch?v=wQg3bXrVLtg")
-    var showVideosArray: Array<Dictionary<NSObject, AnyObject>> = []
-    var highlightVideosArray: Array<Dictionary<NSObject, AnyObject>> = []
+    var showVideosArray = [SCVideo]()
+    var highlightVideosArray = [SCVideo]()
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         formatViewController()
         loadVideo()
-        getPlaylistVideos()
+        fetchShowVideos()
     }
     
     func loadVideo() {

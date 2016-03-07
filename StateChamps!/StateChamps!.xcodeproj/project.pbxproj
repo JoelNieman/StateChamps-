@@ -19,7 +19,7 @@
 		5D7B01D21C8CA46700397652 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D7B01D11C8CA46700397652 /* ApiKeys.plist */; };
 		5D7B01D41C8CA4D400397652 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B01D31C8CA4D400397652 /* ApiKeys.swift */; };
 		5D7B01D61C8CA6AB00397652 /* SCVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B01D51C8CA6AB00397652 /* SCVideo.swift */; };
-		5D7B01D81C8CA81F00397652 /* YouTubeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B01D71C8CA81F00397652 /* YouTubeAPI.swift */; };
+		5D7B01DA1C8D105F00397652 /* YouTubeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B01D91C8D105F00397652 /* YouTubeAPI.swift */; };
 		ECD14C3CD28A5A1809BEE78F /* Pods_StateChamps_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC67A87472D095AE48877CB /* Pods_StateChamps_.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +61,7 @@
 		5D7B01D11C8CA46700397652 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		5D7B01D31C8CA4D400397652 /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		5D7B01D51C8CA6AB00397652 /* SCVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCVideo.swift; sourceTree = "<group>"; };
-		5D7B01D71C8CA81F00397652 /* YouTubeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeAPI.swift; sourceTree = "<group>"; };
+		5D7B01D91C8D105F00397652 /* YouTubeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeAPI.swift; sourceTree = "<group>"; };
 		9BC67A87472D095AE48877CB /* Pods_StateChamps_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StateChamps_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -149,7 +149,7 @@
 		5D7B01C91C8A488300397652 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5D7B01D71C8CA81F00397652 /* YouTubeAPI.swift */,
+				5D7B01D91C8D105F00397652 /* YouTubeAPI.swift */,
 				5D7B01D51C8CA6AB00397652 /* SCVideo.swift */,
 				5D7B01CD1C8A53B000397652 /* ColorWheel.swift */,
 				5D7B01D31C8CA4D400397652 /* ApiKeys.swift */,
@@ -372,8 +372,8 @@
 				5D7B01D01C8B9EFC00397652 /* VideosViewController.swift in Sources */,
 				5D7B01D61C8CA6AB00397652 /* SCVideo.swift in Sources */,
 				5D7B01CE1C8A53B000397652 /* ColorWheel.swift in Sources */,
+				5D7B01DA1C8D105F00397652 /* YouTubeAPI.swift in Sources */,
 				5D7B01D41C8CA4D400397652 /* ApiKeys.swift in Sources */,
-				5D7B01D81C8CA81F00397652 /* YouTubeAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

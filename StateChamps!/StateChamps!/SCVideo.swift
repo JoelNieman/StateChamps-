@@ -6,16 +6,25 @@
 //  Copyright © 2016 JoelNieman. All rights reserved.
 //
 
+
+
+// this is currently not used. The api call to youtube creates an array of dictionaries. I can make YouTubeVideo objects but it seems uneccesary.
+
+
 import Foundation
 
 class SCVideo {
-    var title: String?
-    var publishedDate:String?
-    var videoURL: String?
+    var title = ""
+    var description = ""
+    var publishedDate = ""
+    var videoID = ""
+    var thumbnailURLString = ""
     
-    init (title: String, publishedDate: String, videoURL: String) {
-        self.title = title
-        self.publishedDate = publishedDate
-        self.videoURL = videoURL
-    }
+//    init (title: String, description: String, publishedDate: String, videoID: String, thumbnailURLString: String) {
+//        self.title = title
+//        self.description = description
+//        self.publishedDate = publishedDate
+//        self.videoID = videoID
+//        self.thumbnailURLString = thumbnailURLString
+//    }
 }
