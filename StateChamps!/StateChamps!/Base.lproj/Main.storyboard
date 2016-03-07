@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Video-->
@@ -42,26 +43,97 @@
                                     <constraint firstAttribute="width" secondItem="khW-DQ-n9M" secondAttribute="height" multiplier="16:9" id="Hm9-3C-AHK"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XZi-25-Zh2">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="4mc-PN-f3G" style="IBUITableViewCellStyleDefault" id="Ydq-ow-pha">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ydq-ow-pha" id="Mac-Gm-sVk">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4mc-PN-f3G">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vUr-NL-Bfx" id="h22-ro-28R"/>
+                                    <outlet property="delegate" destination="vUr-NL-Bfx" id="e93-Le-bv6"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video description goes here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eza-VE-XM1">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XZi-25-Zh2" secondAttribute="trailing" id="5kI-oF-2Fa"/>
+                            <constraint firstItem="XZi-25-Zh2" firstAttribute="leading" secondItem="o6u-S7-knZ" secondAttribute="leading" id="BkA-I3-SMJ"/>
                             <constraint firstItem="khW-DQ-n9M" firstAttribute="top" secondItem="GUt-Sp-uiO" secondAttribute="bottom" constant="8" id="DZA-Rr-akg"/>
+                            <constraint firstItem="Eza-VE-XM1" firstAttribute="top" secondItem="khW-DQ-n9M" secondAttribute="bottom" constant="7.5" id="MqV-eI-qtL"/>
+                            <constraint firstItem="asg-Se-GOG" firstAttribute="top" secondItem="XZi-25-Zh2" secondAttribute="bottom" constant="8" id="PCu-qr-msf"/>
                             <constraint firstItem="GUt-Sp-uiO" firstAttribute="top" secondItem="o6u-S7-knZ" secondAttribute="top" id="Ryj-wh-zp4"/>
                             <constraint firstAttribute="trailing" secondItem="khW-DQ-n9M" secondAttribute="trailing" id="Trg-gO-FiK"/>
                             <constraint firstItem="khW-DQ-n9M" firstAttribute="leading" secondItem="o6u-S7-knZ" secondAttribute="leading" id="YHa-Ey-bnm"/>
+                            <constraint firstItem="Eza-VE-XM1" firstAttribute="trailing" secondItem="o6u-S7-knZ" secondAttribute="trailingMargin" id="ZC7-RT-dtY"/>
+                            <constraint firstItem="XZi-25-Zh2" firstAttribute="top" secondItem="Eza-VE-XM1" secondAttribute="bottom" constant="8" id="b0U-EJ-O7w"/>
+                            <constraint firstItem="Eza-VE-XM1" firstAttribute="leading" secondItem="o6u-S7-knZ" secondAttribute="leadingMargin" id="bd5-Tn-ir1"/>
                             <constraint firstItem="GUt-Sp-uiO" firstAttribute="leading" secondItem="o6u-S7-knZ" secondAttribute="leading" id="gzw-e1-UFe"/>
                             <constraint firstAttribute="trailing" secondItem="GUt-Sp-uiO" secondAttribute="trailing" id="m8N-8n-eGv"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="XZi-25-Zh2"/>
+                                <exclude reference="Eza-VE-XM1"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="MqV-eI-qtL"/>
+                                <exclude reference="ZC7-RT-dtY"/>
+                                <exclude reference="bd5-Tn-ir1"/>
+                                <exclude reference="5kI-oF-2Fa"/>
+                                <exclude reference="BkA-I3-SMJ"/>
+                                <exclude reference="b0U-EJ-O7w"/>
+                                <exclude reference="PCu-qr-msf"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="XZi-25-Zh2"/>
+                                <include reference="Eza-VE-XM1"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="MqV-eI-qtL"/>
+                                <include reference="ZC7-RT-dtY"/>
+                                <include reference="bd5-Tn-ir1"/>
+                                <include reference="5kI-oF-2Fa"/>
+                                <include reference="BkA-I3-SMJ"/>
+                                <include reference="b0U-EJ-O7w"/>
+                                <include reference="PCu-qr-msf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Video" id="LUr-IB-jug"/>
                     <connections>
                         <outlet property="header" destination="GUt-Sp-uiO" id="Xon-yV-r4O"/>
                         <outlet property="playerView" destination="khW-DQ-n9M" id="Bqq-YU-sAc"/>
+                        <outlet property="videoTableView" destination="XZi-25-Zh2" id="mpA-VD-E6M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kz7-M0-kCP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="742" y="643"/>
+            <point key="canvasLocation" x="741" y="642.75"/>
         </scene>
         <!--Home-->
         <scene sceneID="ZNZ-gZ-onu">

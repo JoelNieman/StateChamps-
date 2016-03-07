@@ -17,13 +17,18 @@ class HomeViewController: UIViewController {
     @IBOutlet var playerView: YouTubePlayerView!
     
     let myVideoURL = NSURL(string: "https://www.youtube.com/watch?v=wQg3bXrVLtg")
-
+    var playerState = YouTubePlayerState(rawValue: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         formatViewController()
         loadVideo()
+        fetchShowVideos()
 
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        playerView.stop()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,5 +46,7 @@ class HomeViewController: UIViewController {
         ]
         playerView.loadVideoURL(myVideoURL!)
     }
+    
+
 }
 

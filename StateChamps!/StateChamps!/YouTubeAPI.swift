@@ -9,8 +9,7 @@
 import Foundation
 
 let VC = VideosViewController()
-
-var video = SCVideo()
+var showVideosArray = [SCVideo]()
 
 let showsPlaylistID = "PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"
 let highlightsPlaylistID = "PL8dd-D6tYC0BeICQ2C3hym16jEyj0SzSJ"
@@ -44,30 +43,29 @@ func fetchShowVideos() {
 }
 
 func parseJSON(data: NSData) {
-    print("parseJSON has been called!")
     
     do {
         let json: AnyObject? = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
         let unwrappedJSON = json!
         
 //        print("the unwrappedJSON is: \n\n \(unwrappedJSON)")
-        parseBookings(unwrappedJSON as! NSDictionary)
+        parseVideos(unwrappedJSON as! NSDictionary)
     } catch {
         print("caught an error when calling parseJSON!")
     }
 }
 
 
-func parseBookings(unwrappedJSON: NSDictionary) {
-    print("parseBookings has been called!")
+func parseVideos(unwrappedJSON: NSDictionary) {
     
     let tempVideosCollection = unwrappedJSON.objectForKey("items")!
-    print("The tempVideosCollection is: \n \(tempVideosCollection)")
     
     let count = tempVideosCollection.count
     print("unwrappedJSON.count = \(count)")
     
     for index = 0; index < count; ++index {
+        
+        let video = SCVideo()
         
         video.title = tempVideosCollection[index]!.objectForKey("snippet")!.objectForKey("title") as! String
         video.description = tempVideosCollection[index]!.objectForKey("snippet")!.objectForKey("description") as! String
@@ -75,15 +73,15 @@ func parseBookings(unwrappedJSON: NSDictionary) {
         video.videoID = tempVideosCollection[index]!.objectForKey("snippet")!.objectForKey("resourceId")!.objectForKey("videoId")! as! String
         video.thumbnailURLString = tempVideosCollection[index]!.objectForKey("snippet")!.objectForKey("thumbnails")!.objectForKey("medium")!.objectForKey("url") as! String
         
-        VC.showVideosArray.append(video)
+        showVideosArray.append(video)
         
     }
-//    print("The showVideosArray2 contains: \n\n\(VC2.showVideosArray2)")
-//    print("the title for Video #1 is \n\n\(VC2.showVideosArray2[0].title)")
-//    print("the description for Video #1 is \n\n\(VC2.showVideosArray2[0].description)")
-//    print("the publishedDate for Video #1 is \n\n\(VC2.showVideosArray2[0].publishedDate)")
-//    print("the videoID for Video #1 is \n\n\(VC2.showVideosArray2[0].videoID)")
-//    print("the thumbnialURLString for Video #1 is \n\n\(VC2.showVideosArray2[0].thumbnailURLString)")
+//    print("The showVideosArray contains: \n\(showVideosArray)\n")
+//    print("the title for Video #1 is \n\(showVideosArray[0].title)\n")
+//    print("the description for Video #1 is \n\(showVideosArray[0].description)\n")
+//    print("the publishedDate for Video #1 is \n\(showVideosArray[0].publishedDate)\n")
+//    print("the videoID for Video #1 is \n\(showVideosArray[0].videoID)\n")
+//    print("the thumbnialURLString for Video #1 is \n\(showVideosArray[0].thumbnailURLString)\n")
     
 }
 
