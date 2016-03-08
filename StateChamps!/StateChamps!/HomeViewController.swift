@@ -11,12 +11,14 @@ import YouTubePlayer
 //import Parse
 
 
-class HomeViewController: UIViewController , APIOnResponseDelegate, UITableViewDelegate, UITableViewDataSource{
+class HomeViewController: UIViewController , APIOnResponseDelegate, UITableViewDelegate, UITableViewDataSource {
     
 
     @IBOutlet var showVideosTableView: UITableView!
     @IBOutlet weak var header: UIView!
     @IBOutlet var playerView: YouTubePlayerView!
+    @IBOutlet weak var descriptionOutlet: UILabel!
+
     
     var myVideoID: String?
     var showVideos = [SCVideo]()
@@ -24,7 +26,6 @@ class HomeViewController: UIViewController , APIOnResponseDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         formatViewController()
-//        loadVideo()
         let apiCall = YouTubeAPICall(handler: self)
         apiCall.fetchShowVideos()
         
@@ -35,24 +36,20 @@ class HomeViewController: UIViewController , APIOnResponseDelegate, UITableViewD
     }
     
     override func viewWillDisappear(animated: Bool) {
-        playerView.stop()
+        playerView.pause()
+        
+//        switch playerView.playerState {
+//        case Playing:
+//            playerView.pause()
+//        default:
+//            break
+//        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    
-    //  This sets up the video. The values (0 or 1) change the properties of the video player
-    
-//    func loadVideo() {
-//        playerView.playerVars = [
-//            "playsinline": "1",
-//            "controls": "1",
-//            "showinfo": "0"
-//        ]
-//        playerView.loadVideoID(myVideoID!)
-//    }
     
     //  Upon finishing the YouTubeAPI call, showVideos is populated witht the SCVideos
     //  and the tableview is reloaded.
@@ -62,6 +59,8 @@ class HomeViewController: UIViewController , APIOnResponseDelegate, UITableViewD
         showVideosTableView.reloadData()
         
         myVideoID = showVideos[0].videoID
+        descriptionOutlet.text = showVideos[0].description
+        
         playerView.playerVars = [
             "playsinline": "1",
             "controls": "1",
@@ -87,6 +86,14 @@ class HomeViewController: UIViewController , APIOnResponseDelegate, UITableViewD
         cell.thumbnailOutlet.image = videoDetails.thumbnailImage
         
         return cell
+    }
+ 
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let selectedVideo = showVideos[indexPath.row]
+
+        playerView.loadVideoID(selectedVideo.videoID)
+        descriptionOutlet.text = selectedVideo.description
     }
     
 }
