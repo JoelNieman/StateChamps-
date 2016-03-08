@@ -8,10 +8,13 @@
 
 import UIKit
 
-class VideoCell: UITableViewCell {
+class CustomCell: UITableViewCell {
     
     @IBOutlet weak var thumbnailOutlet: UIImageView!
     @IBOutlet weak var titleOutlet: UILabel!
 
+    @IBOutlet weak var articleThumbnailOutlet: UIImageView!
+    @IBOutlet weak var articleTitleOutlet: UILabel!
+    @IBOutlet weak var articleDateOutlet: UILabel!
     
 }

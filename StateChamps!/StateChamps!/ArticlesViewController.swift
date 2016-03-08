@@ -8,14 +8,24 @@
 
 import UIKit
 
-class ArticlesViewController: UIViewController {
+class ArticlesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ParseAPIOnResponseDelegate {
 
     @IBOutlet weak var header: UIView!
+    @IBOutlet weak var articlesTableView: UITableView!
+    @IBOutlet weak var articlePreview: UIView!
+
+    
+    
+    var retrievedArticles = [SCArticle]()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        formatViewController()
-        // Do any additional setup after loading the view.
+        formatArticlesViewController()
+        let parseAPICall = ParseAPICall(handler: self)
+        parseAPICall.queryParseForArticles()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,14 +34,37 @@ class ArticlesViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
+    func onArticlesResponse(articles: [SCArticle]) {
+        retrievedArticles = articles
+        articlesTableView.reloadData()
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+//        myVideoID = retrievedShowVideos[0].videoID
+//        descriptionOutlet.text = showVideos[0].description
+        
     }
-    */
 
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return retrievedArticles.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("SCArticleCell") as! CustomCell!
+        
+        let articleDetails = retrievedArticles[indexPath.row]
+        cell.articleTitleOutlet.text = articleDetails.title as String
+        cell.articleDateOutlet.text = articleDetails.publishedDate as String
+        cell.articleThumbnailOutlet.image = articleDetails.thumbnailImage
+
+        return cell
+        
+    }
+    
+    func formatArticlesViewController() {
+        formatViewController()
+        articlesTableView.rowHeight = 80
+    }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2016 JoelNieman. All rights reserved.
 //
 
-//import Foundation
+
 import UIKit
 
 let sCRedColor = UIColor.init(colorLiteralRed: 213/255, green: 28/255, blue: 41/255, alpha: 1)

@@ -13,12 +13,11 @@
 import UIKit
 
 class SCVideo {
+    
     var title = ""
     var description = ""
     var publishedDate = ""
     var videoID = ""
-    var thumbnailURLString = ""
-    var thumbnailImageData: NSData?
     var thumbnailImage: UIImage?
     
 //    init (title: String, description: String, publishedDate: String, videoID: String, thumbnailURLString: String) {
