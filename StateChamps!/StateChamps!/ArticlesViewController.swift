@@ -55,9 +55,9 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCellWithIdentifier("SCArticleCell") as! CustomCell!
         
         let articleDetails = retrievedArticles[indexPath.row]
-        cell.articleTitleOutlet.text = articleDetails.title as String
+        cell.thumbnailOutlet.image = articleDetails.thumbnailImage
+        cell.titleOutlet.text = articleDetails.title as String
         cell.articleDateOutlet.text = articleDetails.publishedDate as String
-        cell.articleThumbnailOutlet.image = articleDetails.thumbnailImage
 
         return cell
         
