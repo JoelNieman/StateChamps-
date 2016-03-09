@@ -385,16 +385,16 @@
                                                     <exclude reference="f8V-eZ-U5M"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="2MY-VN-T3S"/>
+                                                    <exclude reference="5hT-fe-6cf"/>
+                                                    <exclude reference="eIi-iC-fAE"/>
+                                                    <exclude reference="L76-xX-Pfl"/>
+                                                    <exclude reference="k66-ga-bnZ"/>
+                                                    <exclude reference="q0X-iV-6ZP"/>
                                                     <exclude reference="0tU-Pe-x72"/>
                                                     <exclude reference="Htw-FG-GVs"/>
                                                     <exclude reference="NFW-yv-wqF"/>
                                                     <exclude reference="RQM-NT-dod"/>
-                                                    <exclude reference="L76-xX-Pfl"/>
-                                                    <exclude reference="k66-ga-bnZ"/>
-                                                    <exclude reference="q0X-iV-6ZP"/>
-                                                    <exclude reference="2MY-VN-T3S"/>
-                                                    <exclude reference="5hT-fe-6cf"/>
-                                                    <exclude reference="eIi-iC-fAE"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -404,16 +404,16 @@
                                                     <include reference="f8V-eZ-U5M"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <include reference="2MY-VN-T3S"/>
+                                                    <include reference="5hT-fe-6cf"/>
+                                                    <include reference="eIi-iC-fAE"/>
+                                                    <include reference="L76-xX-Pfl"/>
+                                                    <include reference="k66-ga-bnZ"/>
+                                                    <include reference="q0X-iV-6ZP"/>
                                                     <include reference="0tU-Pe-x72"/>
                                                     <include reference="Htw-FG-GVs"/>
                                                     <include reference="NFW-yv-wqF"/>
                                                     <exclude reference="RQM-NT-dod"/>
-                                                    <include reference="L76-xX-Pfl"/>
-                                                    <include reference="k66-ga-bnZ"/>
-                                                    <include reference="q0X-iV-6ZP"/>
-                                                    <include reference="2MY-VN-T3S"/>
-                                                    <include reference="5hT-fe-6cf"/>
-                                                    <include reference="eIi-iC-fAE"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
