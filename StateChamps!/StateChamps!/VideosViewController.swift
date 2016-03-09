@@ -17,7 +17,6 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     @IBOutlet var showVideosTableView: UITableView!
     @IBOutlet weak var header: UIView!
     @IBOutlet var playerView: YouTubePlayerView!
-    @IBOutlet weak var descriptionOutlet: UILabel!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var myVideoID: String?
@@ -35,13 +34,6 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     
     override func viewWillDisappear(animated: Bool) {
         playerView.pause()
-        
-//        switch playerView.playerState {
-//        case Playing:
-//            playerView.pause()
-//        default:
-//            break
-//        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,13 +46,11 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     
     
     
-    
     func onShowVideosResponse(showVideos: [SCVideo]) {
         retrievedShowVideos = showVideos
         showVideosTableView.reloadData()
 
         myVideoID = retrievedShowVideos[0].videoID
-        descriptionOutlet.text = showVideos[0].description
         
         playerView.playerVars = [
             "playsinline": "1",
@@ -122,11 +112,11 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         if segmentedControl.selectedSegmentIndex == 0 {
             let selectedVideo = retrievedShowVideos[indexPath.row]
             playerView.loadVideoID(selectedVideo.videoID)
-            descriptionOutlet.text = selectedVideo.description
+
         } else {
             let selectedVideo = retrievedHighlightVideos[indexPath.row]
             playerView.loadVideoID(selectedVideo.videoID)
-            descriptionOutlet.text = selectedVideo.description
+
         }
     }
     @IBAction func segmentedControlPressed(sender: AnyObject) {

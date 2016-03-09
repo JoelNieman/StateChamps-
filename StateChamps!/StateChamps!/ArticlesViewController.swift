@@ -12,11 +12,12 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
 
     @IBOutlet weak var header: UIView!
     @IBOutlet weak var articlesTableView: UITableView!
-    @IBOutlet weak var articlePreview: UIView!
-
+    @IBOutlet weak var pictureView: UIImageView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     
     var retrievedArticles = [SCArticle]()
+    var initialArticle = SCArticle()
     
     
     
@@ -38,8 +39,9 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         retrievedArticles = articles
         articlesTableView.reloadData()
 
-//        myVideoID = retrievedShowVideos[0].videoID
-//        descriptionOutlet.text = showVideos[0].description
+        initialArticle = retrievedArticles[0]
+        pictureView.image = initialArticle.thumbnailImage
+
         
     }
 
@@ -63,8 +65,23 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         
     }
     
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedArticle = retrievedArticles[indexPath.row]
+        pictureView.image = selectedArticle.thumbnailImage
+    }
+    
+    
     func formatArticlesViewController() {
         formatViewController()
+        
+        segmentedControl.backgroundColor = sCGreyColor
+        segmentedControl.tintColor = sCRedColor
+        
+        UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Normal)
+        UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Selected)
+        
         articlesTableView.rowHeight = 80
     }
+
 }
