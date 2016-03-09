@@ -44,7 +44,11 @@
                                     <constraint firstAttribute="width" secondItem="BGg-Zv-90V" secondAttribute="height" multiplier="16:9" id="VWq-sp-Gjt"/>
                                 </constraints>
                             </view>
+<<<<<<< HEAD
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnY-Vd-LJZ">
+=======
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnY-Vd-LJZ">
+>>>>>>> 0e324cd9b6da9589492d9bd2f732c7986523703d
                                 <rect key="frame" x="0.0" y="423" width="600" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="sKK-Gl-NjS">
@@ -54,6 +58,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+<<<<<<< HEAD
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="sKK-Gl-NjS"/>
@@ -63,6 +68,10 @@
                                     <mask key="constraints">
                                         <include reference="sKK-Gl-NjS"/>
                                     </mask>
+=======
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="311" width="300" height="20.5"/>
+>>>>>>> 0e324cd9b6da9589492d9bd2f732c7986523703d
                                 </variation>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OCe-UX-D3u">
@@ -180,10 +189,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+<<<<<<< HEAD
                             <constraint firstAttribute="trailing" secondItem="iw2-Qr-KG1" secondAttribute="trailing" id="3e3-cf-3Xx"/>
                             <constraint firstItem="OCe-UX-D3u" firstAttribute="top" secondItem="iw2-Qr-KG1" secondAttribute="bottom" constant="5" id="CpE-Rp-U2b">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
+=======
+                            <constraint firstItem="OCe-UX-D3u" firstAttribute="top" secondItem="BGg-Zv-90V" secondAttribute="bottom" constant="78.5" id="6pI-Ly-9Xg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gnY-Vd-LJZ" secondAttribute="trailing" constant="80" id="B7g-v8-j1R"/>
+>>>>>>> 0e324cd9b6da9589492d9bd2f732c7986523703d
                             <constraint firstAttribute="trailing" secondItem="hSV-e7-YsI" secondAttribute="trailing" id="Cvj-Kb-43R"/>
                             <constraint firstItem="BGg-Zv-90V" firstAttribute="leading" secondItem="mIr-uJ-uy2" secondAttribute="leading" id="H7x-Ru-rtF"/>
                             <constraint firstItem="gnY-Vd-LJZ" firstAttribute="top" secondItem="BGg-Zv-90V" secondAttribute="bottom" constant="7.5" id="MlJ-zM-RBS">
@@ -198,6 +212,7 @@
                             </constraint>
                             <constraint firstItem="hSV-e7-YsI" firstAttribute="top" secondItem="mIr-uJ-uy2" secondAttribute="top" id="Zdk-Pd-VUE"/>
                             <constraint firstItem="BGg-Zv-90V" firstAttribute="top" secondItem="hSV-e7-YsI" secondAttribute="bottom" constant="8" id="fKw-mD-TFA">
+<<<<<<< HEAD
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="OCe-UX-D3u" secondAttribute="trailing" id="fwH-gK-bb3"/>
@@ -208,6 +223,12 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="4"/>
                             </constraint>
                             <constraint firstItem="iw2-Qr-KG1" firstAttribute="leading" secondItem="mIr-uJ-uy2" secondAttribute="leading" id="pus-z2-K5c"/>
+=======
+                                <variation key="heightClass=regular-widthClass=compact" constant="3"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="OCe-UX-D3u" secondAttribute="trailing" id="fwH-gK-bb3"/>
+                            <constraint firstItem="gnY-Vd-LJZ" firstAttribute="leading" secondItem="mIr-uJ-uy2" secondAttribute="leading" id="lfI-nB-I2e"/>
+>>>>>>> 0e324cd9b6da9589492d9bd2f732c7986523703d
                             <constraint firstItem="hSV-e7-YsI" firstAttribute="leading" secondItem="mIr-uJ-uy2" secondAttribute="leading" id="qWu-1f-x2k"/>
                             <constraint firstAttribute="trailing" secondItem="BGg-Zv-90V" secondAttribute="trailing" id="sRj-SZ-wUH"/>
                         </constraints>
@@ -217,6 +238,7 @@
                                 <exclude reference="iw2-Qr-KG1"/>
                             </mask>
                             <mask key="constraints">
+<<<<<<< HEAD
                                 <exclude reference="3e3-cf-3Xx"/>
                                 <exclude reference="iff-em-jdQ"/>
                                 <exclude reference="pus-z2-K5c"/>
@@ -225,6 +247,12 @@
                                 <exclude reference="fwH-gK-bb3"/>
                                 <exclude reference="R0U-fN-xns"/>
                                 <exclude reference="ltf-El-Sbi"/>
+=======
+                                <exclude reference="B7g-v8-j1R"/>
+                                <exclude reference="6pI-Ly-9Xg"/>
+                                <exclude reference="Q8k-8f-wFh"/>
+                                <exclude reference="fwH-gK-bb3"/>
+>>>>>>> 0e324cd9b6da9589492d9bd2f732c7986523703d
                                 <exclude reference="UsQ-LL-HA5"/>
                             </mask>
                         </variation>
@@ -234,6 +262,7 @@
                                 <include reference="iw2-Qr-KG1"/>
                             </mask>
                             <mask key="constraints">
+<<<<<<< HEAD
                                 <include reference="3e3-cf-3Xx"/>
                                 <include reference="iff-em-jdQ"/>
                                 <include reference="pus-z2-K5c"/>
@@ -242,6 +271,12 @@
                                 <include reference="fwH-gK-bb3"/>
                                 <include reference="R0U-fN-xns"/>
                                 <include reference="ltf-El-Sbi"/>
+=======
+                                <include reference="B7g-v8-j1R"/>
+                                <include reference="6pI-Ly-9Xg"/>
+                                <include reference="Q8k-8f-wFh"/>
+                                <include reference="fwH-gK-bb3"/>
+>>>>>>> 0e324cd9b6da9589492d9bd2f732c7986523703d
                                 <include reference="UsQ-LL-HA5"/>
                             </mask>
                         </variation>
@@ -285,7 +320,11 @@
                         <viewControllerLayoutGuide type="top" id="xa8-mB-Q8Q"/>
                         <viewControllerLayoutGuide type="bottom" id="JSD-UD-j4Y"/>
                     </layoutGuides>
+<<<<<<< HEAD
+                    <view key="view" contentMode="scaleToFill" id="XRd-OK-4wR" userLabel="Preview">
+=======
                     <view key="view" contentMode="scaleToFill" id="XRd-OK-4wR">
+>>>>>>> 0e324cd9b6da9589492d9bd2f732c7986523703d
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
