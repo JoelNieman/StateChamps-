@@ -19,7 +19,8 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     @IBOutlet var playerView: YouTubePlayerView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    var myVideoID: String?
+    var initialVideoID: String?
+    var selectedSCVideo: SCVideo?
     var retrievedShowVideos = [SCVideo]()
     var retrievedHighlightVideos = [SCVideo]()
     
@@ -28,12 +29,20 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         formatVideosViewController()
         let apiCall = YouTubeAPICall(handler: self)
         apiCall.fetchAllVideos()
-
-        
     }
     
     override func viewWillDisappear(animated: Bool) {
         playerView.pause()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if let currentVideo = selectedSCVideo {
+            playerView.loadVideoID(currentVideo.videoID)
+        } else {
+            if initialVideoID != nil {
+                playerView.loadVideoID(initialVideoID!)
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,20 +53,23 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     //  Upon finishing the YouTubeAPI call, showVideos is populated with the SCVideos
     //  and the tableview is reloaded.
     
-    
-    
+
     func onShowVideosResponse(showVideos: [SCVideo]) {
         retrievedShowVideos = showVideos
         showVideosTableView.reloadData()
 
-        myVideoID = retrievedShowVideos[0].videoID
+        initialVideoID = retrievedShowVideos[0].videoID
         
         playerView.playerVars = [
             "playsinline": "1",
             "controls": "1",
             "showinfo": "0"
         ]
-        playerView.loadVideoID(myVideoID!)
+        
+        if selectedSCVideo == nil {
+            playerView.loadVideoID(initialVideoID!)
+        }
+        
     }
     
     func onHighlightVideosResponse(highlightVideos: [SCVideo]) {
@@ -66,8 +78,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     
     
     
-    
-    
+
     
     
     
@@ -89,17 +100,17 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         
         if segmentedControl.selectedSegmentIndex == 0 {
             
-            let videoDetails = retrievedShowVideos[indexPath.row]
-            cell.titleOutlet.text = videoDetails.title as String
-            cell.thumbnailOutlet.image = videoDetails.thumbnailImage
+            let sCVideoDetails = retrievedShowVideos[indexPath.row]
+            cell.titleOutlet.text = sCVideoDetails.title as String
+            cell.thumbnailOutlet.image = sCVideoDetails.thumbnailImage
             
             return cell
             
         } else {
             
-            let videoDetails = retrievedHighlightVideos[indexPath.row]
-            cell.titleOutlet.text = videoDetails.title as String
-            cell.thumbnailOutlet.image = videoDetails.thumbnailImage
+            let sCVideoDetails = retrievedHighlightVideos[indexPath.row]
+            cell.titleOutlet.text = sCVideoDetails.title as String
+            cell.thumbnailOutlet.image = sCVideoDetails.thumbnailImage
             
             return cell
         }
@@ -110,12 +121,12 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         
         
         if segmentedControl.selectedSegmentIndex == 0 {
-            let selectedVideo = retrievedShowVideos[indexPath.row]
-            playerView.loadVideoID(selectedVideo.videoID)
+            selectedSCVideo = retrievedShowVideos[indexPath.row]
+            playerView.loadVideoID(selectedSCVideo!.videoID)
 
         } else {
-            let selectedVideo = retrievedHighlightVideos[indexPath.row]
-            playerView.loadVideoID(selectedVideo.videoID)
+            selectedSCVideo = retrievedHighlightVideos[indexPath.row]
+            playerView.loadVideoID(selectedSCVideo!.videoID)
 
         }
     }

@@ -20,15 +20,17 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     var initialArticle = SCArticle()
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         formatArticlesViewController()
         let parseAPICall = ParseAPICall(handler: self)
         parseAPICall.queryParseForArticles()
-
     }
 
+    override func viewWillAppear(animated: Bool) {
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
