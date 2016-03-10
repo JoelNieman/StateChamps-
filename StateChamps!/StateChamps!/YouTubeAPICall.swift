@@ -14,11 +14,19 @@ import UIKit
 class YouTubeAPICall {
     
     
+    
+    
     //  Implementing the APIOnResponseDelegate protocol
+    
+//    var controller: UIViewController
     let handler: YouTubeAPIOnResponseDelegate
     init(handler: YouTubeAPIOnResponseDelegate) {
         self.handler = handler
+//        self.controller = controller
     }
+    
+    
+    
     
     //  These are the collections of videos that can be populated with instances of this YouTubeAPICall.
     var showVideosArray = [SCVideo]()
@@ -30,6 +38,8 @@ class YouTubeAPICall {
     private let maxShowResults = 20
     private var apiKey = youTubeClientID
     private var index = Int()
+    
+    
     
     
     //  FetchShowVideos forms and executes the NSURL request for show videos
@@ -49,6 +59,19 @@ class YouTubeAPICall {
             if let taskError = error {
                 print("Task Error Domain is: \(taskError.domain)\n\nThe Error Code is: \(taskError.code)\n\nThe Error userInfo is: \n\n\(taskError.userInfo)")
                 
+//                let alert = UIAlertController(title: "No Internet", message: "Looks like you are not connected to the internet", preferredStyle: .ActionSheet)
+//                
+//                let okAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+//                }
+//                
+//                alert.addAction(okAction)
+//                
+//                alert.popoverPresentationController?.sourceView = self.controller.view
+//                alert.popoverPresentationController?.sourceRect = self.controller.view.bounds
+//                
+//                
+//                
+//                self.controller.presentViewController(alert, animated: true, completion: nil)
                 
             } else {
                 let httpResponse = response as! NSHTTPURLResponse
@@ -56,6 +79,7 @@ class YouTubeAPICall {
                 case 200:
                     print("Got 200")
                     self.parseShowsJSON(data!)
+                    
                 default:
                     print("Request failed: \(httpResponse.statusCode)")
                 }

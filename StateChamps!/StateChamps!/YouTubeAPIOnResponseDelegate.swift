@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol YouTubeAPIOnResponseDelegate {
 //    func onFullVideosResponse (showVideos: [SCVideo], highlightVideos: [SCVideo])

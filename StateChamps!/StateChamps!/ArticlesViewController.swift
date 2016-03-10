@@ -201,7 +201,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func scrollToTop() {
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.articlesTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
+        self.articlesTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
     }
     
     
