@@ -18,7 +18,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     @IBOutlet weak var playerView: YouTubePlayerView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    var initialVideoID: String?
+    var initialVideo: SCVideo?
     var selectedSCVideo: SCVideo?
     var retrievedShowVideos = [SCVideo]()
     var retrievedHighlightVideos = [SCVideo]()
@@ -48,11 +48,13 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     override func viewWillAppear(animated: Bool) {
         if let currentVideo = selectedSCVideo {
             playerView.loadVideoID(currentVideo.videoID)
-        } else {
-            if initialVideoID != nil {
-                playerView.loadVideoID(initialVideoID!)
-            }
         }
+        
+//        else {
+//            if selectedSCVideo != nil {
+//                playerView.loadVideoID(selectedSCVideo!.videoID)
+//            }
+//        }
     }
     
     
@@ -87,7 +89,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         retrievedShowVideos = showVideos
         showVideosTableView.reloadData()
 
-        initialVideoID = retrievedShowVideos[0].videoID
+        selectedSCVideo = retrievedShowVideos[0]
         
         playerView.playerVars = [
             "playsinline": "1",
@@ -95,9 +97,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
             "showinfo": "0"
         ]
         
-        if selectedSCVideo == nil {
-            playerView.loadVideoID(initialVideoID!)
-        }
+        playerView.loadVideoID(selectedSCVideo!.videoID)
     }
     
     
@@ -163,7 +163,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     //  Facebook and Twitter Sharing----------------------------------------------------
     
         func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction] {
-            
+            if segmentedControl.selectedSegmentIndex == 0 {
             let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share", handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
                 
                 let shareMenu = UIAlertController(title: nil, message: "Share using", preferredStyle: .ActionSheet)
@@ -184,8 +184,8 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
                     // Display Tweet Composer
                     let tweetComposer = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
                         
-                        let videoDetails = self.selectedSCVideo!
-                        tweetComposer.setInitialText(videoDetails.title as String)
+                    let videoDetails = self.retrievedShowVideos[indexPath.row]
+                        tweetComposer.setInitialText("Watch this video and more on the new State Champs! iPhone app!")
                         tweetComposer.addImage(videoDetails.thumbnailImage)
                         tweetComposer.addURL(NSURL(string: "https://youtu.be/\(videoDetails.videoID)PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"))
                         self.presentViewController(tweetComposer, animated: true, completion: nil)
@@ -210,8 +210,9 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
                     //  Display Facebook Composer
                     let facebookComposer = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
                     
-                    let videoDetails = self.selectedSCVideo!
-                    facebookComposer.setInitialText(videoDetails.title as String)
+                    let videoDetails = self.retrievedShowVideos[indexPath.row]
+                    
+                    facebookComposer.setInitialText("\(videoDetails.title)\n\n Watch this video and more on the new State Champs! iPhone app!")
                     facebookComposer.addImage(videoDetails.thumbnailImage)
                     facebookComposer.addURL(NSURL(string: "https://youtu.be/\(videoDetails.videoID)PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"))
                     self.presentViewController(facebookComposer, animated: true, completion: nil)
@@ -229,9 +230,75 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
             )
             
             return [shareAction]
+            } else {
+                let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share", handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
+                    
+                    let shareMenu = UIAlertController(title: nil, message: "Share using", preferredStyle: .ActionSheet)
+                    
+                    let twitterAction = UIAlertAction(title: "Twitter", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                        
+                        //  Check if Twitter is available, otherwise display an error message
+                        
+                        guard
+                            SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) else {
+                                let alertMessage = UIAlertController(title: "Twitter Unavailable", message: "You haven't registered your Twitter account. Please go to Settings > Twitter to create one.", preferredStyle: .Alert)
+                                alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                                self.presentViewController(alertMessage, animated: true, completion: nil)
+                                
+                                return
+                        }
+                        
+                        // Display Tweet Composer
+                        let tweetComposer = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                        
+                        let videoDetails = self.retrievedHighlightVideos[indexPath.row]
+
+                        tweetComposer.setInitialText("Watch this video and more on the new State Champs! iPhone app!")
+                        tweetComposer.addImage(videoDetails.thumbnailImage)
+                        tweetComposer.addURL(NSURL(string: "https://youtu.be/\(videoDetails.videoID)PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"))
+                        self.presentViewController(tweetComposer, animated: true, completion: nil)
+                        
+                    })
+                    
+                    
+                    let facebookAction = UIAlertAction(title: "Facebook", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                        
+                        //  Check if Facebook is available, otherwise display an error message
+                        guard
+                            SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) else {
+                                let alertMessage = UIAlertController(title: "Facebook Unavailable", message: "You haven't registered your Facebook account. Please go to Settings > Facebook to create one.", preferredStyle: .Alert)
+                                alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                                self.presentViewController(alertMessage, animated: true, completion: nil)
+                                
+                                return
+                        }
+                        
+                        
+                        
+                        //  Display Facebook Composer
+                        let facebookComposer = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                        
+                        let videoDetails = self.retrievedHighlightVideos[indexPath.row]
+                        facebookComposer.setInitialText(String("\(videoDetails.title)\n\n Watch this video and more on the new State Champs! iPhone app!"))
+                        facebookComposer.addImage(videoDetails.thumbnailImage)
+                        facebookComposer.addURL(NSURL(string: "https://youtu.be/\(videoDetails.videoID)PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"))
+                        self.presentViewController(facebookComposer, animated: true, completion: nil)
+                        
+                    })
+                    
+                    let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+                    
+                    shareMenu.addAction(facebookAction)
+                    shareMenu.addAction(twitterAction)
+                    shareMenu.addAction(cancelAction)
+                    
+                    self.presentViewController(shareMenu, animated: true, completion: nil)
+                    }
+                )
+                
+                return [shareAction]
+            }
         }
-    
-    
     
     //  Pull To Refresh----------------------------------------------------------------
     
