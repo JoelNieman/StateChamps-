@@ -49,19 +49,13 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         segmentedControl.backgroundColor = sCGreyColor
         segmentedControl.tintColor = sCRedColor
         
+
+        
         UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Normal)
         UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Selected)
         
         articlesTableView.rowHeight = 80
     }
-    
-//    func setTableViewCellSize() {
-//        if segmentedControl.selectedSegmentIndex == 0 {
-//            articlesTableView.rowHeight = 80
-//        }
-//    }
-    
-    
     
     
     
@@ -178,9 +172,10 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
             articlesTableView.allowsSelection = true
             articlesTableView.reloadData()
         } else {
-            articlesTableView.rowHeight = 1000
+            articlesTableView.rowHeight = 5000
             articlesTableView.allowsSelection = false
             articlesTableView.reloadData()
+            
         }
     }
 
