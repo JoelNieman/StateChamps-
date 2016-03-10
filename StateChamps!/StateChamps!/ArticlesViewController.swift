@@ -166,13 +166,16 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBAction func segmentedControlPressed(sender: AnyObject) {
         
-        
         if segmentedControl.selectedSegmentIndex == 0 {
             articlesTableView.rowHeight = 80
             articlesTableView.allowsSelection = true
             articlesTableView.reloadData()
+
         } else {
-            articlesTableView.rowHeight = 5000
+            
+            articlesTableView.estimatedRowHeight = 1000
+            articlesTableView.rowHeight = UITableViewAutomaticDimension
+            
             articlesTableView.allowsSelection = false
             articlesTableView.reloadData()
             
