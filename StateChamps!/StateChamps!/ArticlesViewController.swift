@@ -113,6 +113,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
                 cell.fullArticleAuthorOutlet.text = article.author
                 cell.fullArticleDateOutlet.text = article.publishedDate
                 cell.fullArticleBodyOutlet.text = article.body
+                
                 return cell
                 
             } else {
@@ -167,9 +168,12 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func segmentedControlPressed(sender: AnyObject) {
         
         if segmentedControl.selectedSegmentIndex == 0 {
+            articlesTableView.estimatedRowHeight = 80
             articlesTableView.rowHeight = 80
             articlesTableView.allowsSelection = true
             articlesTableView.reloadData()
+            scrollToTop()
+            
 
         } else {
             
@@ -178,9 +182,27 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
             
             articlesTableView.allowsSelection = false
             articlesTableView.reloadData()
+            scrollToTop()
             
         }
     }
 
 
+//    func scrollToSelectedRow() {
+//        let selectedRows: [NSIndexPath]?
+//        selectedRows = self.articlesTableView.indexPathsForSelectedRows
+//        if let selectedRow = (selectedRows![0]) as? NSIndexPath {
+//            self.articlesTableView.scrollToRowAtIndexPath(selectedRow, atScrollPosition: .Middle, animated: true)
+//        } else {
+//            scrollToTop()
+//        }
+//
+//    }
+    
+    func scrollToTop() {
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        self.articlesTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
+    }
+    
+    
 }
