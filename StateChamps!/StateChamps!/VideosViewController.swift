@@ -27,8 +27,11 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         formatVideosViewController()
+        
         let apiCall = YouTubeAPICall(handler: self)
         apiCall.fetchAllVideos()
+        
+        self.showVideosTableView.addSubview(self.refreshControl)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -45,14 +48,30 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         }
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     
+    func formatVideosViewController() {
+        formatViewController()
+        
+        segmentedControl.backgroundColor = sCGreyColor
+        segmentedControl.tintColor = sCRedColor
+        
+        UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Normal)
+        UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Selected)
+        
+        showVideosTableView.rowHeight = 80
+    }
+    
+    
+    
+    //  YouTubeApiCallProtocol set-up----------------------------------------------------
+    
     //  Upon finishing the YouTubeAPI call, showVideos is populated with the SCVideos
     //  and the tableview is reloaded.
-    
 
     func onShowVideosResponse(showVideos: [SCVideo]) {
         retrievedShowVideos = showVideos
@@ -77,10 +96,8 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     }
     
     
-    
+    //  TableView set-up---------------------------------------------------------------
 
-    
-    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -130,22 +147,38 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
 
         }
     }
+    
+    
+    
+    //  Pull To Refresh----------------------------------------------------------------
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+        
+        return refreshControl
+    }()
+    
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        // Do some reloading of data and update the table view's data source
+        // Fetch more objects from a web service, for example...
+        
+        let refreshApiCall = YouTubeAPICall(handler: self)
+        refreshApiCall.fetchAllVideos()
+        
+        self.showVideosTableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
+    
+    
+    //  Segmented Control--------------------------------------------------------------
+    
     @IBAction func segmentedControlPressed(sender: AnyObject) {
         showVideosTableView.reloadData()
     }
-    
-    
-    func formatVideosViewController() {
-        formatViewController()
-        
-        segmentedControl.backgroundColor = sCGreyColor
-        segmentedControl.tintColor = sCRedColor
-        
-        UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Normal)
-        UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Selected)
-        
-        showVideosTableView.rowHeight = 80
-    }
+
 }
 
 

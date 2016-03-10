@@ -210,9 +210,9 @@
 		5D7B01CA1C8A489100397652 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5DAF0A341C90954500EAD2CE /* HomeViewController.swift */,
 				5D7B01CB1C8A4DEA00397652 /* VideosViewController.swift */,
 				5DAF09F21C8E401E00EAD2CE /* ArticlesViewController.swift */,
-				5DAF0A341C90954500EAD2CE /* HomeViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";

@@ -23,8 +23,11 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         formatArticlesViewController()
+        
         let parseAPICall = ParseAPICall(handler: self)
         parseAPICall.queryParseForArticles()
+        
+        self.articlesTableView.addSubview(self.refreshControl)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -36,6 +39,24 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func formatArticlesViewController() {
+        formatViewController()
+        
+        segmentedControl.backgroundColor = sCGreyColor
+        segmentedControl.tintColor = sCRedColor
+        
+        UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Normal)
+        UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Selected)
+        
+        articlesTableView.rowHeight = 80
+    }
+    
+    //  ParseApiCallProtocol set-up----------------------------------------------------
+    
+    //  Upon finishing the Parse query, retrievedArticles is populated with the SCArticles
+    //  and the tableview is reloaded.
+    
 
     func onArticlesResponse(articles: [SCArticle]) {
         retrievedArticles = articles
@@ -43,10 +64,11 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
 
         initialArticle = retrievedArticles[0]
         pictureView.image = initialArticle.thumbnailImage
-
-        
     }
 
+    
+    //  TableView set-up---------------------------------------------------------------
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -74,16 +96,32 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     
-    func formatArticlesViewController() {
-        formatViewController()
+    
+    //  Pull To Refresh----------------------------------------------------------------
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
         
-        segmentedControl.backgroundColor = sCGreyColor
-        segmentedControl.tintColor = sCRedColor
+        return refreshControl
+    }()
+    
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        // Do some reloading of data and update the table view's data source
+        // Fetch more objects from a web service, for example...
         
-        UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Normal)
-        UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Selected)
+//        let refreshApiCall = YouTubeAPICall(handler: self)
+//        refreshApiCall.fetchAllVideos()
         
-        articlesTableView.rowHeight = 80
+        let refreshParseApiCall = ParseAPICall(handler: self)
+        refreshParseApiCall.queryParseForArticles()
+        
+        self.articlesTableView.reloadData()
+        refreshControl.endRefreshing()
     }
+    
+    
+
 
 }
