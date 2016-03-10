@@ -204,7 +204,9 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iw2-Qr-KG1">
                                 <rect key="frame" x="-60" y="-14" width="121" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="NyM-qF-10k"/>
+                                    <constraint firstAttribute="height" constant="35" id="NyM-qF-10k">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                                    </constraint>
                                 </constraints>
                                 <segments>
                                     <segment title="Shows"/>
@@ -361,7 +363,9 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tYe-rN-6uE" userLabel="Segmented Control">
                                 <rect key="frame" x="-60" y="-14" width="121" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="n5d-Pi-e8g"/>
+                                    <constraint firstAttribute="height" constant="35" id="n5d-Pi-e8g">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                                    </constraint>
                                 </constraints>
                                 <segments>
                                     <segment title="List"/>
@@ -518,7 +522,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2at-9m-OGW">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">

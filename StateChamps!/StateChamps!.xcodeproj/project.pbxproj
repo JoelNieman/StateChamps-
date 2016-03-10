@@ -27,16 +27,6 @@
 		F99EE1011C8F12D100A8172F /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F99EE1001C8F12D100A8172F /* APIKeys.plist */; };
 		F9EEBC011C8F58F300267666 /* ParseAPICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EEBC001C8F58F300267666 /* ParseAPICall.swift */; };
 		F9EEBC031C8F592000267666 /* SCArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EEBC021C8F592000267666 /* SCArticle.swift */; };
-		F9EEBC051C8F6A2300267666 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC041C8F6A2300267666 /* AudioToolbox.framework */; };
-		F9EEBC071C8F6A2B00267666 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC061C8F6A2B00267666 /* CFNetwork.framework */; };
-		F9EEBC091C8F6A3400267666 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC081C8F6A3400267666 /* CoreGraphics.framework */; };
-		F9EEBC0B1C8F6A3B00267666 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC0A1C8F6A3B00267666 /* CoreLocation.framework */; };
-		F9EEBC0D1C8F6A4100267666 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC0C1C8F6A4100267666 /* QuartzCore.framework */; };
-		F9EEBC0F1C8F6A4800267666 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC0E1C8F6A4800267666 /* Security.framework */; };
-		F9EEBC111C8F6A4F00267666 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC101C8F6A4F00267666 /* StoreKit.framework */; };
-		F9EEBC131C8F6A5700267666 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC121C8F6A5700267666 /* SystemConfiguration.framework */; };
-		F9EEBC151C8F6A6D00267666 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC141C8F6A6D00267666 /* libz.tbd */; };
-		F9EEBC171C8F6A7700267666 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC161C8F6A7700267666 /* libsqlite3.tbd */; };
 		F9EEBC191C8F6E7300267666 /* ParseAPICallOnResponseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EEBC181C8F6E7300267666 /* ParseAPICallOnResponseDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -104,16 +94,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9EEBC171C8F6A7700267666 /* libsqlite3.tbd in Frameworks */,
-				F9EEBC151C8F6A6D00267666 /* libz.tbd in Frameworks */,
-				F9EEBC131C8F6A5700267666 /* SystemConfiguration.framework in Frameworks */,
-				F9EEBC111C8F6A4F00267666 /* StoreKit.framework in Frameworks */,
-				F9EEBC0F1C8F6A4800267666 /* Security.framework in Frameworks */,
-				F9EEBC0D1C8F6A4100267666 /* QuartzCore.framework in Frameworks */,
-				F9EEBC0B1C8F6A3B00267666 /* CoreLocation.framework in Frameworks */,
-				F9EEBC091C8F6A3400267666 /* CoreGraphics.framework in Frameworks */,
-				F9EEBC071C8F6A2B00267666 /* CFNetwork.framework in Frameworks */,
-				F9EEBC051C8F6A2300267666 /* AudioToolbox.framework in Frameworks */,
 				ECD14C3CD28A5A1809BEE78F /* Pods_StateChamps_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
