@@ -18,6 +18,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var retrievedArticles = [SCArticle]()
     var initialArticle = SCArticle()
+    var selectedArticle: SCArticle?
     
     
     override func viewDidLoad() {
@@ -28,6 +29,8 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         parseAPICall.queryParseForArticles()
         
         self.articlesTableView.addSubview(self.refreshControl)
+        
+        
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -52,6 +55,16 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         articlesTableView.rowHeight = 80
     }
     
+//    func setTableViewCellSize() {
+//        if segmentedControl.selectedSegmentIndex == 0 {
+//            articlesTableView.rowHeight = 80
+//        }
+//    }
+    
+    
+    
+    
+    
     //  ParseApiCallProtocol set-up----------------------------------------------------
     
     //  Upon finishing the Parse query, retrievedArticles is populated with the SCArticles
@@ -62,8 +75,11 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         retrievedArticles = articles
         articlesTableView.reloadData()
 
-        initialArticle = retrievedArticles[0]
-        pictureView.image = initialArticle.thumbnailImage
+        if selectedArticle == nil {
+            initialArticle = retrievedArticles[0]
+            pictureView.image = initialArticle.thumbnailImage
+
+        }
     }
 
     
@@ -74,25 +90,56 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return retrievedArticles.count
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            return retrievedArticles.count
+        } else {
+            return 1
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SCArticleCell") as! CustomCell!
         
-        let articleDetails = retrievedArticles[indexPath.row]
-        cell.thumbnailOutlet.image = articleDetails.thumbnailImage
-        cell.titleOutlet.text = articleDetails.title as String
-        cell.articleDateOutlet.text = articleDetails.publishedDate as String
-
-        return cell
-        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("SCArticleCell") as! CustomCell!
+            
+            let articleDetails = retrievedArticles[indexPath.row]
+            cell.thumbnailOutlet.image = articleDetails.thumbnailImage
+            cell.titleOutlet.text = articleDetails.title as String
+            cell.dateOutlet.text = articleDetails.publishedDate as String
+            return cell
+            
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("FullSCArticleCell") as! CustomCell!
+            
+            
+            if let article = selectedArticle {
+                
+                cell.fullArticleTitleOutelt.text = article.title
+                cell.fullArticleAuthorOutlet.text = article.author
+                cell.fullArticleDateOutlet.text = article.publishedDate
+                cell.fullArticleBodyOutlet.text = article.body
+                return cell
+                
+            } else {
+                let article = initialArticle
+                
+                cell.fullArticleTitleOutelt.text = article.title
+                cell.fullArticleAuthorOutlet.text = article.author
+                cell.fullArticleDateOutlet.text = article.publishedDate
+                cell.fullArticleBodyOutlet.text = article.body
+                return cell
+            }
+        }
     }
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let selectedArticle = retrievedArticles[indexPath.row]
-        pictureView.image = selectedArticle.thumbnailImage
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+        selectedArticle = retrievedArticles[indexPath.row]
+        pictureView.image = selectedArticle!.thumbnailImage
+        }
     }
     
     
@@ -121,7 +168,21 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         refreshControl.endRefreshing()
     }
     
+    //  Segmented Control--------------------------------------------------------------
     
+    @IBAction func segmentedControlPressed(sender: AnyObject) {
+        
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            articlesTableView.rowHeight = 80
+            articlesTableView.allowsSelection = true
+            articlesTableView.reloadData()
+        } else {
+            articlesTableView.rowHeight = 1000
+            articlesTableView.allowsSelection = false
+            articlesTableView.reloadData()
+        }
+    }
 
 
 }

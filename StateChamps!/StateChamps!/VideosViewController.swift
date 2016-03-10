@@ -8,8 +8,6 @@
 
 import UIKit
 import YouTubePlayer
-//import Parse
-
 
 class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -24,6 +22,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     var retrievedShowVideos = [SCVideo]()
     var retrievedHighlightVideos = [SCVideo]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         formatVideosViewController()
@@ -34,9 +33,11 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         self.showVideosTableView.addSubview(self.refreshControl)
     }
     
+    
     override func viewWillDisappear(animated: Bool) {
         playerView.pause()
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         if let currentVideo = selectedSCVideo {
@@ -67,12 +68,12 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     }
     
     
-    
     //  YouTubeApiCallProtocol set-up----------------------------------------------------
     
     //  Upon finishing the YouTubeAPI call, showVideos is populated with the SCVideos
     //  and the tableview is reloaded.
 
+    
     func onShowVideosResponse(showVideos: [SCVideo]) {
         retrievedShowVideos = showVideos
         showVideosTableView.reloadData()
@@ -88,8 +89,8 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         if selectedSCVideo == nil {
             playerView.loadVideoID(initialVideoID!)
         }
-        
     }
+    
     
     func onHighlightVideosResponse(highlightVideos: [SCVideo]) {
         retrievedHighlightVideos = highlightVideos
@@ -103,6 +104,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         return 1
     }
     
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if segmentedControl.selectedSegmentIndex == 0 {
@@ -111,6 +113,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
             return retrievedHighlightVideos.count
         }
     }
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SCVideoCell") as! CustomCell!
@@ -131,9 +134,9 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
             
             return cell
         }
-        
     }
  
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         
@@ -144,13 +147,13 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         } else {
             selectedSCVideo = retrievedHighlightVideos[indexPath.row]
             playerView.loadVideoID(selectedSCVideo!.videoID)
-
         }
     }
     
     
     
     //  Pull To Refresh----------------------------------------------------------------
+    
     
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -172,13 +175,12 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     }
     
     
-    
     //  Segmented Control--------------------------------------------------------------
+    
     
     @IBAction func segmentedControlPressed(sender: AnyObject) {
         showVideosTableView.reloadData()
     }
-
 }
 
 

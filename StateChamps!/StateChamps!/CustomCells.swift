@@ -12,7 +12,15 @@ class CustomCell: UITableViewCell {
     
     @IBOutlet weak var thumbnailOutlet: UIImageView!
     @IBOutlet weak var titleOutlet: UILabel!
+    @IBOutlet weak var dateOutlet: UILabel!
+
     
     
-    @IBOutlet weak var articleDateOutlet: UILabel!
+    @IBOutlet weak var fullArticleTitleOutelt: UILabel!
+    @IBOutlet weak var fullArticleAuthorOutlet: UILabel!
+    @IBOutlet weak var fullArticleDateOutlet: UILabel!
+    @IBOutlet weak var fullArticleBodyOutlet: UILabel!
+
+    
 }
+
