@@ -32,7 +32,6 @@
 		5DAF0A661C92501100EAD2CE /* MyApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DAF0A651C92501100EAD2CE /* MyApiKeys.plist */; };
 		ECD14C3CD28A5A1809BEE78F /* Pods_StateChamps_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC67A87472D095AE48877CB /* Pods_StateChamps_.framework */; };
 		F934B16A1C8F1A5E00F56807 /* YouTubeAPIOnResponseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F934B1691C8F1A5E00F56807 /* YouTubeAPIOnResponseDelegate.swift */; };
-		F96854A31C8F229A003A2B8D /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F96854A21C8F229A003A2B8D /* Alerts.swift */; };
 		F9EEBC011C8F58F300267666 /* ParseAPICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EEBC001C8F58F300267666 /* ParseAPICall.swift */; };
 		F9EEBC031C8F592000267666 /* SCArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EEBC021C8F592000267666 /* SCArticle.swift */; };
 		F9EEBC191C8F6E7300267666 /* ParseAPICallOnResponseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EEBC181C8F6E7300267666 /* ParseAPICallOnResponseDelegate.swift */; };
@@ -81,7 +80,6 @@
 		5DAF0A651C92501100EAD2CE /* MyApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = MyApiKeys.plist; path = ../MyApiKeys.plist; sourceTree = "<group>"; };
 		9BC67A87472D095AE48877CB /* Pods_StateChamps_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StateChamps_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F934B1691C8F1A5E00F56807 /* YouTubeAPIOnResponseDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeAPIOnResponseDelegate.swift; sourceTree = "<group>"; };
-		F96854A21C8F229A003A2B8D /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		F9EEBC001C8F58F300267666 /* ParseAPICall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseAPICall.swift; sourceTree = "<group>"; };
 		F9EEBC021C8F592000267666 /* SCArticle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCArticle.swift; sourceTree = "<group>"; };
 		F9EEBC041C8F6A2300267666 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -198,7 +196,6 @@
 				5D7B01D31C8CA4D400397652 /* ApiKeys.swift */,
 				5DAF09F81C8E4C4700EAD2CE /* CustomCells.swift */,
 				5D7B01CD1C8A53B000397652 /* ColorWheel.swift */,
-				F96854A21C8F229A003A2B8D /* Alerts.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -433,7 +430,6 @@
 				F9EEBC191C8F6E7300267666 /* ParseAPICallOnResponseDelegate.swift in Sources */,
 				5D7B01CE1C8A53B000397652 /* ColorWheel.swift in Sources */,
 				5D7B01DA1C8D105F00397652 /* YouTubeAPICall.swift in Sources */,
-				F96854A31C8F229A003A2B8D /* Alerts.swift in Sources */,
 				5DAF09F91C8E4C4700EAD2CE /* CustomCells.swift in Sources */,
 				5DAF09F31C8E401E00EAD2CE /* ArticlesViewController.swift in Sources */,
 				5D7B01D41C8CA4D400397652 /* ApiKeys.swift in Sources */,

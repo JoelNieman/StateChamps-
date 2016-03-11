@@ -130,86 +130,6 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if segmentedControl.selectedSegmentIndex == 0 {
-        selectedArticle = retrievedArticles[indexPath.row]
-        pictureView.image = selectedArticle!.thumbnailImage
-        }
-    }
-    
-    
-    
-    //  Pull To Refresh----------------------------------------------------------------
-    
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
-        
-        return refreshControl
-    }()
-    
-    
-    func handleRefresh(refreshControl: UIRefreshControl) {
-        // Do some reloading of data and update the table view's data source
-        // Fetch more objects from a web service, for example...
-        
-//        let refreshApiCall = YouTubeAPICall(handler: self)
-//        refreshApiCall.fetchAllVideos()
-        
-        let refreshParseApiCall = ParseAPICall(handler: self)
-        refreshParseApiCall.queryParseForArticles()
-        
-        self.articlesTableView.reloadData()
-        refreshControl.endRefreshing()
-    }
-    
-    //  Segmented Control--------------------------------------------------------------
-    
-    @IBAction func segmentedControlPressed(sender: AnyObject) {
-        
-        if segmentedControl.selectedSegmentIndex == 0 {
-            articlesTableView.estimatedRowHeight = 80
-            articlesTableView.rowHeight = 80
-            articlesTableView.allowsSelection = true
-            articlesTableView.reloadData()
-            scrollToTop()
-            
-
-        } else {
-            
-            articlesTableView.estimatedRowHeight = 1000
-            articlesTableView.rowHeight = UITableViewAutomaticDimension
-            
-            articlesTableView.allowsSelection = false
-            articlesTableView.reloadData()
-            scrollToTop()
-            
-        }
-    }
-
-
-//    func scrollToSelectedRow() {
-//        let selectedRows: [NSIndexPath]?
-//        selectedRows = self.articlesTableView.indexPathsForSelectedRows
-//        if let selectedRow = (selectedRows![0]) as? NSIndexPath {
-//            self.articlesTableView.scrollToRowAtIndexPath(selectedRow, atScrollPosition: .Middle, animated: true)
-//        } else {
-//            scrollToTop()
-//        }
-//
-//    }
-    
-    func scrollToTop() {
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.articlesTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
-    }
-    
-    
-    
-    
-    
-    
     //  Facebook and Twitter Sharing----------------------------------------------------
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction] {
@@ -262,8 +182,8 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
                     
                     let articleDetails = self.retrievedArticles[indexPath.row]
                     
-                    facebookComposer.setInitialText("Read this article and more on the new State Champs! iPhone app!")
-                    facebookComposer.addImage(articleDetails.thumbnailImage)
+//                    facebookComposer.setInitialText("Read this article and more on the new State Champs! iPhone app!")
+//                    facebookComposer.addImage(articleDetails.thumbnailImage)
                     facebookComposer.addURL(articleDetails.articleURL)
                     self.presentViewController(facebookComposer, animated: true, completion: nil)
                     
@@ -280,7 +200,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
             )
             
             return [shareAction]
-    
+            
         } else {
             let noAction = UITableViewRowAction()
             return [noAction]
@@ -289,99 +209,67 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+        selectedArticle = retrievedArticles[indexPath.row]
+        pictureView.image = selectedArticle!.thumbnailImage
+        }
+    }
     
     
     
+    //  Pull To Refresh----------------------------------------------------------------
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+        
+        return refreshControl
+    }()
     
     
-    //  Facebook and Twitter Sharing----------------------------------------------------
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        // Do some reloading of data and update the table view's data source
+        // Fetch more objects from a web service, for example...
+        
+        
+        let refreshParseApiCall = ParseAPICall(handler: self)
+        refreshParseApiCall.queryParseForArticles()
+        
+        self.articlesTableView.reloadData()
+        refreshControl.endRefreshing()
+    }
     
+    //  Segmented Control--------------------------------------------------------------
+    
+    @IBAction func segmentedControlPressed(sender: AnyObject) {
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            articlesTableView.estimatedRowHeight = 80
+            articlesTableView.rowHeight = 80
+            articlesTableView.allowsSelection = true
+            articlesTableView.reloadData()
+            scrollToTop()
+            
+
+        } else {
+            
+            articlesTableView.estimatedRowHeight = 1000
+            articlesTableView.rowHeight = UITableViewAutomaticDimension
+            
+            articlesTableView.allowsSelection = false
+            articlesTableView.reloadData()
+            scrollToTop()
+            
+        }
+    }
+
+    
+    func scrollToTop() {
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        self.articlesTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
+    }
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction] {
-//    if segmentedControl.selectedSegmentIndex == 0 {
-//        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share", handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
-//            
-//            let shareMenu = UIAlertController(title: nil, message: "Share using", preferredStyle: .ActionSheet)
-//            
-//            let twitterAction = UIAlertAction(title: "Twitter", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-//                
-//                //  Check if Twitter is available, otherwise display an error message
-//                
-//                guard
-//                    SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) else {
-//                        let alertMessage = UIAlertController(title: "Twitter Unavailable", message: "You haven't registered your Twitter account. Please go to Settings > Twitter to create one.", preferredStyle: .Alert)
-//                        alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-//                        self.presentViewController(alertMessage, animated: true, completion: nil)
-//                        
-//                        return
-//                }
-//                
-//                // Display Tweet Composer
-//                let tweetComposer = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-//                
-//                let articleDetails = self.retrievedArticles[indexPath.row]
-//                tweetComposer.setInitialText("Read this article and more on the new State Champs! iPhone app!")
-//                tweetComposer.addImage(articleDetails.thumbnailImage)
-//                tweetComposer.addURL(articleDetails.articleURL)
-//                self.presentViewController(tweetComposer, animated: true, completion: nil)
-
-//            })
-//            
-//            
-//            let facebookAction = UIAlertAction(title: "Facebook", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-//                
-//                //  Check if Facebook is available, otherwise display an error message
-//                guard
-//                    SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) else {
-//                        let alertMessage = UIAlertController(title: "Facebook Unavailable", message: "You haven't registered your Facebook account. Please go to Settings > Facebook to create one.", preferredStyle: .Alert)
-//                        alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-//                        self.presentViewController(alertMessage, animated: true, completion: nil)
-//                        
-//                        return
-//                }
-//                
-//                
-//                
-//                //  Display Facebook Composer
-//                let facebookComposer = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-//                
-//                let articleDetails = self.retrievedArticles[indexPath.row]
-//                
-//                facebookComposer.setInitialText("Read this article and more on the new State Champs! iPhone app!")
-//                facebookComposer.addImage(articleDetails.thumbnailImage)
-//                facebookComposer.addURL(articleDetails.articleURL)
-//                self.presentViewController(facebookComposer, animated: true, completion: nil)
-//
-//            })
-//            
-//            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
-//            
-//            shareMenu.addAction(facebookAction)
-//            shareMenu.addAction(twitterAction)
-//            shareMenu.addAction(cancelAction)
-//            
-//            self.presentViewController(shareMenu, animated: true, completion: nil)
-//            }
-//        )
-//        return [shareAction]
-//        
-//    }
-//}
