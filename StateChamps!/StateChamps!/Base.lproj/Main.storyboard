@@ -11,7 +11,7 @@
         <!--Home-->
         <scene sceneID="bi3-U1-JKJ">
             <objects>
-                <viewController id="MUH-zv-7X0" customClass="HomeViewController" customModule="StateChamps_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MUH-zv-7X0" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H43-Un-Cym"/>
                         <viewControllerLayoutGuide type="bottom" id="sAj-4a-5Pf"/>
@@ -367,14 +367,41 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="MUH-zv-7X0" kind="relationship" relationship="viewControllers" id="6BB-yK-ffD"/>
                         <segue destination="8Mh-dW-YYe" kind="relationship" relationship="viewControllers" id="QQj-MI-vAD"/>
                         <segue destination="VN0-nx-X6y" kind="relationship" relationship="viewControllers" id="jQb-Vr-3CS"/>
+                        <segue destination="yaN-LC-FTX" kind="relationship" relationship="viewControllers" id="etj-wV-tIK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KQS-1n-vq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-78" y="313"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="NEY-D2-VkL">
+            <objects>
+                <tableViewController title="News" id="yaN-LC-FTX" customClass="NewsViewController" customModule="StateChamps_" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qhf-e3-uSa">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9BM-Pm-y41">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9BM-Pm-y41" id="jUq-8M-hf5">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yaN-LC-FTX" id="m0h-Vs-r5X"/>
+                            <outlet property="delegate" destination="yaN-LC-FTX" id="Nno-l8-mx7"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="i16-sc-c09" userLabel="News"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jji-Z5-bi5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="696" y="690"/>
         </scene>
         <!--Articles-->
         <scene sceneID="8qI-u9-wmh">

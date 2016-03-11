@@ -20,7 +20,7 @@
 		5D7B01DA1C8D105F00397652 /* YouTubeAPICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B01D91C8D105F00397652 /* YouTubeAPICall.swift */; };
 		5DAF09F31C8E401E00EAD2CE /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF09F21C8E401E00EAD2CE /* ArticlesViewController.swift */; };
 		5DAF09F91C8E4C4700EAD2CE /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF09F81C8E4C4700EAD2CE /* CustomCells.swift */; };
-		5DAF0A351C90954500EAD2CE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF0A341C90954500EAD2CE /* HomeViewController.swift */; };
+		5DAF0A351C90954500EAD2CE /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF0A341C90954500EAD2CE /* NewsViewController.swift */; };
 		5DAF0A5D1C9249D600EAD2CE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC161C8F6A7700267666 /* libsqlite3.tbd */; };
 		5DAF0A5E1C9249E100EAD2CE /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC141C8F6A6D00267666 /* libz.tbd */; };
 		5DAF0A5F1C9249E900EAD2CE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC121C8F6A5700267666 /* SystemConfiguration.framework */; };
@@ -30,6 +30,7 @@
 		5DAF0A631C924AD200EAD2CE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC081C8F6A3400267666 /* CoreGraphics.framework */; };
 		5DAF0A641C924ADB00EAD2CE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC061C8F6A2B00267666 /* CFNetwork.framework */; };
 		5DAF0A661C92501100EAD2CE /* MyApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DAF0A651C92501100EAD2CE /* MyApiKeys.plist */; };
+		5DAF0A691C92844700EAD2CE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DAF0A681C92844700EAD2CE /* libc++.tbd */; };
 		ECD14C3CD28A5A1809BEE78F /* Pods_StateChamps_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BC67A87472D095AE48877CB /* Pods_StateChamps_.framework */; };
 		F934B16A1C8F1A5E00F56807 /* YouTubeAPIOnResponseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F934B1691C8F1A5E00F56807 /* YouTubeAPIOnResponseDelegate.swift */; };
 		F9EEBC011C8F58F300267666 /* ParseAPICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EEBC001C8F58F300267666 /* ParseAPICall.swift */; };
@@ -76,8 +77,10 @@
 		5D7B01D91C8D105F00397652 /* YouTubeAPICall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeAPICall.swift; sourceTree = "<group>"; };
 		5DAF09F21C8E401E00EAD2CE /* ArticlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 		5DAF09F81C8E4C4700EAD2CE /* CustomCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCells.swift; sourceTree = "<group>"; };
-		5DAF0A341C90954500EAD2CE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5DAF0A341C90954500EAD2CE /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		5DAF0A651C92501100EAD2CE /* MyApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = MyApiKeys.plist; path = ../MyApiKeys.plist; sourceTree = "<group>"; };
+		5DAF0A681C92844700EAD2CE /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		5DAF0A6A1C9286EC00EAD2CE /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		9BC67A87472D095AE48877CB /* Pods_StateChamps_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StateChamps_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F934B1691C8F1A5E00F56807 /* YouTubeAPIOnResponseDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeAPIOnResponseDelegate.swift; sourceTree = "<group>"; };
 		F9EEBC001C8F58F300267666 /* ParseAPICall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseAPICall.swift; sourceTree = "<group>"; };
@@ -100,13 +103,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DAF0A691C92844700EAD2CE /* libc++.tbd in Frameworks */,
+				5DAF0A5E1C9249E100EAD2CE /* libz.tbd in Frameworks */,
 				5DAF0A641C924ADB00EAD2CE /* CFNetwork.framework in Frameworks */,
 				5DAF0A631C924AD200EAD2CE /* CoreGraphics.framework in Frameworks */,
 				5DAF0A621C924ACA00EAD2CE /* CoreLocation.framework in Frameworks */,
 				5DAF0A611C924AC000EAD2CE /* QuartzCore.framework in Frameworks */,
 				5DAF0A601C924AB700EAD2CE /* Security.framework in Frameworks */,
 				5DAF0A5F1C9249E900EAD2CE /* SystemConfiguration.framework in Frameworks */,
-				5DAF0A5E1C9249E100EAD2CE /* libz.tbd in Frameworks */,
 				5DAF0A5D1C9249D600EAD2CE /* libsqlite3.tbd in Frameworks */,
 				ECD14C3CD28A5A1809BEE78F /* Pods_StateChamps_.framework in Frameworks */,
 			);
@@ -203,7 +207,7 @@
 		5D7B01CA1C8A489100397652 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5DAF0A341C90954500EAD2CE /* HomeViewController.swift */,
+				5DAF0A341C90954500EAD2CE /* NewsViewController.swift */,
 				5D7B01CB1C8A4DEA00397652 /* VideosViewController.swift */,
 				5DAF09F21C8E401E00EAD2CE /* ArticlesViewController.swift */,
 			);
@@ -222,6 +226,8 @@
 		832E7BABD33B7EDE03B762D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5DAF0A6A1C9286EC00EAD2CE /* Twitter.framework */,
+				5DAF0A681C92844700EAD2CE /* libc++.tbd */,
 				F9EEBC161C8F6A7700267666 /* libsqlite3.tbd */,
 				F9EEBC141C8F6A6D00267666 /* libz.tbd */,
 				F9EEBC121C8F6A5700267666 /* SystemConfiguration.framework */,
@@ -250,6 +256,7 @@
 				5D7B01961C8A481000397652 /* Resources */,
 				C792F018853EEAD707E25CA7 /* Embed Pods Frameworks */,
 				FB79CAF10B4FF9B80FC0B668 /* Copy Pods Resources */,
+				5DAF0A671C92829500EAD2CE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -369,6 +376,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5DAF0A671C92829500EAD2CE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" da6f61e40fbee3c5cea02568df77a603d438b06f a6011c3750f08daa6680455e3e3be8fa6a7d179a20a95d55877e9cf52c5f9f8b";
+		};
 		C792F018853EEAD707E25CA7 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -426,7 +446,7 @@
 				F934B16A1C8F1A5E00F56807 /* YouTubeAPIOnResponseDelegate.swift in Sources */,
 				5D7B01CC1C8A4DEA00397652 /* VideosViewController.swift in Sources */,
 				5D7B01D61C8CA6AB00397652 /* SCVideo.swift in Sources */,
-				5DAF0A351C90954500EAD2CE /* HomeViewController.swift in Sources */,
+				5DAF0A351C90954500EAD2CE /* NewsViewController.swift in Sources */,
 				F9EEBC191C8F6E7300267666 /* ParseAPICallOnResponseDelegate.swift in Sources */,
 				5D7B01CE1C8A53B000397652 /* ColorWheel.swift in Sources */,
 				5D7B01DA1C8D105F00397652 /* YouTubeAPICall.swift in Sources */,
@@ -510,6 +530,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -554,6 +575,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -575,7 +597,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				INFOPLIST_FILE = "StateChamps!/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -590,7 +613,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited)";
 				INFOPLIST_FILE = "StateChamps!/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
