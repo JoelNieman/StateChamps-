@@ -49,12 +49,6 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         if let currentVideo = selectedSCVideo {
             playerView.loadVideoID(currentVideo.videoID)
         }
-        
-//        else {
-//            if selectedSCVideo != nil {
-//                playerView.loadVideoID(selectedSCVideo!.videoID)
-//            }
-//        }
     }
     
     

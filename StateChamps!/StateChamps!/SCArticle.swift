@@ -16,6 +16,7 @@ class SCArticle {
     var publishedDate = ""
     var body = ""
     var sport = ""
+    var articleURL: NSURL?
     var thumbnailImage: UIImage?
     var pictureImage: UIImage?
 }

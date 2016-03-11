@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class ArticlesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ParseAPIOnResponseDelegate {
 
@@ -205,4 +206,182 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     
+    
+    
+    
+    
+    //  Facebook and Twitter Sharing----------------------------------------------------
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction] {
+        if segmentedControl.selectedSegmentIndex == 0 {
+            let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share", handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
+                
+                let shareMenu = UIAlertController(title: nil, message: "Share using", preferredStyle: .ActionSheet)
+                
+                let twitterAction = UIAlertAction(title: "Twitter", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                    
+                    //  Check if Twitter is available, otherwise display an error message
+                    
+                    guard
+                        SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) else {
+                            let alertMessage = UIAlertController(title: "Twitter Unavailable", message: "You haven't registered your Twitter account. Please go to Settings > Twitter to create one.", preferredStyle: .Alert)
+                            alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                            self.presentViewController(alertMessage, animated: true, completion: nil)
+                            
+                            return
+                    }
+                    
+                    // Display Tweet Composer
+                    let tweetComposer = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                    
+                    let articleDetails = self.retrievedArticles[indexPath.row]
+                    tweetComposer.setInitialText("Read this article and more on the new State Champs! iPhone app!")
+                    tweetComposer.addImage(articleDetails.thumbnailImage)
+                    tweetComposer.addURL(articleDetails.articleURL)
+                    self.presentViewController(tweetComposer, animated: true, completion: nil)
+                    
+                })
+                
+                
+                let facebookAction = UIAlertAction(title: "Facebook", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+                    
+                    //  Check if Facebook is available, otherwise display an error message
+                    guard
+                        SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) else {
+                            let alertMessage = UIAlertController(title: "Facebook Unavailable", message: "You haven't registered your Facebook account. Please go to Settings > Facebook to create one.", preferredStyle: .Alert)
+                            alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                            self.presentViewController(alertMessage, animated: true, completion: nil)
+                            
+                            return
+                    }
+                    
+                    
+                    
+                    //  Display Facebook Composer
+                    let facebookComposer = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+                    
+                    let articleDetails = self.retrievedArticles[indexPath.row]
+                    
+                    facebookComposer.setInitialText("Read this article and more on the new State Champs! iPhone app!")
+                    facebookComposer.addImage(articleDetails.thumbnailImage)
+                    facebookComposer.addURL(articleDetails.articleURL)
+                    self.presentViewController(facebookComposer, animated: true, completion: nil)
+                    
+                })
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+                
+                shareMenu.addAction(facebookAction)
+                shareMenu.addAction(twitterAction)
+                shareMenu.addAction(cancelAction)
+                
+                self.presentViewController(shareMenu, animated: true, completion: nil)
+                }
+            )
+            
+            return [shareAction]
+    
+        } else {
+            let noAction = UITableViewRowAction()
+            return [noAction]
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    //  Facebook and Twitter Sharing----------------------------------------------------
+    
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction] {
+//    if segmentedControl.selectedSegmentIndex == 0 {
+//        let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share", handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
+//            
+//            let shareMenu = UIAlertController(title: nil, message: "Share using", preferredStyle: .ActionSheet)
+//            
+//            let twitterAction = UIAlertAction(title: "Twitter", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+//                
+//                //  Check if Twitter is available, otherwise display an error message
+//                
+//                guard
+//                    SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) else {
+//                        let alertMessage = UIAlertController(title: "Twitter Unavailable", message: "You haven't registered your Twitter account. Please go to Settings > Twitter to create one.", preferredStyle: .Alert)
+//                        alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//                        self.presentViewController(alertMessage, animated: true, completion: nil)
+//                        
+//                        return
+//                }
+//                
+//                // Display Tweet Composer
+//                let tweetComposer = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+//                
+//                let articleDetails = self.retrievedArticles[indexPath.row]
+//                tweetComposer.setInitialText("Read this article and more on the new State Champs! iPhone app!")
+//                tweetComposer.addImage(articleDetails.thumbnailImage)
+//                tweetComposer.addURL(articleDetails.articleURL)
+//                self.presentViewController(tweetComposer, animated: true, completion: nil)
+
+//            })
+//            
+//            
+//            let facebookAction = UIAlertAction(title: "Facebook", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+//                
+//                //  Check if Facebook is available, otherwise display an error message
+//                guard
+//                    SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) else {
+//                        let alertMessage = UIAlertController(title: "Facebook Unavailable", message: "You haven't registered your Facebook account. Please go to Settings > Facebook to create one.", preferredStyle: .Alert)
+//                        alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//                        self.presentViewController(alertMessage, animated: true, completion: nil)
+//                        
+//                        return
+//                }
+//                
+//                
+//                
+//                //  Display Facebook Composer
+//                let facebookComposer = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+//                
+//                let articleDetails = self.retrievedArticles[indexPath.row]
+//                
+//                facebookComposer.setInitialText("Read this article and more on the new State Champs! iPhone app!")
+//                facebookComposer.addImage(articleDetails.thumbnailImage)
+//                facebookComposer.addURL(articleDetails.articleURL)
+//                self.presentViewController(facebookComposer, animated: true, completion: nil)
+//
+//            })
+//            
+//            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+//            
+//            shareMenu.addAction(facebookAction)
+//            shareMenu.addAction(twitterAction)
+//            shareMenu.addAction(cancelAction)
+//            
+//            self.presentViewController(shareMenu, animated: true, completion: nil)
+//            }
+//        )
+//        return [shareAction]
+//        
+//    }
+//}

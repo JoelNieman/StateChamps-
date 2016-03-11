@@ -44,7 +44,10 @@ class ParseAPICall {
                         article.sport = object.valueForKey("sport") as! String
 
                         
-//                        let thumbnailString = thumbnailString1
+                        let articleURLString = object.valueForKey("articleURL") as! String
+                        article.articleURL = NSURL(string: articleURLString)
+                        
+
                         let thumbnailString = object.valueForKey("thumbnailString") as! String
                         let thumbnailImageData = NSData(contentsOfURL: NSURL(string: thumbnailString)!)
                         
