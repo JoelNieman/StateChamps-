@@ -13,17 +13,27 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
 
     @IBOutlet weak var header: UIView!
     @IBOutlet weak var articlesTableView: UITableView!
-    @IBOutlet weak var pictureView: UIImageView!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+
+    @IBOutlet weak var spacerView: UIView!
+    
+    @IBOutlet weak var readMoreButton: UIButton!
+    @IBOutlet weak var articlePreviewTitle: UILabel!
+    @IBOutlet weak var articlePreviewBody: UILabel!
+
+//    @IBOutlet weak var articlePreviewTitle: UILabel!
+//    @IBOutlet weak var articlePreviewBody: UILabel!
+
     
     
     var retrievedArticles = [SCArticle]()
     var initialArticle = SCArticle()
     var selectedArticle: SCArticle?
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        formatViewController()
         formatArticlesViewController()
         
         let parseAPICall = ParseAPICall(handler: self)
@@ -35,7 +45,9 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     override func viewWillAppear(animated: Bool) {
+
         
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,14 +58,8 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func formatArticlesViewController() {
         formatViewController()
-        
-        segmentedControl.backgroundColor = sCGreyColor
-        segmentedControl.tintColor = sCRedColor
-        
-
-        
-        UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Normal)
-        UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Selected)
+        spacerView.backgroundColor = sCRedColor
+        readMoreButton.backgroundColor = sCGreyColor
         
         articlesTableView.rowHeight = 80
     }
@@ -72,7 +78,9 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
 
         if selectedArticle == nil {
             initialArticle = retrievedArticles[0]
-            pictureView.image = initialArticle.thumbnailImage
+            
+                articlePreviewTitle.text = initialArticle.title
+                articlePreviewBody.text = initialArticle.body
 
         }
     }
@@ -85,17 +93,12 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if segmentedControl.selectedSegmentIndex == 0 {
             return retrievedArticles.count
-        } else {
-            return 1
-        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if segmentedControl.selectedSegmentIndex == 0 {
+
             let cell = tableView.dequeueReusableCellWithIdentifier("SCArticleCell") as! CustomCell!
             
             let articleDetails = retrievedArticles[indexPath.row]
@@ -104,37 +107,13 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.dateOutlet.text = articleDetails.publishedDate as String
             return cell
             
-        } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("FullSCArticleCell") as! CustomCell!
-            
-            
-            if let article = selectedArticle {
-                
-                cell.fullArticleTitleOutelt.text = article.title
-                cell.fullArticleAuthorOutlet.text = article.author
-                cell.fullArticleDateOutlet.text = article.publishedDate
-                cell.fullArticleBodyOutlet.text = article.body
-                
-                return cell
-                
-            } else {
-                let article = initialArticle
-                
-                cell.fullArticleTitleOutelt.text = article.title
-                cell.fullArticleAuthorOutlet.text = article.author
-                cell.fullArticleDateOutlet.text = article.publishedDate
-                cell.fullArticleBodyOutlet.text = article.body
-                return cell
-            }
-        }
-    }
+          }
     
     
     //  Facebook and Twitter Sharing----------------------------------------------------
     
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction] {
-        if segmentedControl.selectedSegmentIndex == 0 {
             
             let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Share", handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
                 
@@ -202,21 +181,18 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
             )
             
             return [shareAction]
-            
-        } else {
-            let noAction = UITableViewRowAction()
-            return [noAction]
-        }
-        
     }
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if segmentedControl.selectedSegmentIndex == 0 {
         selectedArticle = retrievedArticles[indexPath.row]
-        pictureView.image = selectedArticle!.thumbnailImage
-        }
+        articlePreviewTitle.text = selectedArticle?.title
+        articlePreviewBody.text = selectedArticle?.body
+            
+//            articlePreviewTitle.hidden = false
+//            articlePreviewBody.hidden = false
+        
     }
     
     
@@ -243,35 +219,29 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         refreshControl.endRefreshing()
     }
     
-    //  Segmented Control--------------------------------------------------------------
-    
-    @IBAction func segmentedControlPressed(sender: AnyObject) {
-        
-        if segmentedControl.selectedSegmentIndex == 0 {
-            articlesTableView.estimatedRowHeight = 80
-            articlesTableView.rowHeight = 80
-            articlesTableView.allowsSelection = true
-            articlesTableView.reloadData()
-            scrollToTop()
-            
-
-        } else {
-            
-            articlesTableView.estimatedRowHeight = 1000
-            articlesTableView.rowHeight = UITableViewAutomaticDimension
-            
-            articlesTableView.allowsSelection = false
-            articlesTableView.reloadData()
-            scrollToTop()
-            
-        }
-    }
-
     
     func scrollToTop() {
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         self.articlesTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
     }
 
+    @IBAction func unwindToVC(segue: UIStoryboardSegue) {
+    }
+    
+    @IBAction func readMoreButtonPressed(sender: AnyObject) {
+        performSegueWithIdentifier("segueToFullArticle", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueToFullArticle" {
+            var destinationVC = segue.destinationViewController as! FullArticleViewController
+            
+            if let articleToPass = selectedArticle {
+                destinationVC.fullSCArticle = selectedArticle!
+            } else {
+                destinationVC.fullSCArticle = retrievedArticles[0]
+            }
+        }
+    }
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D365C921C9345B3000B7CBB /* FullArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D365C911C9345B3000B7CBB /* FullArticleViewController.swift */; };
 		5D7B019C1C8A481000397652 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B019B1C8A481000397652 /* AppDelegate.swift */; };
 		5D7B01A11C8A481000397652 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D7B019F1C8A481000397652 /* Main.storyboard */; };
 		5D7B01A31C8A481000397652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D7B01A21C8A481000397652 /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 /* Begin PBXFileReference section */
 		13AE7B9394F63D8DF6C8226A /* Pods-StateChamps!.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StateChamps!.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StateChamps!/Pods-StateChamps!.debug.xcconfig"; sourceTree = "<group>"; };
 		1A9138E6D33470A6D877A42E /* Pods-StateChamps!.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StateChamps!.release.xcconfig"; path = "Pods/Target Support Files/Pods-StateChamps!/Pods-StateChamps!.release.xcconfig"; sourceTree = "<group>"; };
+		5D365C911C9345B3000B7CBB /* FullArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullArticleViewController.swift; sourceTree = "<group>"; };
 		5D7B01981C8A481000397652 /* StateChamps!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "StateChamps!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D7B019B1C8A481000397652 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D7B01A01C8A481000397652 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -207,9 +209,10 @@
 		5D7B01CA1C8A489100397652 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5DAF0A341C90954500EAD2CE /* NewsViewController.swift */,
 				5D7B01CB1C8A4DEA00397652 /* VideosViewController.swift */,
 				5DAF09F21C8E401E00EAD2CE /* ArticlesViewController.swift */,
+				5D365C911C9345B3000B7CBB /* FullArticleViewController.swift */,
+				5DAF0A341C90954500EAD2CE /* NewsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				5D7B01CC1C8A4DEA00397652 /* VideosViewController.swift in Sources */,
 				5D7B01D61C8CA6AB00397652 /* SCVideo.swift in Sources */,
 				5DAF0A351C90954500EAD2CE /* NewsViewController.swift in Sources */,
+				5D365C921C9345B3000B7CBB /* FullArticleViewController.swift in Sources */,
 				F9EEBC191C8F6E7300267666 /* ParseAPICallOnResponseDelegate.swift in Sources */,
 				5D7B01CE1C8A53B000397652 /* ColorWheel.swift in Sources */,
 				5D7B01DA1C8D105F00397652 /* YouTubeAPICall.swift in Sources */,

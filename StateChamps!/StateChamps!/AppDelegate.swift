@@ -25,10 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        
         Parse.setApplicationId("ix5mJYC2mshbbsOl7B0ykb3bNAvuku98jAsDfSRp",
             clientKey: "SaLzyUYqPMJlK3bzrS5evi474f12kbrDsiX6i2ZB")
         
         Fabric.with([Twitter.self])
+        
+
         
         return true
     }

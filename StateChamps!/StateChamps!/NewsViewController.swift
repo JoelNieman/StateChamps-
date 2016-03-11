@@ -14,9 +14,15 @@ class NewsViewController: TWTRTimelineViewController {
 
     var logInButton = TWTRLogInButton()
     
+    let titleFontColorDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor(),NSFontAttributeName: UIFont.boldSystemFontOfSize(20)]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        formatViewController()
+        formatNavBar()
         authenticateUser()
+        
         
         
     }
@@ -31,7 +37,7 @@ class NewsViewController: TWTRTimelineViewController {
         let client = TWTRAPIClient()
         self.dataSource = TWTRUserTimelineDataSource(screenName: "statechampsnet", APIClient: client)
         
-        tableView.contentInset = UIEdgeInsetsMake(70.0, 0.0, 0.0, 0.0)
+//        tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
         removeFuckingButton()
     }
     
@@ -70,5 +76,14 @@ class NewsViewController: TWTRTimelineViewController {
     
     func removeFuckingButton() {
         self.logInButton.removeFromSuperview()
+    }
+    
+    func formatNavBar() {
+        
+        self.navigationController!.navigationBar.titleTextAttributes = titleFontColorDict as! [String : AnyObject]
+        
+        self.navigationController!.navigationBar.backgroundColor = sCRedColor
+        self.navigationController!.navigationBar.barTintColor = sCRedColor
+        self.navigationController?.navigationBar.translucent = false
     }
 }
