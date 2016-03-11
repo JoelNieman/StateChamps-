@@ -68,8 +68,6 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         
         showVideosTableView.rowHeight = 80
         
-        
-        
     }
     
     
@@ -91,7 +89,10 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
             "showinfo": "0"
         ]
         
+        playerView.hidden = false
         playerView.loadVideoID(selectedSCVideo!.videoID)
+        
+
     }
     
     
@@ -158,7 +159,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     
         func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction] {
             if segmentedControl.selectedSegmentIndex == 0 {
-            let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share", handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
+            let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Share", handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
                 
                 let shareMenu = UIAlertController(title: nil, message: "Share using", preferredStyle: .ActionSheet)
                 
@@ -225,7 +226,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
             
             return [shareAction]
             } else {
-                let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share", handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
+                let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Share", handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
                     
                     let shareMenu = UIAlertController(title: nil, message: "Share using", preferredStyle: .ActionSheet)
                     

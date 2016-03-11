@@ -132,9 +132,11 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     //  Facebook and Twitter Sharing----------------------------------------------------
     
+    
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction] {
         if segmentedControl.selectedSegmentIndex == 0 {
-            let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share", handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
+            
+            let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Share", handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
                 
                 let shareMenu = UIAlertController(title: nil, message: "Share using", preferredStyle: .ActionSheet)
                 

@@ -39,7 +39,7 @@
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SC Logo 375pxl" translatesAutoresizingMaskIntoConstraints="NO" id="z3x-xr-I8j">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="z3x-xr-I8j" secondAttribute="height" multiplier="16:9" id="fvb-t6-G7r"/>
                                 </constraints>
@@ -135,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8wW-UK-hqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="741" y="-688.5"/>
+            <point key="canvasLocation" x="786" y="-181.5"/>
         </scene>
         <!--Videos-->
         <scene sceneID="ZNZ-gZ-onu">
@@ -164,13 +164,6 @@
                                     <constraint firstAttribute="height" constant="70" id="Asw-FT-U83"/>
                                     <constraint firstItem="O2q-te-0Ke" firstAttribute="centerX" secondItem="hSV-e7-YsI" secondAttribute="centerX" id="jGs-9M-arz"/>
                                     <constraint firstAttribute="bottom" secondItem="O2q-te-0Ke" secondAttribute="bottom" constant="10" id="q2B-Rb-lLE"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGg-Zv-90V" userLabel="Player View" customClass="YouTubePlayerView" customModule="YouTubePlayer">
-                                <rect key="frame" x="0.0" y="78" width="600" height="338"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="BGg-Zv-90V" secondAttribute="height" multiplier="16:9" id="VWq-sp-Gjt"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OCe-UX-D3u">
@@ -275,7 +268,6 @@
                                     <segment title="Shows"/>
                                     <segment title="Highlights"/>
                                 </segments>
-                                <color key="tintColor" red="0.83529411764705885" green="0.10980392156862745" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="NyM-qF-10k"/>
@@ -290,8 +282,15 @@
                                     <action selector="segmentedControlPressed:" destination="8Mh-dW-YYe" eventType="valueChanged" id="Kbf-Tc-gFk"/>
                                 </connections>
                             </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGg-Zv-90V" userLabel="Player View" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                                <rect key="frame" x="0.0" y="78" width="600" height="338"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BGg-Zv-90V" secondAttribute="height" multiplier="16:9" id="VWq-sp-Gjt"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="iw2-Qr-KG1" firstAttribute="top" secondItem="BGg-Zv-90V" secondAttribute="bottom" constant="48" id="2pF-OB-eN3">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
@@ -356,7 +355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2fH-NY-ffj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="741" y="-18.75"/>
+            <point key="canvasLocation" x="1512" y="66.75"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="RQU-zC-Yku">
@@ -784,7 +783,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gfz-GT-vNX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="741" y="624"/>
+            <point key="canvasLocation" x="2214" y="312.75"/>
         </scene>
     </scenes>
     <resources>

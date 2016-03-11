@@ -82,7 +82,7 @@ public class YouTubePlayerView: UIView, UIWebViewDelegate {
     private(set) public var playerState = YouTubePlayerState.Unstarted
 
     /** The current playback quality of the video player */
-    private(set) public var playbackQuality = YouTubePlaybackQuality.HD720
+    private(set) public var playbackQuality = YouTubePlaybackQuality.HighResolution
 
     /** Used to configure the player */
     public var playerVars = YouTubePlayerParameters()
