@@ -243,8 +243,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="8Mh-dW-YYe" kind="relationship" relationship="viewControllers" id="QQj-MI-vAD"/>
                         <segue destination="VN0-nx-X6y" kind="relationship" relationship="viewControllers" id="4Y1-Lu-qWe"/>
+                        <segue destination="8Mh-dW-YYe" kind="relationship" relationship="viewControllers" id="QQj-MI-vAD"/>
                         <segue destination="cWt-8J-hvO" kind="relationship" relationship="viewControllers" id="XaW-K1-j5w"/>
                     </connections>
                 </tabBarController>
@@ -325,9 +325,13 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SC Logo 375pxl" translatesAutoresizingMaskIntoConstraints="NO" id="Xmz-0K-ofN">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Xmz-0K-ofN" firstAttribute="top" secondItem="WF1-en-oBw" secondAttribute="top" id="3bP-eH-MTB"/>
                                     <constraint firstItem="3Oc-MK-IRZ" firstAttribute="top" secondItem="amC-3b-gCb" secondAttribute="bottom" constant="8" id="6pm-aD-54u"/>
                                     <constraint firstItem="3Oc-MK-IRZ" firstAttribute="leading" secondItem="WF1-en-oBw" secondAttribute="leading" constant="8" id="Hz6-cj-htK"/>
                                     <constraint firstItem="amC-3b-gCb" firstAttribute="leading" secondItem="WF1-en-oBw" secondAttribute="leading" constant="8" id="KTr-zv-bfK"/>
@@ -335,15 +339,23 @@
                                     <constraint firstItem="amC-3b-gCb" firstAttribute="top" secondItem="WF1-en-oBw" secondAttribute="top" constant="8" id="bCB-lw-lL2"/>
                                     <constraint firstAttribute="width" secondItem="WF1-en-oBw" secondAttribute="height" multiplier="16:9" id="bkx-xi-V6K"/>
                                     <constraint firstAttribute="trailing" secondItem="3Oc-MK-IRZ" secondAttribute="trailing" constant="8" id="e2A-gG-h6N"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xmz-0K-ofN" secondAttribute="bottom" id="fEu-mL-duv"/>
                                     <constraint firstAttribute="trailing" secondItem="amC-3b-gCb" secondAttribute="trailing" constant="8" id="j1k-E5-KjA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xmz-0K-ofN" secondAttribute="trailing" id="zJh-Xe-3eG"/>
+                                    <constraint firstItem="Xmz-0K-ofN" firstAttribute="leading" secondItem="WF1-en-oBw" secondAttribute="leading" id="zXs-TV-15i"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="amC-3b-gCb"/>
                                         <exclude reference="3Oc-MK-IRZ"/>
+                                        <exclude reference="Xmz-0K-ofN"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="bkx-xi-V6K"/>
+                                        <exclude reference="3bP-eH-MTB"/>
+                                        <exclude reference="fEu-mL-duv"/>
+                                        <exclude reference="zJh-Xe-3eG"/>
+                                        <exclude reference="zXs-TV-15i"/>
                                         <exclude reference="KTr-zv-bfK"/>
                                         <exclude reference="bCB-lw-lL2"/>
                                         <exclude reference="j1k-E5-KjA"/>
@@ -357,9 +369,14 @@
                                     <mask key="subviews">
                                         <include reference="amC-3b-gCb"/>
                                         <include reference="3Oc-MK-IRZ"/>
+                                        <include reference="Xmz-0K-ofN"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="bkx-xi-V6K"/>
+                                        <include reference="3bP-eH-MTB"/>
+                                        <include reference="fEu-mL-duv"/>
+                                        <include reference="zJh-Xe-3eG"/>
+                                        <include reference="zXs-TV-15i"/>
                                         <include reference="KTr-zv-bfK"/>
                                         <include reference="bCB-lw-lL2"/>
                                         <include reference="j1k-E5-KjA"/>
@@ -798,13 +815,14 @@
                         <outlet property="articlePreviewTitle" destination="amC-3b-gCb" id="Lyl-gh-67k"/>
                         <outlet property="articlesTableView" destination="Fks-aD-kHK" id="NED-K0-zCp"/>
                         <outlet property="header" destination="xuN-p6-bPa" id="iwa-pQ-ysi"/>
+                        <outlet property="imageView" destination="Xmz-0K-ofN" id="Kpq-Tf-TBa"/>
                         <outlet property="readMoreButton" destination="UPJ-QO-bEP" id="bNR-vb-uqx"/>
                         <outlet property="spacerView" destination="IeA-9Y-Yd8" id="FWW-ww-XZB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gfz-GT-vNX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="466.5" y="576.75"/>
+            <point key="canvasLocation" x="466" y="576"/>
         </scene>
         <!--Full Article-->
         <scene sceneID="Haw-oa-E45">
@@ -1101,4 +1119,7 @@
             <point key="canvasLocation" x="450" y="1476.75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SC Logo 375pxl" width="375" height="189"/>
+    </resources>
 </document>

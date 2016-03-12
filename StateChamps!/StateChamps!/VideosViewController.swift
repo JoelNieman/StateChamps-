@@ -308,7 +308,6 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     
     func handleRefresh(refreshControl: UIRefreshControl) {
         // Do some reloading of data and update the table view's data source
-        // Fetch more objects from a web service, for example...
         
         let refreshApiCall = YouTubeAPICall(handler: self)
         refreshApiCall.fetchAllVideos()

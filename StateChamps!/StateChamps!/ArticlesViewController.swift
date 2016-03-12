@@ -19,7 +19,8 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var readMoreButton: UIButton!
     @IBOutlet weak var articlePreviewTitle: UILabel!
     @IBOutlet weak var articlePreviewBody: UILabel!
-
+    @IBOutlet weak var imageView: UIImageView!
+    
 //    @IBOutlet weak var articlePreviewTitle: UILabel!
 //    @IBOutlet weak var articlePreviewBody: UILabel!
 
@@ -35,6 +36,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         
         formatViewController()
         formatArticlesViewController()
+        readMoreButton.removeFromSuperview()
         
         let parseAPICall = ParseAPICall(handler: self)
         parseAPICall.queryParseForArticles()
@@ -60,8 +62,12 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         formatViewController()
         spacerView.backgroundColor = sCRedColor
         readMoreButton.backgroundColor = sCGreyColor
-        
         articlesTableView.rowHeight = 80
+        
+        if selectedArticle == nil {
+            articlePreviewTitle.hidden = true
+            articlePreviewBody.hidden = true
+        }
     }
     
     
@@ -108,6 +114,19 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
             return cell
             
           }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        selectedArticle = retrievedArticles[indexPath.row]
+        articlePreviewTitle.text = selectedArticle?.title
+        articlePreviewBody.text = selectedArticle?.body
+        
+        articlePreviewTitle.hidden = false
+        articlePreviewBody.hidden = false
+        
+        imageView.hidden = true
+        
+    }
     
     
     //  Facebook and Twitter Sharing----------------------------------------------------
@@ -181,18 +200,6 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
             )
             
             return [shareAction]
-    }
-    
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        selectedArticle = retrievedArticles[indexPath.row]
-        articlePreviewTitle.text = selectedArticle?.title
-        articlePreviewBody.text = selectedArticle?.body
-            
-//            articlePreviewTitle.hidden = false
-//            articlePreviewBody.hidden = false
-        
     }
     
     

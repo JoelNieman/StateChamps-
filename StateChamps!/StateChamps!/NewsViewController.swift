@@ -36,8 +36,7 @@ class NewsViewController: TWTRTimelineViewController {
     func makeAPICall() {
         let client = TWTRAPIClient()
         self.dataSource = TWTRUserTimelineDataSource(screenName: "statechampsnet", APIClient: client)
-        
-//        tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
+
         removeFuckingButton()
     }
     
