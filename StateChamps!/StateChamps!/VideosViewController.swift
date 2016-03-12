@@ -20,6 +20,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     
     var initialVideo: SCVideo?
     var selectedSCVideo: SCVideo?
+    var videoDetails: SCVideo?
     var retrievedShowVideos = [SCVideo]()
     var retrievedHighlightVideos = [SCVideo]()
     
@@ -179,10 +180,10 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
                     // Display Tweet Composer
                     let tweetComposer = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
                         
-                    let videoDetails = self.retrievedShowVideos[indexPath.row]
+                    self.videoDetails = self.retrievedShowVideos[indexPath.row]
                         tweetComposer.setInitialText("Watch this video and more on the new State Champs! iPhone app!")
-                        tweetComposer.addImage(videoDetails.thumbnailImage)
-                        tweetComposer.addURL(NSURL(string: "https://youtu.be/\(videoDetails.videoID)PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"))
+                        tweetComposer.addImage(self.videoDetails!.thumbnailImage)
+                        tweetComposer.addURL(NSURL(string: "https://youtu.be/\(self.videoDetails!.videoID)PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"))
                         self.presentViewController(tweetComposer, animated: true, completion: nil)
             
                 })
@@ -205,11 +206,11 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
                     //  Display Facebook Composer
                     let facebookComposer = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
                     
-                    let videoDetails = self.retrievedShowVideos[indexPath.row]
+                    self.videoDetails = self.retrievedShowVideos[indexPath.row]
                     
-                    facebookComposer.setInitialText("\(videoDetails.title)\n\n Watch this video and more on the new State Champs! iPhone app!")
-                    facebookComposer.addImage(videoDetails.thumbnailImage)
-                    facebookComposer.addURL(NSURL(string: "https://youtu.be/\(videoDetails.videoID)PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"))
+                    facebookComposer.setInitialText("\(self.videoDetails!.title)\n\n Watch this video and more on the new State Champs! iPhone app!")
+                    facebookComposer.addImage(self.videoDetails!.thumbnailImage)
+                    facebookComposer.addURL(NSURL(string: "https://youtu.be/\(self.videoDetails!.videoID)PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"))
                     self.presentViewController(facebookComposer, animated: true, completion: nil)
                     
                 })
@@ -246,11 +247,13 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
                         // Display Tweet Composer
                         let tweetComposer = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
                         
-                        let videoDetails = self.retrievedHighlightVideos[indexPath.row]
 
+                        self.videoDetails = self.retrievedHighlightVideos[indexPath.row]
+
+                        
                         tweetComposer.setInitialText("Watch this video and more on the new State Champs! iPhone app!")
-                        tweetComposer.addImage(videoDetails.thumbnailImage)
-                        tweetComposer.addURL(NSURL(string: "https://youtu.be/\(videoDetails.videoID)PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"))
+                        tweetComposer.addImage(self.videoDetails!.thumbnailImage)
+                        tweetComposer.addURL(NSURL(string: "https://youtu.be/\(self.videoDetails!.videoID)PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"))
                         self.presentViewController(tweetComposer, animated: true, completion: nil)
                         
                     })
@@ -272,11 +275,13 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
                         
                         //  Display Facebook Composer
                         let facebookComposer = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+
                         
-                        let videoDetails = self.retrievedHighlightVideos[indexPath.row]
-                        facebookComposer.setInitialText(String("\(videoDetails.title)\n\n Watch this video and more on the new State Champs! iPhone app!"))
-                        facebookComposer.addImage(videoDetails.thumbnailImage)
-                        facebookComposer.addURL(NSURL(string: "https://youtu.be/\(videoDetails.videoID)PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"))
+
+                        self.videoDetails = self.retrievedHighlightVideos[indexPath.row]
+                        facebookComposer.setInitialText(String("\(self.videoDetails!.title)\n\n Watch this video and more on the new State Champs! iPhone app!"))
+                        facebookComposer.addImage(self.videoDetails!.thumbnailImage)
+                        facebookComposer.addURL(NSURL(string: "https://youtu.be/\(self.videoDetails!.videoID)PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"))
                         self.presentViewController(facebookComposer, animated: true, completion: nil)
                         
                     })

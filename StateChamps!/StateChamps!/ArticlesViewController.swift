@@ -27,7 +27,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     var retrievedArticles = [SCArticle]()
-    var initialArticle = SCArticle()
+//    var initialArticle = SCArticle()
     var selectedArticle: SCArticle?
 
     
@@ -82,13 +82,10 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         retrievedArticles = articles
         articlesTableView.reloadData()
 
-        if selectedArticle == nil {
-            initialArticle = retrievedArticles[0]
+        selectedArticle = retrievedArticles[0]
             
-                articlePreviewTitle.text = initialArticle.title
-                articlePreviewBody.text = initialArticle.body
-
-        }
+            articlePreviewTitle.text = selectedArticle!.title
+            articlePreviewBody.text = selectedArticle!.body
     }
 
     
@@ -153,7 +150,9 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
                     
                     // Display Tweet Composer
                     let tweetComposer = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+
                     
+
                     let articleDetails = self.retrievedArticles[indexPath.row]
                     tweetComposer.setInitialText("Read this article and more on the new State Champs! iPhone app!")
                     tweetComposer.addImage(articleDetails.thumbnailImage)
@@ -180,10 +179,14 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
                     //  Display Facebook Composer
                     let facebookComposer = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
                     
+                    
+
                     let articleDetails = self.retrievedArticles[indexPath.row]
                     
-//                    facebookComposer.setInitialText("Read this article and more on the new State Champs! iPhone app!")
-//                    facebookComposer.addImage(articleDetails.thumbnailImage)
+                    //  Set initial text for facebook has been disabled due to FB policy.
+                    //  facebookComposer.setInitialText("Read this article and more on the new State Champs! iPhone app!")
+                    //  facebookComposer.addImage(articleDetails.thumbnailImage)
+                    
                     facebookComposer.addURL(articleDetails.articleURL)
                     self.presentViewController(facebookComposer, animated: true, completion: nil)
                     
