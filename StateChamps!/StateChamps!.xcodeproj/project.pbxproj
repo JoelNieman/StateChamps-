@@ -606,7 +606,7 @@
 				INFOPLIST_FILE = "StateChamps!/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.JoelNieman.StateChamps.StateChamps-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JoelNieman.StateChamps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -622,7 +622,7 @@
 				INFOPLIST_FILE = "StateChamps!/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.JoelNieman.StateChamps.StateChamps-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JoelNieman.StateChamps;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
