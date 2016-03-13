@@ -16,6 +16,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
 
     @IBOutlet weak var spacerView: UIView!
     
+    @IBOutlet weak var readMoreLabel: UILabel!
     @IBOutlet weak var readMoreButton: UIButton!
     @IBOutlet weak var articlePreviewTitle: UILabel!
     @IBOutlet weak var articlePreviewBody: UILabel!
@@ -36,20 +37,15 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         
         formatViewController()
         formatArticlesViewController()
-        readMoreButton.removeFromSuperview()
+//        readMoreButton.removeFromSuperview()
         
         let parseAPICall = ParseAPICall(handler: self)
         parseAPICall.queryParseForArticles()
         
         self.articlesTableView.addSubview(self.refreshControl)
-        
-        
     }
 
     override func viewWillAppear(animated: Bool) {
-
-        
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,11 +53,10 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
-    
     func formatArticlesViewController() {
         formatViewController()
         spacerView.backgroundColor = sCRedColor
-        readMoreButton.backgroundColor = sCGreyColor
+//        readMoreButton.backgroundColor = sCGreyColor
         articlesTableView.rowHeight = 80
         
         if selectedArticle == nil {
@@ -87,10 +82,9 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         articlePreviewTitle.text = selectedArticle!.title
         articlePreviewBody.text = selectedArticle!.body
         loadingWheel.stopAnimating()
-
-        
     }
 
+    
     
     //  TableView set-up---------------------------------------------------------------
     
@@ -124,11 +118,10 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         articlePreviewTitle.hidden = false
         articlePreviewBody.hidden = false
         
+        readMoreLabel.hidden = false
         imageView.hidden = true
-        
-        
-        
     }
+    
     
     
     //  Facebook and Twitter Sharing----------------------------------------------------
@@ -223,9 +216,6 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     func handleRefresh(refreshControl: UIRefreshControl) {
-        // Do some reloading of data and update the table view's data source
-        // Fetch more objects from a web service, for example...
-        
         
         let refreshParseApiCall = ParseAPICall(handler: self)
         refreshParseApiCall.queryParseForArticles()
@@ -233,6 +223,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         self.articlesTableView.reloadData()
         refreshControl.endRefreshing()
     }
+    
     
     
     //  Managing location of user in tableView list.
