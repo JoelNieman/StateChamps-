@@ -16,6 +16,7 @@ import Crashlytics
 
 
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -28,7 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("ix5mJYC2mshbbsOl7B0ykb3bNAvuku98jAsDfSRp",
             clientKey: "SaLzyUYqPMJlK3bzrS5evi474f12kbrDsiX6i2ZB")
         
-        Fabric.with([Twitter.self, Crashlytics.self])
+//        Fabric.sharedSDK().debug = true
+        Fabric.with([Twitter.self, Crashlytics.self, Answers.self])
 
         
 
