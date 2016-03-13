@@ -181,10 +181,10 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
             
             showVideoShown[indexPath.row] = true
             
-            let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 0, 0)
+            let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 500, 0)
             cell.layer.transform = rotationTransform
             
-            UIView.animateWithDuration(0.3, animations: { cell.layer.transform = CATransform3DIdentity })
+            UIView.animateWithDuration(0.2, animations: { cell.layer.transform = CATransform3DIdentity })
             
         }
     }

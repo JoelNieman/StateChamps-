@@ -19,9 +19,9 @@
 		5D7B01D41C8CA4D400397652 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B01D31C8CA4D400397652 /* ApiKeys.swift */; };
 		5D7B01D61C8CA6AB00397652 /* SCVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B01D51C8CA6AB00397652 /* SCVideo.swift */; };
 		5D7B01DA1C8D105F00397652 /* YouTubeAPICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B01D91C8D105F00397652 /* YouTubeAPICall.swift */; };
-		5DAF09F31C8E401E00EAD2CE /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF09F21C8E401E00EAD2CE /* ArticlesViewController.swift */; };
+		5DAF09F31C8E401E00EAD2CE /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF09F21C8E401E00EAD2CE /* NewsViewController.swift */; };
 		5DAF09F91C8E4C4700EAD2CE /* CustomCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF09F81C8E4C4700EAD2CE /* CustomCells.swift */; };
-		5DAF0A351C90954500EAD2CE /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF0A341C90954500EAD2CE /* NewsViewController.swift */; };
+		5DAF0A351C90954500EAD2CE /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAF0A341C90954500EAD2CE /* SocialViewController.swift */; };
 		5DAF0A5D1C9249D600EAD2CE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC161C8F6A7700267666 /* libsqlite3.tbd */; };
 		5DAF0A5E1C9249E100EAD2CE /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC141C8F6A6D00267666 /* libz.tbd */; };
 		5DAF0A5F1C9249E900EAD2CE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9EEBC121C8F6A5700267666 /* SystemConfiguration.framework */; };
@@ -77,9 +77,9 @@
 		5D7B01D31C8CA4D400397652 /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		5D7B01D51C8CA6AB00397652 /* SCVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCVideo.swift; sourceTree = "<group>"; };
 		5D7B01D91C8D105F00397652 /* YouTubeAPICall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YouTubeAPICall.swift; sourceTree = "<group>"; };
-		5DAF09F21C8E401E00EAD2CE /* ArticlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
+		5DAF09F21C8E401E00EAD2CE /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		5DAF09F81C8E4C4700EAD2CE /* CustomCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCells.swift; sourceTree = "<group>"; };
-		5DAF0A341C90954500EAD2CE /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		5DAF0A341C90954500EAD2CE /* SocialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
 		5DAF0A651C92501100EAD2CE /* MyApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = MyApiKeys.plist; path = ../MyApiKeys.plist; sourceTree = "<group>"; };
 		5DAF0A681C92844700EAD2CE /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		5DAF0A6A1C9286EC00EAD2CE /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
@@ -210,9 +210,9 @@
 			isa = PBXGroup;
 			children = (
 				5D7B01CB1C8A4DEA00397652 /* VideosViewController.swift */,
-				5DAF09F21C8E401E00EAD2CE /* ArticlesViewController.swift */,
+				5DAF09F21C8E401E00EAD2CE /* NewsViewController.swift */,
 				5D365C911C9345B3000B7CBB /* FullArticleViewController.swift */,
-				5DAF0A341C90954500EAD2CE /* NewsViewController.swift */,
+				5DAF0A341C90954500EAD2CE /* SocialViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -449,13 +449,13 @@
 				F934B16A1C8F1A5E00F56807 /* YouTubeAPIOnResponseDelegate.swift in Sources */,
 				5D7B01CC1C8A4DEA00397652 /* VideosViewController.swift in Sources */,
 				5D7B01D61C8CA6AB00397652 /* SCVideo.swift in Sources */,
-				5DAF0A351C90954500EAD2CE /* NewsViewController.swift in Sources */,
+				5DAF0A351C90954500EAD2CE /* SocialViewController.swift in Sources */,
 				5D365C921C9345B3000B7CBB /* FullArticleViewController.swift in Sources */,
 				F9EEBC191C8F6E7300267666 /* ParseAPICallOnResponseDelegate.swift in Sources */,
 				5D7B01CE1C8A53B000397652 /* ColorWheel.swift in Sources */,
 				5D7B01DA1C8D105F00397652 /* YouTubeAPICall.swift in Sources */,
 				5DAF09F91C8E4C4700EAD2CE /* CustomCells.swift in Sources */,
-				5DAF09F31C8E401E00EAD2CE /* ArticlesViewController.swift in Sources */,
+				5DAF09F31C8E401E00EAD2CE /* NewsViewController.swift in Sources */,
 				5D7B01D41C8CA4D400397652 /* ApiKeys.swift in Sources */,
 				F9EEBC011C8F58F300267666 /* ParseAPICall.swift in Sources */,
 			);
