@@ -21,7 +21,7 @@ class ParseAPICall {
     var index = 0
     
     func queryParseForArticles() {
-        var query = PFQuery(className:"Article")
+        let query = PFQuery(className:"Article")
 //        query.whereKey("articleNumber", equalTo: 1)
         query.whereKey("articleNumber", greaterThan: 0)
         query.findObjectsInBackgroundWithBlock {
@@ -35,7 +35,7 @@ class ParseAPICall {
                 if let objects = objects {
                     for object in objects {
                         
-                        var article = SCArticle()
+                        let article = SCArticle()
                         
                         article.title = object.valueForKey("title") as! String
                         article.author = object.valueForKey("author") as! String

@@ -79,7 +79,7 @@ class NewsViewController: TWTRTimelineViewController {
     
     func formatNavBar() {
         
-        self.navigationController!.navigationBar.titleTextAttributes = titleFontColorDict as! [String : AnyObject]
+        self.navigationController!.navigationBar.titleTextAttributes = (titleFontColorDict as! [String : AnyObject])
         
         self.navigationController!.navigationBar.backgroundColor = sCRedColor
         self.navigationController!.navigationBar.barTintColor = sCRedColor

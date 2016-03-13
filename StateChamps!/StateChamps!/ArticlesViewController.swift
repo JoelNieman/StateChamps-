@@ -26,7 +26,6 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     var retrievedArticles = [SCArticle]()
-//    var initialArticle = SCArticle()
     var selectedArticle: SCArticle?
 
     
@@ -127,13 +126,15 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         
         imageView.hidden = true
         
+        
+        
     }
     
     
     //  Facebook and Twitter Sharing----------------------------------------------------
     
     
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction] {
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
             
             let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Share", handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
                 
@@ -234,11 +235,17 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     
+    //  Managing location of user in tableView list.
+    
     func scrollToTop() {
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         self.articlesTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
     }
 
+    
+    
+    //  Segue between articles list and full articles---------------------------------------------------
+    
     @IBAction func unwindToVC(segue: UIStoryboardSegue) {
     }
     

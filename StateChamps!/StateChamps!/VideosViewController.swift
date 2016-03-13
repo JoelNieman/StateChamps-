@@ -17,10 +17,9 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     @IBOutlet weak var header: UIView!
     @IBOutlet weak var playerView: YouTubePlayerView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-
+    @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
     
     var initialVideo: SCVideo?
-    @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
     var selectedSCVideo: SCVideo?
     var videoDetails: SCVideo?
     var retrievedShowVideos = [SCVideo]()
@@ -155,6 +154,8 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         if segmentedControl.selectedSegmentIndex == 0 {
             selectedSCVideo = retrievedShowVideos[indexPath.row]
             playerView.loadVideoID(selectedSCVideo!.videoID)
+            
+            
 
         } else {
             selectedSCVideo = retrievedHighlightVideos[indexPath.row]
@@ -165,7 +166,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     
     //  Facebook and Twitter Sharing----------------------------------------------------
     
-        func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction] {
+        func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
             if segmentedControl.selectedSegmentIndex == 0 {
             let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Share", handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
                 
