@@ -25,8 +25,8 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     var retrievedShowVideos = [SCVideo]()
     var retrievedHighlightVideos = [SCVideo]()
     
-    
-    
+    var showVideoShown = [Bool]()
+    var highlightVideoShown = [Bool]()
     
         
     
@@ -87,7 +87,14 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         retrievedShowVideos = showVideos
         showVideosTableView.reloadData()
 
-        selectedSCVideo = retrievedShowVideos[0]
+        showVideoShown = [Bool](count: retrievedShowVideos.count, repeatedValue: false)
+        highlightVideoShown = [Bool](count: retrievedHighlightVideos.count, repeatedValue: false)
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            selectedSCVideo = retrievedShowVideos[0]
+        } else {
+            selectedSCVideo = retrievedHighlightVideos[0]
+        }
         
         playerView.playerVars = [
             "playsinline": "1",
@@ -99,6 +106,8 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         playerView.loadVideoID(selectedSCVideo!.videoID)
         
         loadingWheel.stopAnimating()
+        
+        
 
     }
     
@@ -163,6 +172,34 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         }
     }
     
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            if showVideoShown[indexPath.row] {
+                return
+            }
+            
+            showVideoShown[indexPath.row] = true
+            
+            let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 0, 0)
+            cell.layer.transform = rotationTransform
+            
+            UIView.animateWithDuration(0.3, animations: { cell.layer.transform = CATransform3DIdentity })
+            
+        } else {
+            if highlightVideoShown[indexPath.row] {
+                return
+                
+            highlightVideoShown[indexPath.row] = true
+                
+            let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 0, 0)
+            cell.layer.transform = rotationTransform
+                
+            UIView.animateWithDuration(0.3, animations: { cell.layer.transform = CATransform3DIdentity })
+            }
+        }
+    }
     
     //  Facebook and Twitter Sharing----------------------------------------------------
     
@@ -308,6 +345,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
             }
         }
     
+    
     //  Pull To Refresh----------------------------------------------------------------
     
     
@@ -327,6 +365,8 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         
         self.showVideosTableView.reloadData()
         refreshControl.endRefreshing()
+        
+        
     }
     
     

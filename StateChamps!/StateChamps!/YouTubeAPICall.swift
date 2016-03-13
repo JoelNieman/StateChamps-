@@ -139,6 +139,7 @@ class YouTubeAPICall {
             showVideosArray.append(video)
             
         }
+        
         //  Upon completing the for loop, this the protocol method ("handler") is called and passed the completed array.
         
         dispatch_async(dispatch_get_main_queue()) {

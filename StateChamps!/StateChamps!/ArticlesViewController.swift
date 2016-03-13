@@ -21,14 +21,16 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var articlePreviewTitle: UILabel!
     @IBOutlet weak var articlePreviewBody: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    
+
     @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
 
-    
+
     
     var retrievedArticles = [SCArticle]()
     var selectedArticle: SCArticle?
-
+    var articleShown = [Bool]()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +39,6 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         
         formatViewController()
         formatArticlesViewController()
-//        readMoreButton.removeFromSuperview()
         
         let parseAPICall = ParseAPICall(handler: self)
         parseAPICall.queryParseForArticles()
@@ -56,7 +57,6 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     func formatArticlesViewController() {
         formatViewController()
         spacerView.backgroundColor = sCRedColor
-//        readMoreButton.backgroundColor = sCGreyColor
         articlesTableView.rowHeight = 80
         
         if selectedArticle == nil {
@@ -82,6 +82,8 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         articlePreviewTitle.text = selectedArticle!.title
         articlePreviewBody.text = selectedArticle!.body
         loadingWheel.stopAnimating()
+        
+        articleShown = [Bool](count: retrievedArticles.count, repeatedValue: false)
     }
 
     
@@ -118,11 +120,27 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
         articlePreviewTitle.hidden = false
         articlePreviewBody.hidden = false
         
+        
         readMoreLabel.hidden = false
         imageView.hidden = true
     }
     
-    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        
+        if articleShown[indexPath.row] {
+            return
+        }
+        
+        articleShown[indexPath.row] = true
+        
+
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 0, 0)
+        cell.layer.transform = rotationTransform
+        
+        UIView.animateWithDuration(0.3, animations: { cell.layer.transform = CATransform3DIdentity })
+    }
     
     //  Facebook and Twitter Sharing----------------------------------------------------
     
