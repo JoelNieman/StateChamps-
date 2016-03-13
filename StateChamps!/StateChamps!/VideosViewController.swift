@@ -26,7 +26,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     var retrievedHighlightVideos = [SCVideo]()
     
     var showVideoShown = [Bool]()
-    var highlightVideoShown = [Bool]()
+
     
         
     
@@ -88,7 +88,6 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         showVideosTableView.reloadData()
 
         showVideoShown = [Bool](count: retrievedShowVideos.count, repeatedValue: false)
-        highlightVideoShown = [Bool](count: retrievedHighlightVideos.count, repeatedValue: false)
         
         if segmentedControl.selectedSegmentIndex == 0 {
             selectedSCVideo = retrievedShowVideos[0]
@@ -187,17 +186,6 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
             
             UIView.animateWithDuration(0.3, animations: { cell.layer.transform = CATransform3DIdentity })
             
-        } else {
-            if highlightVideoShown[indexPath.row] {
-                return
-                
-            highlightVideoShown[indexPath.row] = true
-                
-            let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 0, 0)
-            cell.layer.transform = rotationTransform
-                
-            UIView.animateWithDuration(0.3, animations: { cell.layer.transform = CATransform3DIdentity })
-            }
         }
     }
     
