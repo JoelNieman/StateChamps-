@@ -17,8 +17,10 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     @IBOutlet weak var header: UIView!
     @IBOutlet weak var playerView: YouTubePlayerView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+
     
     var initialVideo: SCVideo?
+    @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
     var selectedSCVideo: SCVideo?
     var videoDetails: SCVideo?
     var retrievedShowVideos = [SCVideo]()
@@ -34,10 +36,14 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         super.viewDidLoad()
         formatVideosViewController()
         
+        loadingWheel.startAnimating()
+        
         let apiCall = YouTubeAPICall(handler: self)
         apiCall.fetchAllVideos()
         
         self.showVideosTableView.addSubview(self.refreshControl)
+        
+        
     }
     
     
@@ -93,6 +99,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         playerView.hidden = false
         playerView.loadVideoID(selectedSCVideo!.videoID)
         
+        loadingWheel.stopAnimating()
 
     }
     

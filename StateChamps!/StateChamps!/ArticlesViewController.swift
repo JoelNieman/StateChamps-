@@ -21,8 +21,7 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var articlePreviewBody: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-//    @IBOutlet weak var articlePreviewTitle: UILabel!
-//    @IBOutlet weak var articlePreviewBody: UILabel!
+    @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
 
     
     
@@ -33,6 +32,8 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadingWheel.startAnimating()
         
         formatViewController()
         formatArticlesViewController()
@@ -84,8 +85,11 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
 
         selectedArticle = retrievedArticles[0]
             
-            articlePreviewTitle.text = selectedArticle!.title
-            articlePreviewBody.text = selectedArticle!.body
+        articlePreviewTitle.text = selectedArticle!.title
+        articlePreviewBody.text = selectedArticle!.body
+        loadingWheel.stopAnimating()
+
+        
     }
 
     
@@ -244,10 +248,10 @@ class ArticlesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueToFullArticle" {
-            var destinationVC = segue.destinationViewController as! FullArticleViewController
+            let destinationVC = segue.destinationViewController as! FullArticleViewController
             
             if let articleToPass = selectedArticle {
-                destinationVC.fullSCArticle = selectedArticle!
+                destinationVC.fullSCArticle = articleToPass
             } else {
                 destinationVC.fullSCArticle = retrievedArticles[0]
             }
