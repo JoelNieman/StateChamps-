@@ -8,13 +8,14 @@
 
 import UIKit
 import TwitterKit
+import Crashlytics
 
 class NewsViewController: TWTRTimelineViewController {
 
 
     var logInButton = TWTRLogInButton()
     
-    let titleFontColorDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor(),NSFontAttributeName: UIFont.boldSystemFontOfSize(20)]
+    let titleFontColorDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor(),NSFontAttributeName: UIFont.systemFontOfSize(20)]
     
     
     override func viewDidLoad() {
@@ -22,6 +23,7 @@ class NewsViewController: TWTRTimelineViewController {
         formatViewController()
         formatNavBar()
         authenticateUser()
+
         
         
         
@@ -85,4 +87,7 @@ class NewsViewController: TWTRTimelineViewController {
         self.navigationController!.navigationBar.barTintColor = sCRedColor
         self.navigationController?.navigationBar.translucent = false
     }
+    
+
+
 }

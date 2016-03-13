@@ -8,7 +8,7 @@ pod 'Parse'
 pod 'Fabric'
 pod 'TwitterKit',  '1.14.6'
 pod 'TwitterCore', '1.14.6'
-
+pod 'Crashlytics'
 
 end
 
