@@ -52,7 +52,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="156.5" y="8" width="60.5" height="20.5"/>
+                                                        <rect key="frame" x="156" y="8" width="60.5" height="20.5"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9l-sh-0iw">
@@ -61,7 +61,7 @@
                                                     <color key="textColor" red="0.1215686275" green="0.3294117647" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="222" y="39.5" width="16" height="20.5"/>
+                                                        <rect key="frame" x="222" y="39" width="16" height="20.5"/>
                                                     </variation>
                                                 </label>
                                             </subviews>
@@ -502,7 +502,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="120.5" y="36" width="96.5" height="14.5"/>
+                                                        <rect key="frame" x="120" y="36" width="96.5" height="14.5"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ox8-yV-ETk">
@@ -511,7 +511,7 @@
                                                     <color key="textColor" red="0.1215686275" green="0.3294117647" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="222" y="29.5" width="16" height="20.5"/>
+                                                        <rect key="frame" x="222" y="29" width="16" height="20.5"/>
                                                     </variation>
                                                 </label>
                                             </subviews>
@@ -834,9 +834,6 @@
                                         <state key="normal" title="&lt;  Back">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="6" y="27" width="52" height="30"/>
-                                        </variation>
                                         <connections>
                                             <segue destination="jGb-9w-12C" kind="unwind" unwindAction="unwindToVC:" id="NzQ-97-W5Q"/>
                                         </connections>
@@ -897,7 +894,8 @@
                                                             <exclude reference="dhQ-a0-D4b"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="39.5" width="224" height="126"/>
                                                         <mask key="constraints">
                                                             <include reference="dhQ-a0-D4b"/>
                                                         </mask>
@@ -908,6 +906,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="234" width="224" height="135"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qD0-HM-bEN">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -924,7 +925,8 @@
                                                             <exclude reference="PgH-s1-9tN"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="18" y="208" width="200" height="14.5"/>
                                                         <mask key="constraints">
                                                             <include reference="BIl-mq-qrR"/>
                                                             <include reference="PgH-s1-9tN"/>
@@ -936,6 +938,9 @@
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <color key="textColor" red="0.1215686275" green="0.3294117647" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="8" width="224" height="24"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJS-xQ-Esa">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -952,7 +957,8 @@
                                                             <exclude reference="csH-Dp-QjA"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="18" y="187.5" width="200" height="17"/>
                                                         <mask key="constraints">
                                                             <include reference="TZh-7f-L58"/>
                                                             <include reference="csH-Dp-QjA"/>

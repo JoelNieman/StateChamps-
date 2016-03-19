@@ -19,11 +19,10 @@ class YouTubeAPICall {
     
     //  Implementing the APIOnResponseDelegate protocol
     
-//    var controller: UIViewController
     let handler: YouTubeAPIOnResponseDelegate
     init(handler: YouTubeAPIOnResponseDelegate) {
         self.handler = handler
-//        self.controller = controller
+
     }
     
     
@@ -38,7 +37,6 @@ class YouTubeAPICall {
     private let highlightsPlaylistID = "PL8dd-D6tYC0BeICQ2C3hym16jEyj0SzSJ"
     private let maxShowResults = 20
     private var apiKey = youTubeClientID
-//    private var apiKey = youTubeClientID
     private var index = Int()
     
     

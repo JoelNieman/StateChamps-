@@ -19,12 +19,5 @@ class SCVideo {
     var publishedDate = ""
     var videoID = ""
     var thumbnailImage: UIImage?
-    
-//    init (title: String, description: String, publishedDate: String, videoID: String, thumbnailURLString: String) {
-//        self.title = title
-//        self.description = description
-//        self.publishedDate = publishedDate
-//        self.videoID = videoID
-//        self.thumbnailURLString = thumbnailURLString
-//    }
+
 }

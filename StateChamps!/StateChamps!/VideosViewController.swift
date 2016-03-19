@@ -37,8 +37,8 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         
         loadingWheel.startAnimating()
         
-        let apiCall = YouTubeAPICall(handler: self)
-        apiCall.fetchAllVideos()
+        let youtubeApiCall = YouTubeAPICall(handler: self)
+        youtubeApiCall.fetchAllVideos()
         
         self.showVideosTableView.addSubview(self.refreshControl)
         

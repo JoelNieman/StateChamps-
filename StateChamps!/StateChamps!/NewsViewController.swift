@@ -24,11 +24,15 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
 
-
+    var parseAPICall: ParseAPICall?
     
     var retrievedArticles = [SCArticle]()
     var selectedArticle: SCArticle?
     var articleShown = [Bool]()
+    
+    var objectIDForDefaultImage = String()
+    var defaultImageString = String()
+    var defaultImage = UIImage()
     
     
     
@@ -40,14 +44,14 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         formatViewController()
         formatArticlesViewController()
         
-        let parseAPICall = ParseAPICall(handler: self)
-        parseAPICall.queryParseForArticles()
+        parseAPICall = ParseAPICall(handler: self)
+        parseAPICall!.queryParseForArticles()
+        parseAPICall!.queryParseForDefuaultImage()
+        
         
         self.articlesTableView.addSubview(self.refreshControl)
     }
 
-    override func viewWillAppear(animated: Bool) {
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -85,7 +89,27 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         articleShown = [Bool](count: retrievedArticles.count, repeatedValue: false)
     }
+    
+    //  Queries parse for an ObjectID for a default image.
+    //  ObjectID is then used to query parse for the image
+    //  This is an error handling measure for the case where the default image row in parse is deleted and a new objectID is assigned to it.
+    
+    
+    func onDefaultImageresponse(retrievedImageString: String) {
+        defaultImageString = retrievedImageString
+        
+        let imageData = NSData(contentsOfURL: NSURL(string: defaultImageString)!)
+        
+        defaultImage = UIImage(data: imageData!)!
+        imageView.image = defaultImage
+        
+    }
 
+    
+    
+    
+    
+    
     
     
     //  TableView set-up---------------------------------------------------------------

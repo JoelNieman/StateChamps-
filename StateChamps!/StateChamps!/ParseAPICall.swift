@@ -18,11 +18,13 @@ class ParseAPICall {
     }
     
     var articles = [SCArticle]()
+    var defaultImageID = String()
+    var defaultImageString = String()
+    
     var index = 0
     
     func queryParseForArticles() {
         let query = PFQuery(className:"Article")
-//        query.whereKey("articleNumber", equalTo: 1)
         query.whereKey("articleNumber", greaterThan: 0)
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
@@ -48,16 +50,16 @@ class ParseAPICall {
                         article.articleURL = NSURL(string: articleURLString)
                         
 
-                        let thumbnailString = object.valueForKey("imageString") as! String
-                        let thumbnailImageData = NSData(contentsOfURL: NSURL(string: thumbnailString)!)
+                        let imageString = object.valueForKey("imageString") as! String
+                        let imageData = NSData(contentsOfURL: NSURL(string: imageString)!)
                         
-                        article.pictureImage = UIImage(data: thumbnailImageData!)
+                        article.pictureImage = UIImage(data: imageData!)
                         
                         
                         
                         self.articles.append(article)
                         
-                        print("\(article.title)")
+//                        print("\(article.title)")
 //                        print("\(article.title) has been added as article # \(self.index)")
 
                         self.index++
@@ -74,9 +76,36 @@ class ParseAPICall {
         }
     }
     
-    func queryParseForImage() {
-        
+    func queryParseForDefuaultImage() {
+        let query = PFQuery(className: "ImageObjectID")
+        query.getObjectInBackgroundWithId("gDfAAhEZTI") {
+            (imageID:PFObject?, error:NSError?) -> Void in
+            
+            if error == nil && imageID != nil {
+                self.defaultImageID = imageID!["objectIDForDefaultImage"] as! String
+                self.queryParseForImageWithImageID(self.defaultImageID)
+                
+            } else {
+                print(error)
+            }
+        }
     }
     
+    func queryParseForImageWithImageID(objectID: String) {
+        let query = PFQuery(className: "DefaultImage")
+        query.getObjectInBackgroundWithId(objectID) {
+            (image:PFObject?, error:NSError?) -> Void in
+            
+            if error == nil && image != nil {
+                self.defaultImageString = image!["imageString"] as! String
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.handler.onDefaultImageresponse(self.defaultImageString)
+                }
+            } else {
+                print(error)
+            }
+        }
+    }
 }
 
