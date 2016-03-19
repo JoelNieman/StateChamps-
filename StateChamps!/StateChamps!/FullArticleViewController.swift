@@ -48,7 +48,7 @@ class FullArticleViewController: UIViewController, UITableViewDataSource, UITabl
         cell.fullArticleTitleOutlet.text = articleDetails.title
         cell.fullArticleAuthorOutlet.text = articleDetails.author
         cell.fullArticleDateOutlet.text = articleDetails.publishedDate
-        cell.fullArticleImageOutlet.image = articleDetails.thumbnailImage
+        cell.fullArticleImageOutlet.image = articleDetails.pictureImage
         cell.fullArticleBodyOutlet.text = articleDetails.body
         
         return cell

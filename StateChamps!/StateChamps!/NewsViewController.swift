@@ -104,7 +104,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let cell = tableView.dequeueReusableCellWithIdentifier("SCArticleCell") as! CustomCell!
             
             let articleDetails = retrievedArticles[indexPath.row]
-            cell.thumbnailOutlet.image = articleDetails.thumbnailImage
+            cell.thumbnailOutlet.image = articleDetails.pictureImage
             cell.titleOutlet.text = articleDetails.title as String
             cell.dateOutlet.text = articleDetails.publishedDate as String
             return cell
@@ -136,10 +136,10 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         articleShown[indexPath.row] = true
         
 
-        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 500, 0)
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -200, 500, 0)
         cell.layer.transform = rotationTransform
         
-        UIView.animateWithDuration(0.2, animations: { cell.layer.transform = CATransform3DIdentity })
+        UIView.animateWithDuration(0.3, animations: { cell.layer.transform = CATransform3DIdentity })
     }
     
     //  Facebook and Twitter Sharing----------------------------------------------------
@@ -171,7 +171,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
                     let articleDetails = self.retrievedArticles[indexPath.row]
                     tweetComposer.setInitialText("Read this article and more on the new State Champs! iPhone app!")
-                    tweetComposer.addImage(articleDetails.thumbnailImage)
+                    tweetComposer.addImage(articleDetails.pictureImage)
                     tweetComposer.addURL(articleDetails.articleURL)
                     self.presentViewController(tweetComposer, animated: true, completion: nil)
                     
@@ -201,7 +201,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     
                     //  Set initial text for facebook has been disabled due to FB policy.
                     //  facebookComposer.setInitialText("Read this article and more on the new State Champs! iPhone app!")
-                    //  facebookComposer.addImage(articleDetails.thumbnailImage)
+                    //  facebookComposer.addImage(articleDetails.pictureImage)
                     
                     facebookComposer.addURL(articleDetails.articleURL)
                     self.presentViewController(facebookComposer, animated: true, completion: nil)

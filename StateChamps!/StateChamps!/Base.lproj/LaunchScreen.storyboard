@@ -39,7 +39,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="Axz-MW-41l"/>
+                                    <constraint firstAttribute="height" constant="70" id="Axz-MW-41l">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="64"/>
+                                    </constraint>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="r3S-A3-l1r"/>
                                 </constraints>
                                 <variation key="default">
@@ -49,7 +51,7 @@
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="r3S-A3-l1r"/>
+                                        <exclude reference="r3S-A3-l1r"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -64,8 +66,6 @@
                             <constraint firstItem="ht1-oi-8Yk" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="OJy-2m-0N1"/>
                             <constraint firstAttribute="trailing" secondItem="ht1-oi-8Yk" secondAttribute="trailing" id="hUF-0f-Dg4"/>
                             <constraint firstItem="Hud-Wk-1PE" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="rTw-AD-lcw"/>
-                            <constraint firstItem="ht1-oi-8Yk" firstAttribute="width" secondItem="ht1-oi-8Yk" secondAttribute="height" multiplier="16:9" id="tsp-7b-n6B"/>
-                            <constraint firstItem="ht1-oi-8Yk" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="yYR-l1-GJw"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -79,8 +79,6 @@
                                 <exclude reference="41P-W3-o5N"/>
                                 <exclude reference="OJy-2m-0N1"/>
                                 <exclude reference="hUF-0f-Dg4"/>
-                                <exclude reference="tsp-7b-n6B"/>
-                                <exclude reference="yYR-l1-GJw"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -95,8 +93,6 @@
                                 <include reference="41P-W3-o5N"/>
                                 <include reference="OJy-2m-0N1"/>
                                 <include reference="hUF-0f-Dg4"/>
-                                <exclude reference="tsp-7b-n6B"/>
-                                <exclude reference="yYR-l1-GJw"/>
                             </mask>
                         </variation>
                     </view>
