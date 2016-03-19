@@ -88,6 +88,11 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         loadingWheel.stopAnimating()
         
         articleShown = [Bool](count: retrievedArticles.count, repeatedValue: false)
+        
+        articlePreviewTitle.hidden = true
+        articlePreviewBody.hidden = true
+        readMoreLabel.hidden = true
+        imageView.hidden = false
     }
     
     //  Queries parse for an ObjectID for a default image.
@@ -261,8 +266,10 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let refreshParseApiCall = ParseAPICall(handler: self)
         refreshParseApiCall.queryParseForArticles()
-        
         self.articlesTableView.reloadData()
+        
+        refreshParseApiCall.queryParseForDefuaultImage()
+        
         refreshControl.endRefreshing()
     }
     
