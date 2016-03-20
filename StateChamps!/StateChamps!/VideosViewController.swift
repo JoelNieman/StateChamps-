@@ -9,6 +9,7 @@
 import UIKit
 import YouTubePlayer
 import Social
+import Parse
 
 class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -27,8 +28,6 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     
     var showVideoShown = [Bool]()
 
-    
-        
     
     
     override func viewDidLoad() {
@@ -105,9 +104,6 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         playerView.loadVideoID(selectedSCVideo!.videoID)
         
         loadingWheel.stopAnimating()
-        
-        
-
     }
     
     
@@ -212,12 +208,32 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
                     
                     // Display Tweet Composer
                     let tweetComposer = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-                        
+//                    var completionHandler: SLComposeViewControllerCompletionHandler!
+                    
                     self.videoDetails = self.retrievedShowVideos[indexPath.row]
                         tweetComposer.setInitialText("Watch this video and more on the new State Champs! iPhone app!")
                         tweetComposer.addImage(self.videoDetails!.thumbnailImage)
                         tweetComposer.addURL(NSURL(string: "https://youtu.be/\(self.videoDetails!.videoID)PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"))
+                    
+                        //  Record sharing activities by posting details to Parse
+                        tweetComposer.completionHandler = { (result:SLComposeViewControllerResult) -> Void in
+                            switch result {
+                            case SLComposeViewControllerResult.Cancelled:
+                                break
+                            case SLComposeViewControllerResult.Done:
+                                let sharedObject = PFObject(className: "Social")
+                                sharedObject["Title"] = self.videoDetails!.title
+                                sharedObject["Outlet"] = "Twitter"
+                                sharedObject["MediaType"] = "Video - Episode"
+                                sharedObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                                }
+                            }
+                        }
+                    
                         self.presentViewController(tweetComposer, animated: true, completion: nil)
+                    
+                    
+
             
                 })
                 
@@ -244,6 +260,24 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
                     facebookComposer.setInitialText("\(self.videoDetails!.title)\n\n Watch this video and more on the new State Champs! iPhone app!")
                     facebookComposer.addImage(self.videoDetails!.thumbnailImage)
                     facebookComposer.addURL(NSURL(string: "https://youtu.be/\(self.videoDetails!.videoID)PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"))
+                    
+                    //  Record sharing activities by posting details to Parse
+                    facebookComposer.completionHandler = { (result:SLComposeViewControllerResult) -> Void in
+                        switch result {
+                        case SLComposeViewControllerResult.Cancelled:
+                            break
+                        case SLComposeViewControllerResult.Done:
+                            let sharedObject = PFObject(className: "Social")
+                            sharedObject["Title"] = self.videoDetails!.title
+                            sharedObject["Outlet"] = "Facebook"
+                            sharedObject["MediaType"] = "Video - Episode"
+                            sharedObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                            }
+                        }
+                    }
+                    
+                    
+                    
                     self.presentViewController(facebookComposer, animated: true, completion: nil)
                     
                 })
@@ -259,6 +293,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
             )
             
             return [shareAction]
+                
             } else {
                 let shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Share", handler: { (action:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
                     
@@ -287,6 +322,22 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
                         tweetComposer.setInitialText("Watch this video and more on the new State Champs! iPhone app!")
                         tweetComposer.addImage(self.videoDetails!.thumbnailImage)
                         tweetComposer.addURL(NSURL(string: "https://youtu.be/\(self.videoDetails!.videoID)PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"))
+                        
+                        //  Record sharing activities by posting details to Parse
+                        tweetComposer.completionHandler = { (result:SLComposeViewControllerResult) -> Void in
+                            switch result {
+                            case SLComposeViewControllerResult.Cancelled:
+                                break
+                            case SLComposeViewControllerResult.Done:
+                                let sharedObject = PFObject(className: "Social")
+                                sharedObject["Title"] = self.videoDetails!.title
+                                sharedObject["Outlet"] = "Twitter"
+                                sharedObject["MediaType"] = "Video - Highlight"
+                                sharedObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                                }
+                            }
+                        }
+                        
                         self.presentViewController(tweetComposer, animated: true, completion: nil)
                         
                     })
@@ -315,6 +366,23 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
                         facebookComposer.setInitialText(String("\(self.videoDetails!.title)\n\n Watch this video and more on the new State Champs! iPhone app!"))
                         facebookComposer.addImage(self.videoDetails!.thumbnailImage)
                         facebookComposer.addURL(NSURL(string: "https://youtu.be/\(self.videoDetails!.videoID)PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"))
+                        
+                        //  Record sharing activities by posting details to Parse
+                        facebookComposer.completionHandler = { (result:SLComposeViewControllerResult) -> Void in
+                            switch result {
+                            case SLComposeViewControllerResult.Cancelled:
+                                break
+                            case SLComposeViewControllerResult.Done:
+                                let sharedObject = PFObject(className: "Social")
+                                sharedObject["Title"] = self.videoDetails!.title
+                                sharedObject["Outlet"] = "Facebook"
+                                sharedObject["MediaType"] = "Video - Highlight"
+                                sharedObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                                }
+                            }
+                        }
+                        
+                        
                         self.presentViewController(facebookComposer, animated: true, completion: nil)
                         
                     })
@@ -363,7 +431,16 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     
     @IBAction func segmentedControlPressed(sender: AnyObject) {
         showVideosTableView.reloadData()
+        scrollToTop()
     }
+    
+    //  Managing location of user in tableView list.
+    
+    func scrollToTop() {
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        self.showVideosTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
+    }
+
     
 }
 

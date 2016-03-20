@@ -8,6 +8,7 @@
 
 import UIKit
 import Social
+import Parse
 
 class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ParseAPIOnResponseDelegate {
 
@@ -196,12 +197,27 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     // Display Tweet Composer
                     let tweetComposer = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
 
-                    
-
                     let articleDetails = self.retrievedArticles[indexPath.row]
                     tweetComposer.setInitialText("Read this article and more on the new State Champs! iPhone app!")
                     tweetComposer.addImage(articleDetails.pictureImage)
                     tweetComposer.addURL(articleDetails.articleURL)
+                    
+                    //  Record sharing activities by posting details to Parse
+                    tweetComposer.completionHandler = { (result:SLComposeViewControllerResult) -> Void in
+                        switch result {
+                        case SLComposeViewControllerResult.Cancelled:
+                            break
+                        case SLComposeViewControllerResult.Done:
+                            let sharedObject = PFObject(className: "Social")
+                            sharedObject["Title"] = articleDetails.title
+                            sharedObject["Outlet"] = "Twitter"
+                            sharedObject["MediaType"] = "Article"
+                            sharedObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                            }
+                        }
+                    }
+                    
+                    
                     self.presentViewController(tweetComposer, animated: true, completion: nil)
                     
                 })
@@ -233,6 +249,22 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     //  facebookComposer.addImage(articleDetails.pictureImage)
                     
                     facebookComposer.addURL(articleDetails.articleURL)
+                    
+                    //  Record sharing activities by posting details to Parse
+                    facebookComposer.completionHandler = { (result:SLComposeViewControllerResult) -> Void in
+                        switch result {
+                        case SLComposeViewControllerResult.Cancelled:
+                            break
+                        case SLComposeViewControllerResult.Done:
+                            let sharedObject = PFObject(className: "Social")
+                            sharedObject["Title"] = articleDetails.title
+                            sharedObject["Outlet"] = "Facebook"
+                            sharedObject["MediaType"] = "Article"
+                            sharedObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                            }
+                        }
+                    }
+                    
                     self.presentViewController(facebookComposer, animated: true, completion: nil)
                     
                 })

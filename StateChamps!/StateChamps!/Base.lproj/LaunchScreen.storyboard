@@ -18,23 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SC Logo 375pxl" translatesAutoresizingMaskIntoConstraints="NO" id="ht1-oi-8Yk">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ht1-oi-8Yk" secondAttribute="height" multiplier="16:9" id="6A1-2I-doG"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="6A1-2I-doG"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="6A1-2I-doG"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hud-Wk-1PE">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -55,25 +38,68 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SC Logo 375pxl" translatesAutoresizingMaskIntoConstraints="NO" id="ht1-oi-8Yk">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ht1-oi-8Yk" secondAttribute="height" multiplier="16:9" id="6A1-2I-doG"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6A1-2I-doG"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="6A1-2I-doG"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ht1-oi-8Yk" firstAttribute="top" secondItem="Hud-Wk-1PE" secondAttribute="bottom" constant="8" id="NkB-Gh-K61">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="ht1-oi-8Yk" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="TKn-LG-Aqb"/>
+                            <constraint firstAttribute="trailing" secondItem="ht1-oi-8Yk" secondAttribute="trailing" id="b1U-gJ-GCI"/>
+                            <constraint firstItem="Hud-Wk-1PE" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="lf4-6y-rua"/>
+                            <constraint firstAttribute="trailing" secondItem="Hud-Wk-1PE" secondAttribute="trailing" id="meT-Xk-gLC"/>
+                            <constraint firstItem="Hud-Wk-1PE" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="u8b-2Y-X1A"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="ht1-oi-8Yk"/>
                                 <exclude reference="Hud-Wk-1PE"/>
+                                <exclude reference="ht1-oi-8Yk"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="lf4-6y-rua"/>
+                                <exclude reference="meT-Xk-gLC"/>
+                                <exclude reference="u8b-2Y-X1A"/>
+                                <exclude reference="NkB-Gh-K61"/>
+                                <exclude reference="TKn-LG-Aqb"/>
+                                <exclude reference="b1U-gJ-GCI"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="ht1-oi-8Yk"/>
                                 <include reference="Hud-Wk-1PE"/>
+                                <include reference="ht1-oi-8Yk"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="lf4-6y-rua"/>
+                                <include reference="meT-Xk-gLC"/>
+                                <include reference="u8b-2Y-X1A"/>
+                                <include reference="NkB-Gh-K61"/>
+                                <include reference="TKn-LG-Aqb"/>
+                                <include reference="b1U-gJ-GCI"/>
                             </mask>
                         </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="102" y="375"/>
+            <point key="canvasLocation" x="93" y="324"/>
         </scene>
     </scenes>
     <resources>
