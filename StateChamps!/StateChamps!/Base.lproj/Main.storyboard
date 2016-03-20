@@ -676,7 +676,7 @@
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Read more..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gi0-Rq-y5h">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.58996629909999998" green="0.58996629909999998" blue="0.58996629909999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.1215686275" green="0.3294117647" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -849,6 +849,7 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="64"/>
                                     </constraint>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="gi4-D2-KRb"/>
+                                    <constraint firstAttribute="bottom" secondItem="w3R-41-fk7" secondAttribute="bottom" constant="6" id="jhi-nW-9Vo"/>
                                     <constraint firstItem="w3R-41-fk7" firstAttribute="leading" secondItem="Dmf-W1-tzn" secondAttribute="leading" constant="8" id="o9U-hb-wnr"/>
                                 </constraints>
                                 <variation key="default">
@@ -859,6 +860,7 @@
                                         <exclude reference="gi4-D2-KRb"/>
                                         <exclude reference="0Os-vw-Z9x"/>
                                         <exclude reference="37d-M1-wNL"/>
+                                        <exclude reference="jhi-nW-9Vo"/>
                                         <exclude reference="o9U-hb-wnr"/>
                                     </mask>
                                 </variation>
@@ -868,8 +870,9 @@
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="gi4-D2-KRb"/>
-                                        <include reference="0Os-vw-Z9x"/>
+                                        <exclude reference="0Os-vw-Z9x"/>
                                         <exclude reference="37d-M1-wNL"/>
+                                        <include reference="jhi-nW-9Vo"/>
                                         <include reference="o9U-hb-wnr"/>
                                     </mask>
                                 </variation>
@@ -895,7 +898,7 @@
                                                         </mask>
                                                     </variation>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="8" y="39.5" width="224" height="126"/>
+                                                        <rect key="frame" x="8" y="39" width="224" height="126"/>
                                                         <mask key="constraints">
                                                             <include reference="dhQ-a0-D4b"/>
                                                         </mask>
