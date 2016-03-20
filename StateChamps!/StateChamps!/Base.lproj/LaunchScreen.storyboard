@@ -57,42 +57,16 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Hud-Wk-1PE" secondAttribute="trailing" id="0ws-fz-9Qz"/>
-                            <constraint firstItem="ht1-oi-8Yk" firstAttribute="top" secondItem="Hud-Wk-1PE" secondAttribute="bottom" constant="62" id="41P-W3-o5N">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
-                            </constraint>
-                            <constraint firstItem="Hud-Wk-1PE" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="8t6-04-2jg"/>
-                            <constraint firstItem="ht1-oi-8Yk" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="OJy-2m-0N1"/>
-                            <constraint firstAttribute="trailing" secondItem="ht1-oi-8Yk" secondAttribute="trailing" id="hUF-0f-Dg4"/>
-                            <constraint firstItem="Hud-Wk-1PE" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="rTw-AD-lcw"/>
-                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="ht1-oi-8Yk"/>
                                 <exclude reference="Hud-Wk-1PE"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="0ws-fz-9Qz"/>
-                                <exclude reference="8t6-04-2jg"/>
-                                <exclude reference="rTw-AD-lcw"/>
-                                <exclude reference="41P-W3-o5N"/>
-                                <exclude reference="OJy-2m-0N1"/>
-                                <exclude reference="hUF-0f-Dg4"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="ht1-oi-8Yk"/>
                                 <include reference="Hud-Wk-1PE"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="0ws-fz-9Qz"/>
-                                <include reference="8t6-04-2jg"/>
-                                <include reference="rTw-AD-lcw"/>
-                                <include reference="41P-W3-o5N"/>
-                                <include reference="OJy-2m-0N1"/>
-                                <include reference="hUF-0f-Dg4"/>
                             </mask>
                         </variation>
                     </view>
