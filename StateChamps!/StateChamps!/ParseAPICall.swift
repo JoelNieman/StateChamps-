@@ -75,37 +75,6 @@ class ParseAPICall {
             }
         }
     }
-    
-    func queryParseForDefuaultImage() {
-        let query = PFQuery(className: "ImageObjectID")
-        query.getObjectInBackgroundWithId("gDfAAhEZTI") {
-            (imageID:PFObject?, error:NSError?) -> Void in
-            
-            if error == nil && imageID != nil {
-                self.defaultImageID = imageID!["objectIDForDefaultImage"] as! String
-                self.queryParseForImageWithImageID(self.defaultImageID)
-                
-            } else {
-                print(error)
-            }
-        }
-    }
-    
-    func queryParseForImageWithImageID(objectID: String) {
-        let query = PFQuery(className: "DefaultImage")
-        query.getObjectInBackgroundWithId(objectID) {
-            (image:PFObject?, error:NSError?) -> Void in
-            
-            if error == nil && image != nil {
-                self.defaultImageString = image!["imageString"] as! String
-                
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.handler.onDefaultImageresponse(self.defaultImageString)
-                }
-            } else {
-                print(error)
-            }
-        }
-    }
+
 }
 

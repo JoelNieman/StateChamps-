@@ -31,11 +31,6 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var selectedArticle: SCArticle?
     var articleShown = [Bool]()
     
-    var objectIDForDefaultImage = String()
-    var defaultImageString = String()
-    var defaultImage = UIImage()
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +42,6 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         parseAPICall = ParseAPICall(handler: self)
         parseAPICall!.queryParseForArticles()
-        parseAPICall!.queryParseForDefuaultImage()
-        
         
         self.articlesTableView.addSubview(self.refreshControl)
     }
@@ -96,27 +89,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         imageView.hidden = false
     }
     
-    //  Queries parse for an ObjectID for a default image.
-    //  ObjectID is then used to query parse for the image
-    //  This is an error handling measure for the case where the default image row in parse is deleted and a new objectID is assigned to it.
-    
-    
-    func onDefaultImageresponse(retrievedImageString: String) {
-        defaultImageString = retrievedImageString
-        
-        let imageData = NSData(contentsOfURL: NSURL(string: defaultImageString)!)
-        
-        defaultImage = UIImage(data: imageData!)!
-        imageView.image = defaultImage
-        
-    }
 
-    
-    
-    
-    
-    
-    
     
     //  TableView set-up---------------------------------------------------------------
     
@@ -296,11 +269,8 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func handleRefresh(refreshControl: UIRefreshControl) {
         
-        let refreshParseApiCall = ParseAPICall(handler: self)
-        refreshParseApiCall.queryParseForArticles()
+        self.parseAPICall!.queryParseForArticles()
         self.articlesTableView.reloadData()
-        
-        refreshParseApiCall.queryParseForDefuaultImage()
         
         refreshControl.endRefreshing()
     }

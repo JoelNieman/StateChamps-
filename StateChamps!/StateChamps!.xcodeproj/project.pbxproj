@@ -599,7 +599,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13AE7B9394F63D8DF6C8226A /* Pods-StateChamps!.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited)";
@@ -615,7 +614,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1A9138E6D33470A6D877A42E /* Pods-StateChamps!.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited)";
