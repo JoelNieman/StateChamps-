@@ -382,11 +382,26 @@
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="state-champs-logo-app" translatesAutoresizingMaskIntoConstraints="NO" id="Xmz-0K-ofN">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Xmz-0K-ofN" secondAttribute="height" multiplier="16:9" id="1WL-w4-5ZJ"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="1WL-w4-5ZJ"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="1WL-w4-5ZJ"/>
+                                            </mask>
+                                        </variation>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="Xmz-0K-ofN" firstAttribute="top" secondItem="WF1-en-oBw" secondAttribute="top" id="3bP-eH-MTB"/>
+                                    <constraint firstItem="Xmz-0K-ofN" firstAttribute="top" secondItem="WF1-en-oBw" secondAttribute="top" id="3bP-eH-MTB">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                    </constraint>
                                     <constraint firstItem="3Oc-MK-IRZ" firstAttribute="top" secondItem="amC-3b-gCb" secondAttribute="bottom" constant="8" id="6pm-aD-54u"/>
                                     <constraint firstItem="3Oc-MK-IRZ" firstAttribute="leading" secondItem="WF1-en-oBw" secondAttribute="leading" constant="8" id="Hz6-cj-htK"/>
                                     <constraint firstItem="amC-3b-gCb" firstAttribute="leading" secondItem="WF1-en-oBw" secondAttribute="leading" constant="8" id="KTr-zv-bfK"/>
@@ -396,8 +411,12 @@
                                     <constraint firstAttribute="trailing" secondItem="3Oc-MK-IRZ" secondAttribute="trailing" constant="8" id="e2A-gG-h6N"/>
                                     <constraint firstAttribute="bottom" secondItem="Xmz-0K-ofN" secondAttribute="bottom" id="fEu-mL-duv"/>
                                     <constraint firstAttribute="trailing" secondItem="amC-3b-gCb" secondAttribute="trailing" constant="8" id="j1k-E5-KjA"/>
-                                    <constraint firstAttribute="trailing" secondItem="Xmz-0K-ofN" secondAttribute="trailing" id="zJh-Xe-3eG"/>
-                                    <constraint firstItem="Xmz-0K-ofN" firstAttribute="leading" secondItem="WF1-en-oBw" secondAttribute="leading" id="zXs-TV-15i"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xmz-0K-ofN" secondAttribute="trailing" id="zJh-Xe-3eG">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                    </constraint>
+                                    <constraint firstItem="Xmz-0K-ofN" firstAttribute="leading" secondItem="WF1-en-oBw" secondAttribute="leading" id="zXs-TV-15i">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                    </constraint>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
@@ -436,7 +455,7 @@
                                         <include reference="bCB-lw-lL2"/>
                                         <include reference="j1k-E5-KjA"/>
                                         <include reference="3bP-eH-MTB"/>
-                                        <include reference="fEu-mL-duv"/>
+                                        <exclude reference="fEu-mL-duv"/>
                                         <include reference="zJh-Xe-3eG"/>
                                         <include reference="zXs-TV-15i"/>
                                     </mask>

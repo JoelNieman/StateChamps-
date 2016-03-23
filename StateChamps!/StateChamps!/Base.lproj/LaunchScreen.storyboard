@@ -59,10 +59,14 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ht1-oi-8Yk" firstAttribute="top" secondItem="Hud-Wk-1PE" secondAttribute="bottom" constant="8" id="NkB-Gh-K61">
-                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
                             </constraint>
-                            <constraint firstItem="ht1-oi-8Yk" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="TKn-LG-Aqb"/>
-                            <constraint firstAttribute="trailing" secondItem="ht1-oi-8Yk" secondAttribute="trailing" id="b1U-gJ-GCI"/>
+                            <constraint firstItem="ht1-oi-8Yk" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="TKn-LG-Aqb">
+                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="ht1-oi-8Yk" secondAttribute="trailing" id="b1U-gJ-GCI">
+                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                            </constraint>
                             <constraint firstItem="Hud-Wk-1PE" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="lf4-6y-rua"/>
                             <constraint firstAttribute="trailing" secondItem="Hud-Wk-1PE" secondAttribute="trailing" id="meT-Xk-gLC"/>
                             <constraint firstItem="Hud-Wk-1PE" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="u8b-2Y-X1A"/>
