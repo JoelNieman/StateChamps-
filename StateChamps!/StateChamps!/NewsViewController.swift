@@ -55,7 +55,8 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func formatArticlesViewController() {
         formatViewController()
         spacerView.backgroundColor = sCRedColor
-        articlesTableView.rowHeight = 80
+        articlesTableView.rowHeight = 94
+        
         
         if selectedArticle == nil {
             articlePreviewTitle.hidden = true

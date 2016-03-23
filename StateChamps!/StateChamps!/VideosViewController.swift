@@ -71,7 +71,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Normal)
         UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Selected)
         
-        showVideosTableView.rowHeight = 80
+        showVideosTableView.rowHeight = 94
         
     }
     
@@ -104,6 +104,8 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         playerView.loadVideoID(selectedSCVideo!.videoID)
         
         loadingWheel.stopAnimating()
+        
+        print(selectedSCVideo!.publishedDate)
     }
     
     
