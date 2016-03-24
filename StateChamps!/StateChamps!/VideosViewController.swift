@@ -111,6 +111,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     
     func onHighlightVideosResponse(highlightVideos: [SCVideo]) {
         retrievedHighlightVideos = highlightVideos
+        segmentedControl.enabled = true
     }
     
     
