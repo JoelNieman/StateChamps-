@@ -560,9 +560,12 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8V-eZ-U5M">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="10"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="95" y="36" width="282" height="11.5"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -574,7 +577,7 @@
                                                     <variation key="heightClass=regular-widthClass=compact" constant="5"/>
                                                 </constraint>
                                                 <constraint firstItem="f8V-eZ-U5M" firstAttribute="top" secondItem="q5Y-Bx-NbM" secondAttribute="bottom" constant="7.5" id="5hT-fe-6cf">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="3"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="6"/>
                                                 </constraint>
                                                 <constraint firstItem="Ox8-yV-ETk" firstAttribute="centerY" secondItem="ubY-at-20h" secondAttribute="centerY" id="G2d-Th-3bW"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ox8-yV-ETk" secondAttribute="trailing" constant="2" id="HOb-71-EzA">
