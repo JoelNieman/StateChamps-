@@ -13,6 +13,8 @@ import Crashlytics
 class SocialViewController: TWTRTimelineViewController {
 
 
+    @IBOutlet weak var noteOutlet: UILabel!
+
     var logInButton = TWTRLogInButton()
     
     let titleFontColorDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor(),NSFontAttributeName: UIFont.systemFontOfSize(20)]
@@ -40,6 +42,7 @@ class SocialViewController: TWTRTimelineViewController {
         self.dataSource = TWTRUserTimelineDataSource(screenName: "statechampsnet", APIClient: client)
 
         removeFuckingButton()
+        noteOutlet.removeFromSuperview()
     }
     
     func authenticateUser() {
