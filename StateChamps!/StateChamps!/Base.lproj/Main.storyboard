@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OCe-UX-D3u">
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OCe-UX-D3u">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -172,9 +172,12 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2q-te-0Ke">
                                         <rect key="frame" x="271" y="36" width="57" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="169" y="30" width="62" height="24"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.83529411764705885" green="0.10980392156862745" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
@@ -183,7 +186,9 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="64"/>
                                     </constraint>
                                     <constraint firstItem="O2q-te-0Ke" firstAttribute="centerX" secondItem="hSV-e7-YsI" secondAttribute="centerX" id="jGs-9M-arz"/>
-                                    <constraint firstAttribute="bottom" secondItem="O2q-te-0Ke" secondAttribute="bottom" constant="10" id="q2B-Rb-lLE"/>
+                                    <constraint firstAttribute="bottom" secondItem="O2q-te-0Ke" secondAttribute="bottom" constant="10" id="q2B-Rb-lLE">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="11"/>
+                                    </constraint>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BGg-Zv-90V" userLabel="Player View" customClass="YouTubePlayerView" customModule="YouTubePlayer">
@@ -476,9 +481,12 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVU-AN-d2M">
                                         <rect key="frame" x="271" y="36" width="57" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="175" y="30" width="50.5" height="24"/>
+                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.83529411760000005" green="0.10980392160000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -487,10 +495,12 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="64"/>
                                     </constraint>
                                     <constraint firstItem="oVU-AN-d2M" firstAttribute="centerX" secondItem="xuN-p6-bPa" secondAttribute="centerX" id="SbQ-6M-FnA"/>
-                                    <constraint firstAttribute="bottom" secondItem="oVU-AN-d2M" secondAttribute="bottom" constant="10" id="lPP-5w-5wZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="oVU-AN-d2M" secondAttribute="bottom" constant="10" id="lPP-5w-5wZ">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="11"/>
+                                    </constraint>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fks-aD-kHK">
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fks-aD-kHK">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -531,7 +541,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="95.5" y="34" width="121.5" height="14.5"/>
+                                                        <rect key="frame" x="95" y="34" width="121.5" height="14.5"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ox8-yV-ETk">
@@ -540,7 +550,7 @@
                                                     <color key="textColor" red="0.1215686275" green="0.3294117647" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="222" y="29.5" width="16" height="21"/>
+                                                        <rect key="frame" x="222" y="29" width="16" height="21"/>
                                                     </variation>
                                                 </label>
                                             </subviews>
@@ -878,7 +888,9 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="w3R-41-fk7" secondAttribute="bottom" constant="7" id="0Os-vw-Z9x"/>
                                     <constraint firstAttribute="bottom" secondItem="w3R-41-fk7" secondAttribute="bottom" constant="10" id="37d-M1-wNL"/>
-                                    <constraint firstAttribute="bottom" secondItem="FuH-dp-Y32" secondAttribute="bottom" constant="10" id="Sp2-la-XsQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="FuH-dp-Y32" secondAttribute="bottom" constant="10" id="Sp2-la-XsQ">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="11"/>
+                                    </constraint>
                                     <constraint firstItem="FuH-dp-Y32" firstAttribute="centerX" secondItem="Dmf-W1-tzn" secondAttribute="centerX" id="aYF-9E-Nly"/>
                                     <constraint firstAttribute="height" constant="70" id="bxf-Mf-8Cg">
                                         <variation key="heightClass=regular-widthClass=compact" constant="64"/>

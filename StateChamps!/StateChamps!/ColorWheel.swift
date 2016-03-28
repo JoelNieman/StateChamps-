@@ -18,6 +18,6 @@ let sCGreyColor = UIColor.init(colorLiteralRed: 90/255, green: 91/255, blue: 93/
 func formatViewController() {
     UITabBar.appearance().barTintColor = sCRedColor
     UITabBar.appearance().tintColor = UIColor.whiteColor()
-    UITabBar.appearance().translucent = true
+    UITabBar.appearance().translucent = false
     }
 //}

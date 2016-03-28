@@ -84,6 +84,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         articleShown = [Bool](count: retrievedArticles.count, repeatedValue: false)
         
+        articlesTableView.userInteractionEnabled = true
         articlePreviewTitle.hidden = true
         articlePreviewBody.hidden = true
         readMoreLabel.hidden = true
@@ -270,8 +271,12 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func handleRefresh(refreshControl: UIRefreshControl) {
         
+
+        articlesTableView.userInteractionEnabled = false
+        parseAPICall!.articles.removeAll()
         self.parseAPICall!.queryParseForArticles()
         self.articlesTableView.reloadData()
+        
         
         refreshControl.endRefreshing()
     }

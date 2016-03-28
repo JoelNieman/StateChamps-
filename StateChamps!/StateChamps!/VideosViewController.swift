@@ -20,6 +20,8 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
     
+    var youTubeApiCall: YouTubeAPICall?
+    
     var initialVideo: SCVideo?
     var selectedSCVideo: SCVideo?
     var videoDetails: SCVideo?
@@ -36,8 +38,8 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         
         loadingWheel.startAnimating()
         
-        let youtubeApiCall = YouTubeAPICall(handler: self)
-        youtubeApiCall.fetchAllVideos()
+        youTubeApiCall = YouTubeAPICall(handler: self)
+        youTubeApiCall!.fetchAllVideos()
         
         self.showVideosTableView.addSubview(self.refreshControl)
         
@@ -104,8 +106,8 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         playerView.loadVideoID(selectedSCVideo!.videoID)
         
         loadingWheel.stopAnimating()
-        
-        print(selectedSCVideo!.publishedDate)
+        showVideosTableView.userInteractionEnabled = true
+
     }
     
     
@@ -419,8 +421,11 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     func handleRefresh(refreshControl: UIRefreshControl) {
         // Do some reloading of data and update the table view's data source
         
-        let refreshApiCall = YouTubeAPICall(handler: self)
-        refreshApiCall.fetchAllVideos()
+        showVideosTableView.userInteractionEnabled = false
+        
+        youTubeApiCall!.showVideosArray.removeAll()
+        youTubeApiCall!.highlightVideosArray.removeAll()
+        youTubeApiCall!.fetchAllVideos()
         
         self.showVideosTableView.reloadData()
         refreshControl.endRefreshing()
