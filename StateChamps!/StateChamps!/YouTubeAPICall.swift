@@ -35,7 +35,8 @@ class YouTubeAPICall {
     private let youTubeURL = "https://youtu.be/"
     private let showsPlaylistID = "PL8dd-D6tYC0DfIJarU3NrrTHvPmMkCjTd"
     private let highlightsPlaylistID = "PL8dd-D6tYC0BeICQ2C3hym16jEyj0SzSJ"
-    private let maxShowResults = 20
+    private let maxShowResults = 5
+    private let maxHighlightResults = 40
     private var apiKey = youTubeClientID
     private var index = Int()
     
@@ -147,7 +148,7 @@ class YouTubeAPICall {
     
     
     func fetchHighlightVideos() {
-        let url = NSURL(string: "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=\(highlightsPlaylistID)&maxResults=\(maxShowResults)&key=\(apiKey)")
+        let url = NSURL(string: "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=\(highlightsPlaylistID)&maxResults=\(maxHighlightResults)&key=\(apiKey)")
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url!, completionHandler: {
             data, response, error in
