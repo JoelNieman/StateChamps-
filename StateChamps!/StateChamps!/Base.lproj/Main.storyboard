@@ -55,7 +55,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="131.5" y="41" width="250.5" height="18"/>
+                                                        <rect key="frame" x="131.5" y="41.5" width="90.5" height="17"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9l-sh-0iw">
@@ -63,6 +63,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.1215686275" green="0.3294117647" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="222" y="39.5" width="16" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -334,7 +337,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twitter account required" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="w1o-Y0-ew3">
-                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <rect key="frame" x="0.0" y="72" width="600" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -504,9 +507,6 @@
                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="175" y="30" width="50.5" height="24"/>
-                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.83529411760000005" green="0.10980392160000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -563,9 +563,6 @@
                                                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="95" y="36" width="282" height="11.5"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -894,9 +891,6 @@
                                         <state key="normal" title="&lt;  Back">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="8" y="28" width="52" height="30"/>
-                                        </variation>
                                         <connections>
                                             <segue destination="jGb-9w-12C" kind="unwind" unwindAction="unwindToVC:" id="NzQ-97-W5Q"/>
                                         </connections>
