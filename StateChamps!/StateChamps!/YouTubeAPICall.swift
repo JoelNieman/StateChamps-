@@ -80,6 +80,7 @@ class YouTubeAPICall {
                 case 200:
                     print("Got 200")
                     self.parseShowsJSON(data!)
+                    print(data!)
                     
                 default:
                     print("Request failed: \(httpResponse.statusCode)")
@@ -102,8 +103,9 @@ class YouTubeAPICall {
             let serializedJSON: AnyObject? = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
             let unwrappedJSON = serializedJSON!
             
+            print("the unwrappedJSON is: \n\n \(unwrappedJSON)")
             createShowSCVideos(unwrappedJSON as! NSDictionary)
-            //        print("the unwrappedJSON is: \n\n \(unwrappedJSON)")
+            
             
         } catch {
             print("caught an error when calling parseJSON!")
@@ -122,7 +124,7 @@ class YouTubeAPICall {
         print("SCShowVideo unwrappedJSON.count = \(count)")
         
         for index = 0; index < count; ++index {
-            
+
             let video = SCVideo()
             
             video.title = tempVideosCollection[index]!.objectForKey("snippet")!.objectForKey("title") as! String
@@ -132,9 +134,8 @@ class YouTubeAPICall {
             
             let thumbnailURLString = tempVideosCollection[index]!.objectForKey("snippet")!.objectForKey("thumbnails")!.objectForKey("medium")!.objectForKey("url") as! String
             let thumbnailImageData = NSData(contentsOfURL: NSURL(string: thumbnailURLString)!)
-            
             video.thumbnailImage = UIImage(data: thumbnailImageData!)
-            
+
             showVideosArray.append(video)
             
         }
