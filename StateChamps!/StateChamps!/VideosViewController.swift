@@ -49,14 +49,17 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     
     
     override func viewWillDisappear(animated: Bool) {
-        playerView.pause()
+        
+        if playerView.playerState.rawValue == "1" {
+            playerView.pause()
+        }
     }
     
     
     override func viewWillAppear(animated: Bool) {
-        if let currentVideo = selectedSCVideo {
-            playerView.loadVideoID(currentVideo.videoID)
-        }
+//        if let currentVideo = selectedSCVideo {
+//            playerView.loadVideoID(currentVideo.videoID)
+//        }
     }
     
     
@@ -105,7 +108,10 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         ]
         
         playerView.hidden = false
-        playerView.loadVideoID(selectedSCVideo!.videoID)
+        
+        if playerView.playerState.rawValue != "1" {
+            playerView.loadVideoID(selectedSCVideo!.videoID)
+        }
         
         showVideosTableView.userInteractionEnabled = true
         loadingWheel.stopAnimating()

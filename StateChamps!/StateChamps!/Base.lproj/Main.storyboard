@@ -54,18 +54,12 @@
                                                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="131" y="41" width="90.5" height="17"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9l-sh-0iw">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.1215686275" green="0.3294117647" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="222" y="39" width="16" height="21"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -181,9 +175,6 @@
                                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="169" y="30" width="62" height="24"/>
-                                        </variation>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.83529411764705885" green="0.10980392156862745" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
@@ -204,9 +195,6 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="BGg-Zv-90V" secondAttribute="height" multiplier="16:9" id="VWq-sp-Gjt"/>
                                 </constraints>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="64" width="400" height="226"/>
-                                </variation>
                             </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Uy1-fx-MR1">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
@@ -307,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2fH-NY-ffj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="453" y="-95.25"/>
+            <point key="canvasLocation" x="453" y="-351"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="RQU-zC-Yku">
@@ -373,7 +361,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </objects>
-            <point key="canvasLocation" x="1170" y="1260"/>
+            <point key="canvasLocation" x="1170" y="1489"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="8qI-u9-wmh">
@@ -671,7 +659,6 @@
                                     <constraint firstAttribute="height" constant="42" id="FmK-PK-vkD">
                                         <variation key="heightClass=regular-widthClass=compact" constant="3"/>
                                     </constraint>
-                                    <constraint firstAttribute="bottom" secondItem="UPJ-QO-bEP" secondAttribute="bottom" constant="8" id="svV-Cx-mqL"/>
                                     <constraint firstAttribute="trailing" secondItem="UPJ-QO-bEP" secondAttribute="trailing" constant="8" id="zQu-QS-nJW"/>
                                 </constraints>
                                 <variation key="default">
@@ -681,7 +668,6 @@
                                     <mask key="constraints">
                                         <exclude reference="FmK-PK-vkD"/>
                                         <exclude reference="2uc-1v-Dg7"/>
-                                        <exclude reference="svV-Cx-mqL"/>
                                         <exclude reference="zQu-QS-nJW"/>
                                     </mask>
                                 </variation>
@@ -692,7 +678,6 @@
                                     <mask key="constraints">
                                         <include reference="FmK-PK-vkD"/>
                                         <include reference="2uc-1v-Dg7"/>
-                                        <exclude reference="svV-Cx-mqL"/>
                                         <include reference="zQu-QS-nJW"/>
                                     </mask>
                                 </variation>
@@ -1211,7 +1196,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Htg-lC-2uc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="453" y="1260"/>
+            <point key="canvasLocation" x="453" y="1489"/>
         </scene>
     </scenes>
     <resources>
