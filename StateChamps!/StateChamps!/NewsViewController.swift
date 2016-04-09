@@ -310,12 +310,8 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if segue.identifier == "segueToFullArticle" {
             let destinationVC = segue.destinationViewController as! FullArticleViewController
             
-            if let articleToPass = selectedArticle {
-                
                 destinationVC.passedArticles = retrievedArticles
                 destinationVC.currentArticleIndex = selectedArticleInt
-                
-            }
         }
     }
     
