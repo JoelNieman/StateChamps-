@@ -34,6 +34,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         formatVideosViewController()
         
         loadingWheel.startAnimating()
@@ -74,6 +75,7 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         UISegmentedControl.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Selected)
         
         showVideosTableView.rowHeight = 94
+        showVideosTableView.userInteractionEnabled = false
         
     }
     
@@ -105,8 +107,8 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         playerView.hidden = false
         playerView.loadVideoID(selectedSCVideo!.videoID)
         
-        loadingWheel.stopAnimating()
         showVideosTableView.userInteractionEnabled = true
+        loadingWheel.stopAnimating()
 
     }
     
@@ -114,6 +116,9 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     func onHighlightVideosResponse(highlightVideos: [SCVideo]) {
         retrievedHighlightVideos = highlightVideos
         segmentedControl.enabled = true
+        loadingWheel.stopAnimating()
+        showVideosTableView.userInteractionEnabled = true
+        loadingWheel.stopAnimating()
     }
     
     
@@ -419,18 +424,19 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     
     
     func handleRefresh(refreshControl: UIRefreshControl) {
-        // Do some reloading of data and update the table view's data source
+        if segmentedControl.selectedSegmentIndex == 0 {
+            youTubeApiCall!.showVideosArray.removeAll()
+            youTubeApiCall!.fetchShowVideos()
+            showVideosTableView.userInteractionEnabled = false
+        } else {
+            youTubeApiCall!.highlightVideosArray.removeAll()
+            youTubeApiCall!.fetchHighlightVideos()
+            showVideosTableView.userInteractionEnabled = false
+        }
         
-        showVideosTableView.userInteractionEnabled = false
-        
-        youTubeApiCall!.showVideosArray.removeAll()
-        youTubeApiCall!.highlightVideosArray.removeAll()
-        youTubeApiCall!.fetchAllVideos()
-        
+        loadingWheel.startAnimating()
         self.showVideosTableView.reloadData()
         refreshControl.endRefreshing()
-        
-        
     }
     
     

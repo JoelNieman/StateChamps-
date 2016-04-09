@@ -80,7 +80,7 @@ class YouTubeAPICall {
                 case 200:
                     print("Got 200")
                     self.parseShowsJSON(data!)
-                    print(data!)
+//                    print(data!)
                     
                 default:
                     print("Request failed: \(httpResponse.statusCode)")
@@ -103,7 +103,7 @@ class YouTubeAPICall {
             let serializedJSON: AnyObject? = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
             let unwrappedJSON = serializedJSON!
             
-            print("the unwrappedJSON is: \n\n \(unwrappedJSON)")
+//            print("the unwrappedJSON is: \n\n \(unwrappedJSON)")
             createShowSCVideos(unwrappedJSON as! NSDictionary)
             
             

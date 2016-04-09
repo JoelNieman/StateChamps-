@@ -13,13 +13,23 @@ class FullArticleViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBOutlet weak var fullArticleTableView: UITableView!
     
+    var currentArticleIndex:Int?
+    var passedArticles = [SCArticle]()
+    
     var fullSCArticle = SCArticle()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         formatTableCell()
         fullArticleTableView.reloadData()
-        print(fullSCArticle.title)
+        
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(FullArticleViewController.handleSwipes(_:)))
+        rightSwipe.direction = .Right
+        view.addGestureRecognizer(rightSwipe)
+        
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(FullArticleViewController.handleSwipes(_:)))
+        leftSwipe.direction = .Left
+        view.addGestureRecognizer(leftSwipe)
         
     }
 
@@ -42,14 +52,12 @@ class FullArticleViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FullSCArticleCell") as! CustomCell!
-        
-        let articleDetails = fullSCArticle
-        
-        cell.fullArticleTitleOutlet.text = articleDetails.title
-        cell.fullArticleAuthorOutlet.text = articleDetails.author
-        cell.fullArticleDateOutlet.text = articleDetails.publishedDate
-        cell.fullArticleImageOutlet.image = articleDetails.pictureImage
-        cell.fullArticleBodyOutlet.text = articleDetails.body
+
+        cell.fullArticleTitleOutlet.text = passedArticles[currentArticleIndex!].title
+        cell.fullArticleAuthorOutlet.text = passedArticles[currentArticleIndex!].author
+        cell.fullArticleDateOutlet.text = passedArticles[currentArticleIndex!].publishedDate
+        cell.fullArticleImageOutlet.image = passedArticles[currentArticleIndex!].pictureImage
+        cell.fullArticleBodyOutlet.text = passedArticles[currentArticleIndex!].body
         
         return cell
     }
@@ -57,7 +65,36 @@ class FullArticleViewController: UIViewController, UITableViewDataSource, UITabl
     func formatTableCell() {
         fullArticleTableView.estimatedRowHeight = 3000
         fullArticleTableView.rowHeight = UITableViewAutomaticDimension
-        
         fullArticleTableView.allowsSelection = false
+    }
+    
+    func handleSwipes(sender: UISwipeGestureRecognizer) {
+        if (sender.direction == .Right && currentArticleIndex == 0) {
+            
+            performSegueWithIdentifier("backToArticles", sender: UISwipeGestureRecognizer.self)
+            
+            
+        } else if (sender.direction == .Right) {
+            currentArticleIndex! -= 1
+            fullArticleTableView.reloadData()
+            scrollToTop()
+            
+        } else if (sender.direction == .Left) {
+            currentArticleIndex! += 1
+            fullArticleTableView.reloadData()
+            scrollToTop()
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "backToArticles" {
+            let destinationVC = segue.destinationViewController as! NewsViewController
+                destinationVC.selectedArticleInt = currentArticleIndex
+        }
+    }
+    
+    func scrollToTop() {
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        self.fullArticleTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
     }
 }

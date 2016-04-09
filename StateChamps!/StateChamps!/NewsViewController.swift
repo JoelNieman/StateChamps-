@@ -14,22 +14,20 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet weak var header: UIView!
     @IBOutlet weak var articlesTableView: UITableView!
-
     @IBOutlet weak var spacerView: UIView!
-    
     @IBOutlet weak var readMoreLabel: UILabel!
     @IBOutlet weak var readMoreButton: UIButton!
     @IBOutlet weak var articlePreviewTitle: UILabel!
     @IBOutlet weak var articlePreviewBody: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-
     @IBOutlet weak var loadingWheel: UIActivityIndicatorView!
 
     var parseAPICall: ParseAPICall?
-    
     var retrievedArticles = [SCArticle]()
     var selectedArticle: SCArticle?
+    var selectedArticleInt: Int?
     var articleShown = [Bool]()
+    var rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -200, 500, 0)
     
     
     override func viewDidLoad() {
@@ -45,7 +43,19 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         self.articlesTableView.addSubview(self.refreshControl)
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        if selectedArticleInt != nil {
+            selectedArticle = retrievedArticles[selectedArticleInt!]
+            articlePreviewTitle.text = selectedArticle!.title
+            articlePreviewBody.text = selectedArticle!.body
+            scrollToSelectedArticle()
+            stopAnimations()
+            let selectedArticleIndex = NSIndexPath(forRow: selectedArticleInt!, inSection: 0)
+            articlesTableView.selectRowAtIndexPath(selectedArticleIndex, animated: false, scrollPosition: UITableViewScrollPosition.Top)
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -119,6 +129,9 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         selectedArticle = retrievedArticles[indexPath.row]
+        selectedArticleInt = indexPath.row
+        print(selectedArticleInt)
+        
         articlePreviewTitle.text = selectedArticle?.title
         articlePreviewBody.text = selectedArticle?.body
         
@@ -140,10 +153,9 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         articleShown[indexPath.row] = true
         
-
-        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -200, 500, 0)
+//        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -200, 500, 0)
+//        Made a global variable of this constant but keeping it here for later reference
         cell.layer.transform = rotationTransform
-        
         UIView.animateWithDuration(0.3, animations: { cell.layer.transform = CATransform3DIdentity })
     }
     
@@ -251,8 +263,8 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 shareMenu.addAction(cancelAction)
                 
                 self.presentViewController(shareMenu, animated: true, completion: nil)
-                }
-            )
+    
+            })
             
             return [shareAction]
     }
@@ -276,18 +288,11 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         parseAPICall!.articles.removeAll()
         self.parseAPICall!.queryParseForArticles()
         self.articlesTableView.reloadData()
+        loadingWheel.startAnimating()
+        stopAnimations()
         
         
         refreshControl.endRefreshing()
-    }
-    
-    
-    
-    //  Managing location of user in tableView list.
-    
-    func scrollToTop() {
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.articlesTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
     }
 
     
@@ -306,11 +311,21 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let destinationVC = segue.destinationViewController as! FullArticleViewController
             
             if let articleToPass = selectedArticle {
-                destinationVC.fullSCArticle = articleToPass
-            } else {
-                destinationVC.fullSCArticle = retrievedArticles[0]
+                
+                destinationVC.passedArticles = retrievedArticles
+                destinationVC.currentArticleIndex = selectedArticleInt
+                
             }
         }
+    }
+    
+    func scrollToSelectedArticle() {
+        let indexPath = NSIndexPath(forRow: selectedArticleInt!, inSection: 0)
+        self.articlesTableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: false)
+    }
+    
+    func stopAnimations() {
+        rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 0, 0)
     }
 }
 
