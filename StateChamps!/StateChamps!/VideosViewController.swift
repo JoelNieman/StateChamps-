@@ -44,7 +44,6 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         
         self.showVideosTableView.addSubview(self.refreshControl)
         
-        
     }
     
     
@@ -87,18 +86,17 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     
     //  Upon finishing the YouTubeAPI call, showVideos is populated with the SCVideos
     //  and the tableview is reloaded.
-
     
     func onShowVideosResponse(showVideos: [SCVideo]) {
         retrievedShowVideos = showVideos
         showVideosTableView.reloadData()
-
+        
         showVideoShown = [Bool](count: retrievedShowVideos.count, repeatedValue: false)
         
         if segmentedControl.selectedSegmentIndex == 0 {
-            selectedSCVideo = retrievedShowVideos[0]
+            initialVideo = retrievedShowVideos[0]
         } else {
-            selectedSCVideo = retrievedHighlightVideos[0]
+            initialVideo = retrievedHighlightVideos[0]
         }
         
         playerView.playerVars = [
@@ -109,15 +107,12 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         
         playerView.hidden = false
         
-        if playerView.playerState.rawValue != "1" {
-            playerView.loadVideoID(selectedSCVideo!.videoID)
+        if playerView.playerState.rawValue != "1" && selectedSCVideo == nil {
+            playerView.loadVideoID(initialVideo!.videoID)
         }
-        
         showVideosTableView.userInteractionEnabled = true
         loadingWheel.stopAnimating()
-
     }
-    
     
     func onHighlightVideosResponse(highlightVideos: [SCVideo]) {
         retrievedHighlightVideos = highlightVideos
@@ -126,7 +121,6 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
         showVideosTableView.userInteractionEnabled = true
         loadingWheel.stopAnimating()
     }
-    
     
     //  TableView set-up---------------------------------------------------------------
 

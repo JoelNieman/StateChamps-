@@ -39,7 +39,7 @@ class YouTubeAPICall {
     private let maxHighlightResults = 40
     private var apiKey = youTubeClientID
     private var index = Int()
-    
+    private var httpResponse: NSHTTPURLResponse?
     
     
     
@@ -60,32 +60,20 @@ class YouTubeAPICall {
             if let taskError = error {
                 print("Task Error Domain is: \(taskError.domain)\n\nThe Error Code is: \(taskError.code)\n\nThe Error userInfo is: \n\n\(taskError.userInfo)")
                 
-//                let alert = UIAlertController(title: "No Internet", message: "Looks like you are not connected to the internet", preferredStyle: .ActionSheet)
-//                
-//                let okAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-//                }
-//                
-//                alert.addAction(okAction)
-//                
-//                alert.popoverPresentationController?.sourceView = self.controller.view
-//                alert.popoverPresentationController?.sourceRect = self.controller.view.bounds
-//                
-//                
-//                
-//                self.controller.presentViewController(alert, animated: true, completion: nil)
+                    self.fetchShowVideos()
                 
             } else {
-                let httpResponse = response as! NSHTTPURLResponse
-                switch httpResponse.statusCode {
+                self.httpResponse = response as! NSHTTPURLResponse
+                switch self.httpResponse!.statusCode {
                 case 200:
                     print("Got 200")
                     self.parseShowsJSON(data!)
+                    print("The Response status code is \(self.httpResponse!.statusCode)")
 //                    print(data!)
                     
                 default:
-                    print("Request failed: \(httpResponse.statusCode)")
+                    print("Request failed: \(self.httpResponse!.statusCode)")
                 }
-                
             }
         })
         
@@ -156,16 +144,18 @@ class YouTubeAPICall {
             if let taskError = error {
                 print("Task Error Domain is: \(taskError.domain)\n\nThe Error Code is: \(taskError.code)\n\nThe Error userInfo is: \n\n\(taskError.userInfo)")
                 
+                    self.fetchHighlightVideos()
+                
             } else {
-                let httpResponse = response as! NSHTTPURLResponse
-                switch httpResponse.statusCode {
+                self.httpResponse = response as! NSHTTPURLResponse
+                switch self.httpResponse!.statusCode {
                 case 200:
                     print("Got 200")
                     self.parseHighlightsJSON(data!)
+                    print("The Response status code is \(self.httpResponse!.statusCode)")
                 default:
-                    print("Request failed: \(httpResponse.statusCode)")
+                    print("Request failed: \(self.httpResponse!.statusCode)")
                 }
-                
             }
         })
         

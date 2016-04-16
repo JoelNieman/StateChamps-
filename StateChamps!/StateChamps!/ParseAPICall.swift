@@ -33,7 +33,6 @@ class ParseAPICall {
                 // The find succeeded.
                 print("\n\nSuccessfully retrieved \(objects!.count) objects.")
                 
-                // Create a MKPointAnnotation for every EventLocation object, append the collection, and place a pin on the map.
                 if let objects = objects {
                     for object in objects {
                         
@@ -49,12 +48,26 @@ class ParseAPICall {
                         let articleURLString = object.valueForKey("articleURL") as! String
                         article.articleURL = NSURL(string: articleURLString)
                         
+                        
+//                        if object.valueForKey("imageFile") != nil {
+//                        var  pictureFile = object.valueForKey("imageFile")! as! PFFile {
+//                            pictureFile.getDataInBackgroundWith({
+//                                (imageData: NSData!, error: NSError!) -> Void in
+//                                if (error == nil) {
+//                                    let image = UIImage(data: imageData)
+//                                    article.pictureImage = imageFile
+//                                }
+//                                })
+//                            }
+//                            
+//                            
+//                        } else {
 
                         let imageString = object.valueForKey("imageString") as! String
                         let imageData = NSData(contentsOfURL: NSURL(string: imageString)!)
                         
                         article.pictureImage = UIImage(data: imageData!)
-                        
+//                        }
                         
                         
                         self.articles.append(article)
