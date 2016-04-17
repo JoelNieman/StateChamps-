@@ -33,6 +33,8 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        NSLog("viewDidLoad called")
+        
         loadingWheel.startAnimating()
         
         formatViewController()
@@ -99,6 +101,8 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         articlePreviewBody.hidden = true
         readMoreLabel.hidden = true
         imageView.hidden = false
+        
+//        NSLog("onArticlesResponse called")
     }
     
 

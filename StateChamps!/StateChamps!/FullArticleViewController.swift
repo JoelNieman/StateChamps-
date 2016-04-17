@@ -56,6 +56,7 @@ class FullArticleViewController: UIViewController, UITableViewDataSource, UITabl
         cell.fullArticleTitleOutlet.text = passedArticles[currentArticleIndex!].title
         cell.fullArticleAuthorOutlet.text = passedArticles[currentArticleIndex!].author
         cell.fullArticleDateOutlet.text = passedArticles[currentArticleIndex!].publishedDate
+        cell.fullArticleSportOutlet.text = passedArticles[currentArticleIndex!].sport
         cell.fullArticleImageOutlet.image = passedArticles[currentArticleIndex!].pictureImage
         cell.fullArticleBodyOutlet.text = passedArticles[currentArticleIndex!].body
         

@@ -35,6 +35,8 @@ class VideosViewController: UIViewController , YouTubeAPIOnResponseDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         formatVideosViewController()
         
         loadingWheel.startAnimating()

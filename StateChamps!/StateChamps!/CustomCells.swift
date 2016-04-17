@@ -15,6 +15,7 @@ class CustomCell: UITableViewCell {
     @IBOutlet weak var dateOutlet: UILabel!
 
 
+    @IBOutlet weak var fullArticleSportOutlet: UILabel!
     @IBOutlet weak var fullArticleTitleOutlet: UILabel!
     @IBOutlet weak var fullArticleAuthorOutlet: UILabel!
     @IBOutlet weak var fullArticleDateOutlet: UILabel!

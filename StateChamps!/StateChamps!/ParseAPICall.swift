@@ -56,7 +56,6 @@ class ParseAPICall {
                                 (imageData: NSData?, error: NSError?) -> Void in
                                 if (error == nil) {
                                     let image = UIImage(data: imageData!)
-                                    print("Got an image file!")
                                     article.pictureImage = image
                                 }
                                 })
