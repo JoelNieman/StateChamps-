@@ -10,5 +10,4 @@ import Foundation
 
 protocol ParseAPIOnResponseDelegate {
     func onArticlesResponse(articles:[SCArticle])
-    
 }
