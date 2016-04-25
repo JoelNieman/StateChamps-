@@ -72,9 +72,9 @@ class ParseAPICall {
 
                         self.index++
                         
+                        }
                         dispatch_async(dispatch_get_main_queue()) {
                             self.handler.onArticlesResponse(self.articles)
-                        }
                     }
                 }
             } else {

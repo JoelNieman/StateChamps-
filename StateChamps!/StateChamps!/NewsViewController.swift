@@ -26,6 +26,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var retrievedArticles = [SCArticle]()
     var selectedArticle: SCArticle?
     var selectedArticleInt: Int?
+    var selectedArticleIndex: NSIndexPath?
     var articleShown = [Bool]()
     var rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -200, 500, 0)
     
@@ -53,8 +54,13 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
             articlePreviewBody.text = selectedArticle!.body
             scrollToSelectedArticle()
             stopAnimations()
-            let selectedArticleIndex = NSIndexPath(forRow: selectedArticleInt!, inSection: 0)
-            articlesTableView.selectRowAtIndexPath(selectedArticleIndex, animated: false, scrollPosition: UITableViewScrollPosition.Top)
+            
+            if (selectedArticleInt != 0) {
+            articlesTableView.selectRowAtIndexPath(selectedArticleIndex!, animated: false, scrollPosition: UITableViewScrollPosition.Top)
+            }
+            
+            
+            
         }
     }
     
@@ -94,7 +100,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         articlePreviewBody.text = selectedArticle!.body
         loadingWheel.stopAnimating()
         
-        articleShown = [Bool](count: retrievedArticles.count, repeatedValue: false)
+//        articleShown = [Bool](count: retrievedArticles.count, repeatedValue: false)
         
         articlesTableView.userInteractionEnabled = true
         articlePreviewTitle.hidden = true
@@ -126,8 +132,10 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.thumbnailOutlet.image = articleDetails.pictureImage
             cell.titleOutlet.text = articleDetails.title as String
             cell.dateOutlet.text = articleDetails.publishedDate as String
+        
+        
+
             return cell
-            
           }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -142,26 +150,27 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         articlePreviewTitle.hidden = false
         articlePreviewBody.hidden = false
         
-        
         readMoreLabel.hidden = false
         imageView.hidden = true
+        
+        selectedArticleIndex = NSIndexPath(forRow: selectedArticleInt!, inSection: 0)
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        
-        
-        if articleShown[indexPath.row] {
-            return
-        }
-        
-        articleShown[indexPath.row] = true
-        
-//        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -200, 500, 0)
-//        Made a global variable of this constant but keeping it here for later reference
-        cell.layer.transform = rotationTransform
-        UIView.animateWithDuration(0.3, animations: { cell.layer.transform = CATransform3DIdentity })
-    }
+//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//        
+//        
+//        if articleShown[indexPath.row] {
+//            return
+//        }
+//        
+//        articleShown[indexPath.row] = true
+//        
+////        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -200, 500, 0)
+////        Made a global variable of this constant but keeping it here for later reference
+//        cell.layer.transform = rotationTransform
+//        UIView.animateWithDuration(0.3, animations: { cell.layer.transform = CATransform3DIdentity })
+//    }
     
     //  Facebook and Twitter Sharing----------------------------------------------------
     
@@ -295,6 +304,9 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         loadingWheel.startAnimating()
         stopAnimations()
         
+        selectedArticleInt = 0
+        selectedArticleIndex = NSIndexPath(forRow: selectedArticleInt!, inSection: 0)
+        articlesTableView.deselectRowAtIndexPath(selectedArticleIndex!, animated: false)
         
         refreshControl.endRefreshing()
     }
