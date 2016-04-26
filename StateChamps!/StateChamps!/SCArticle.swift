@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Parse
 
 class SCArticle {
     
@@ -18,4 +19,6 @@ class SCArticle {
     var sport = ""
     var articleURL: NSURL?
     var pictureImage: UIImage?
+    var pictureFile: PFFile?
+    
 }

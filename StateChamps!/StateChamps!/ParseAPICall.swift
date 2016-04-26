@@ -20,7 +20,7 @@ class ParseAPICall {
     var articles = [SCArticle]()
     var defaultImageID = String()
     var defaultImageString = String()
-    var pictureFile: PFFile?
+    
     
     var index = 0
     
@@ -49,24 +49,15 @@ class ParseAPICall {
                         let articleURLString = object.valueForKey("articleURL") as! String
                         article.articleURL = NSURL(string: articleURLString)
                         
-                        self.pictureFile = object.valueForKey("imageFile") as? PFFile
-                        
-                        if self.pictureFile != nil {
-                        self.pictureFile?.getDataInBackgroundWithBlock({
-                                (imageData: NSData?, error: NSError?) -> Void in
-                                if (error == nil) {
-                                    let image = UIImage(data: imageData!)
-                                    article.pictureImage = image
-                                }
-                                })
+                        if let pictureFile = object.valueForKey("imageFile") as? PFFile {
+                            article.pictureFile = pictureFile
+                            
                         } else {
-
-                        let imageString = object.valueForKey("imageString") as! String
-                        let imageData = NSData(contentsOfURL: NSURL(string: imageString)!)
-                        
-                        article.pictureImage = UIImage(data: imageData!)
+                            let imageString = object.valueForKey("imageString") as! String
+                            let imageData = NSData(contentsOfURL: NSURL(string: imageString)!)
+                            
+                            article.pictureImage = UIImage(data: imageData!)
                         }
-                        
                         
                         self.articles.append(article)
 

@@ -57,8 +57,19 @@ class FullArticleViewController: UIViewController, UITableViewDataSource, UITabl
         cell.fullArticleAuthorOutlet.text = passedArticles[currentArticleIndex!].author
         cell.fullArticleDateOutlet.text = passedArticles[currentArticleIndex!].publishedDate
         cell.fullArticleSportOutlet.text = passedArticles[currentArticleIndex!].sport
-        cell.fullArticleImageOutlet.image = passedArticles[currentArticleIndex!].pictureImage
         cell.fullArticleBodyOutlet.text = passedArticles[currentArticleIndex!].body
+        
+        if passedArticles[currentArticleIndex!].pictureImage == nil {
+            passedArticles[currentArticleIndex!].pictureFile!.getDataInBackgroundWithBlock({
+                (imageData: NSData?, error: NSError?) -> Void in
+                if (error == nil) {
+                    let image = UIImage(data: imageData!)
+                    cell.fullArticleImageOutlet.image = image
+                }
+            })
+        } else {
+            cell.fullArticleImageOutlet.image = passedArticles[currentArticleIndex!].pictureImage
+        }
         
         return cell
     }

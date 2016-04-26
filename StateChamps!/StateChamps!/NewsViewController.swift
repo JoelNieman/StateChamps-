@@ -120,23 +120,32 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return retrievedArticles.count
+        return retrievedArticles.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-
-            let cell = tableView.dequeueReusableCellWithIdentifier("SCArticleCell") as! CustomCell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("SCArticleCell") as! CustomCell!
             
-            let articleDetails = retrievedArticles[indexPath.row]
-            cell.thumbnailOutlet.image = articleDetails.pictureImage
-            cell.titleOutlet.text = articleDetails.title as String
-            cell.dateOutlet.text = articleDetails.publishedDate as String
+        let articleDetails = retrievedArticles[indexPath.row]
+        cell.thumbnailOutlet.image = articleDetails.pictureImage
+        cell.titleOutlet.text = articleDetails.title as String
+        cell.dateOutlet.text = articleDetails.publishedDate as String
         
         
-
-            return cell
-          }
+        if articleDetails.pictureFile != nil {
+            articleDetails.pictureFile!.getDataInBackgroundWithBlock({
+                (imageData: NSData?, error: NSError?) -> Void in
+                if (error == nil) {
+                    let image = UIImage(data: imageData!)
+                    cell.thumbnailOutlet.image = image
+                    self.retrievedArticles[indexPath.row].pictureImage = image
+                        }
+                    })
+                } else {
+                    cell.thumbnailOutlet.image = articleDetails.pictureImage
+            }
+        return cell
+        }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
