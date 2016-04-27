@@ -51,12 +51,6 @@ class ParseAPICall {
                         
                         if let pictureFile = object.valueForKey("imageFile") as? PFFile {
                             article.pictureFile = pictureFile
-                            
-                        } else {
-                            let imageString = object.valueForKey("imageString") as! String
-                            let imageData = NSData(contentsOfURL: NSURL(string: imageString)!)
-                            
-                            article.pictureImage = UIImage(data: imageData!)
                         }
                         
                         self.articles.append(article)

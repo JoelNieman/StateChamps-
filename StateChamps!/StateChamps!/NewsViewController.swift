@@ -29,6 +29,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var selectedArticleIndex: NSIndexPath?
     var articleShown = [Bool]()
     var rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -200, 500, 0)
+
     
     
     override func viewDidLoad() {
@@ -143,7 +144,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         }
                     })
                 } else {
-                    cell.thumbnailOutlet.image = articleDetails.pictureImage
+                    cell.thumbnailOutlet.image = UIImage(named: "state-champs-logo-app(4)")
             }
         return cell
         }
