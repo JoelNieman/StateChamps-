@@ -91,7 +91,7 @@ class FullArticleViewController: UIViewController, UITableViewDataSource, UITabl
             fullArticleTableView.reloadData()
             scrollToTop()
             
-        } else if (sender.direction == .Left) {
+        } else if (sender.direction == .Left && currentArticleIndex! < passedArticles.count - 1) {
             currentArticleIndex! += 1
             fullArticleTableView.reloadData()
             scrollToTop()

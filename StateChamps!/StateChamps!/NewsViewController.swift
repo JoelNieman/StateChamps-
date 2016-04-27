@@ -52,14 +52,15 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
             selectedArticle = retrievedArticles[selectedArticleInt!]
             articlePreviewTitle.text = selectedArticle!.title
             articlePreviewBody.text = selectedArticle!.body
-            scrollToSelectedArticle()
-            stopAnimations()
             
-            if (selectedArticleInt != 0) {
+            selectedArticleIndex = NSIndexPath(forRow: selectedArticleInt!, inSection: 0)
+            
+            if selectedArticleInt! != 0 {
             articlesTableView.selectRowAtIndexPath(selectedArticleIndex!, animated: false, scrollPosition: UITableViewScrollPosition.Top)
             }
             
-            
+            scrollToSelectedArticle()
+            stopAnimations()
             
         }
     }
